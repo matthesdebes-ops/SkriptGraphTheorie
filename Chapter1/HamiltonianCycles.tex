@@ -1,4 +1,4 @@
-\subsection{Hamiltonian Cycles}
+\subsection{HamiltonianCycles}
 
 \begin{definition}
     A \textbf{Hamiltonian cycle} in a graph $G$ is a spanning subgraph that is a cycle (isomorphic to $C_n$ for some $n\in\mathbb{N}$)\\
@@ -23,10 +23,10 @@
 \begin{proof}
     \begin{itemize}
     \hfill \\
-        \item $G$ is connected: suppose $G$ is not connected. Take an arbitrary component of $G$ and call it $H$. The order of $H$ is $n-k$ if $k$ vertices are not in $H$. Now any $v\in H$ has $\deg(v)\leq n-k-1$ with equality if $v$ is adjacent to every vertex in $H$. Now take $u\notin H$ so $\deg(u)\leq k-1$. It follows that $u,v\in V(G),u\neq v$ and $u,v$ are not adjacent so $\deg(u)+\deg(v)\geq n$ but $\deg(u)+\deg(v)\leq k-1+n-k-1=n-2<n$ $\lightning$
+        \item The Graph $G$ is connected: suppose $G$ is not connected. Take an arbitrary component of $G$ and call it $H$. The order of $H$ is $n-k$ if $k$ vertices are not in $V(H)$. Now any $v\in V(H)$ has $\deg(v)\leq n-k-1$ with equality if $v$ is adjacent to every vertex in $V(H)$. Now take $u\notin V(H)$ so $\deg(u)\leq k-1$. It follows that $u,v\in V(G),u\neq v$ and $u,v$ are not adjacent so $\deg(u)+\deg(v)\geq n$ but $\deg(u)+\deg(v)\leq k-1+n-k-1=n-2<n$ $\lightning$
         \item $G$ has a Hamiltonian cycle: By induction on the number of non-edges
-        \item No non edge $\implies G$ complete, hence Hamiltonian
-        \item Assume $G$ non complete $u,v\in V, u\neq v$, be non-adjacent. By induction the graph $G'$ obtained from $G$ by adding $e=\{u,v\}$ as an edge is Hamiltonian. Let $C$ be a Hamiltonian cycle of $G'$. If $C$ does not use $e\implies C$ is Hamiltonian cycle in $G$. Assume $C$ uses $e$. Removing $e$ from $C$ yields a path from $v_1,\ldots ,v_n$ with $u=v_1,v=v_n$\par
+        \item No non-edge $\implies G$ complete, hence Hamiltonian
+        \item Assume $G$ non complete $u,v\in V, u\neq v$, be non-adjacent. By induction the graph $G'$ obtained from $G$ by adding $e=\{u,v\}$ as an edge is Hamiltonian. Let~$C$ be a Hamiltonian cycle of $G'$. If $C$ does not use $e\implies C$ is Hamiltonian cycle in $G$. Assume $C$ uses $e$. Removing $e$ from $C$ yields a path from $u$ to $v$\par
         For $i\in\{2,...,n-1\}$
         \item If $v_i$ is a neighbour of $u$, color $\{v_{i-1},v_i\}$ red
         \item If $v_i$ is a neighbour of $v$, color $\{v_{i},v_{i+1}\}$ blue

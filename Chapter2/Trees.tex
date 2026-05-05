@@ -47,7 +47,7 @@
 \vspace{0.5cm}
 
 \begin{lemma}
-    Every tree $T$ with $n\geq 2$ vertices has one or two leafs.
+    Every tree $T$ with $n\geq 2$ vertices has at least one leaf.
 \end{lemma}
 \begin{proof}
     We iteratively construct a path $v_1,...,v_n$ as follows:\\
@@ -76,8 +76,8 @@
     Suppose that there is a pair with $u,v\in V(G)$ s.t. there are two distinct paths $u_i,v_i$ between them. Let $i_0$ be the maximum index s.t. $u_i=v_i:\forall i\in\{1,...,i_0\}$. The edge $\{v_{i_0},v_{i_0+1}\}$ does not lie on the path $u_i$. The graph obtained by removing $\{v_{i_0},v_{i_0+1}\}$ is connected as for any walk using this edge we can use $u_i$ to go to $u$ to reach $v_{i_0}$ or $v$ to reach $v_{i_0+1}$.\par
     \vspace{0.3cm}
     "$4.\implies5.$\\
-    If $G$ had a cycle, then there would exist two paths between each vertex on the cycle (clockwise + counter clockwise).\\
-    Adding an edge creates a cycle: Let $u,v\in V(G)$ non adjacent. There is one path between the two. No adding an edge between $u,v$ creates a second path $\lightning$\par
+    If $G$ had a cycle, then there would exist two paths between each pair of neighbouring vertices on the cycle (clockwise + counter clockwise).\\
+    Adding an edge creates a cycle: Let $u,v\in V(G)$ non adjacent. There is one path between the two. Now adding an edge between $u,v$ creates a second path $\lightning$\par
     \vspace{0.3cm}
     "$5.\implies 1.$\\
     We only need to show that $G$ is connected. Suppose $u,v$ are not connected by a walk. Creating an edge between $u,v$ does not result in a cycle because for being isomorphic to $C_n$ one needs at least two walks between each of the vertices in the cycle but by assumption the only walk connecting $u,v$ is the newly added edge $\lightning$
@@ -92,7 +92,9 @@
 \end{proof}
 \vspace{0.5cm}
 \begin{theorem}[Matrix-tree theorem]
-    Let $G$ be a graph with vertices $\{1,...n\}$, edges $\{e_1,...,e_m\}$. Let $Q=(q_{ij})$ with $q_{ij}=\begin{cases}
+    \hfill
+    Let $G$ be a graph with vertices $\{1,...n\}$, edges $\{e_1,...,e_m\}$. \\
+    Let $Q=(q_{ij})$ with $q_{ij}=\begin{cases}
             -1 & \{i,j\}\in E \\
             0 & i\neq j:\{i,j\}\notin E\\
             \deg(i) & i=j

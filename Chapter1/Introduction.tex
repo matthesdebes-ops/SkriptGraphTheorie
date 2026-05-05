@@ -1,7 +1,7 @@
 \section{Introduction}
 
 \begin{definition}
-    A \emph{(simple) graph}\index{graph} $G$ is a pair $(V, E)$ where $V$ is a non-empty set and $E \subseteq \{\{x,y\} \in V \times V: x \neq y\}$. We call the elements of $V$ \emph{vertices}\index{vertex} of $G$ and the elements of $E$ \emph{edges}\index{edge} of $G$. We also write $V(G)$ for $V$ and $E(G)$ for $E$ respectively.
+    A \emph{(simple) graph}\index{graph} $G$ is a pair $(V, E)$ where $V$ is a non-empty set and $E \subseteq \{\{x,y\} \in V \times V: x \neq y\}$. We call the elements of $V$ \emph{vertices}\index{vertex} of $G$ and the elements of $E$ \emph{edges}\index{edge} of $G$. We also write $V(G)$ for $V$ and $E(G)$ for $E$, respectively.
     
     \lq Simple\rq{} means no loops and no double edges.
 \end{definition}
@@ -88,9 +88,9 @@
 \begin{definition}
     Let $G$ be a graph, $u,v\in V(G)$
     \begin{itemize}
-        \item If $\{u,v\}\in E(G)$, then $u$ and $v$ are \textbf{adjacent} and the edge $e=\{u,v\}$ is \textbf{incident} with both $u$ and $v$
-        \item $N_G(v)=\{w\in V(G):\{v,w\}\in E(G)\}$ is the \textbf{neighbourhood} of $v$ in $G$
-        \item $\deg_G(v)=|N_G(v)|$ is the \textbf{degree} of $v$
+        \item If $\{u,v\}\in E(G)$, then $u$ and $v$ are \textbf{adjacent} and the edge $e=\{u,v\}$ is \textbf{incident} with both $u$ and $v$.
+        \item $N_G(v)=\{w\in V(G):\{v,w\}\in E(G)\}$ is the \textbf{neighbourhood} of $v$ in $G$.
+        \item $\deg_G(v)=|N_G(v)|$ is the \textbf{degree} of $v$.
     \end{itemize}
 \end{definition}
 
@@ -176,7 +176,7 @@
 Let $v_i$ be vertices of a graph $G$
     \begin{itemize}
         \item A \textbf{walk} is a sequence of vertices $v_i$ s.t. $\{v_i,v_{i+1}\}\in E(G) \forall i\in \{1,...,k-1\}$
-        \item The \textbf{length} of a walk is k (number of vertices in the walk)
+        \item The \textbf{length} of a walk is $k$ (number of vertices in the walk)
         \item The walk is \textbf{closed} if $v_1=v_k$
         \item A \textbf{trail} is a walk that does not use an edge twice
         \item A \textbf{path} is a walk for which $v_1,...,v_k$ are pairwise distinct
@@ -211,6 +211,6 @@ Let $G$ be a graph
 \end{definition}
 
 
-\input{Chapter 1/Hamiltonian Cycles}
-\input{Chapter 1/Eulerian Trails.tex}
-\input{Chapter 1/Datastructures.tex}
+\input{Chapter1/HamiltonianCycles}
+\input{Chapter1/EulerianTrails.tex}
+\input{Chapter1/Datastructures.tex}

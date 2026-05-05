@@ -1,10 +1,10 @@
-\section{Flows, Cuts and Connectivity}
+\section{Flows,Cuts,Connectivity}
 \begin{definition}
     A \textbf{directed graph} is a pair $(V,E)$ with $E\subseteq (V\times V)\backslash\{(x,x):x\in V\}$. Write $\delta_G^+(v)$ for edges starting in $v$ and $\delta_G ^-(v)$ for edges ending in $v$.
 \end{definition}
 \vspace{0.5cm}
 \begin{definition}
-    A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a graph $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
+    A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a graph, $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
     \begin{itemize}
         \item s is called a \textbf{source}
         \item t is called a \textbf{target}
@@ -16,7 +16,7 @@
         \item $\forall v\notin\{s,t\},\sum\limits_{e\in\delta^-(v)} f(e)=\sum\limits_{e\in\delta^+(v)}f(e)$ (i.e. what flows in flows out)
         \item $\forall e\in\delta^-(s)\cup\delta^+(t):f(e)=0$ (i.e. nothing flows into a source or out of a target)
     \end{itemize}
-    The \textbf{value} of a flow $f$ is $val(f)=\sum\limits_{e\in\delta^-(v)} f(e)=\sum\limits_{e\in\delta^+(v)}f(e)$
+    The \textbf{value} of a flow $f$ is $\operatorname{val}(f)=\sum\limits_{e\in\delta^-(v)} f(e)=\sum\limits_{e\in\delta^+(v)}f(e)$
 \end{definition}
 \begin{remark}
     For $v\in V$, write $f(\delta^+(v))=\sum\limits_{e\in\delta^+(v)} f(e) \text{ ; }f(\delta^-(v))=\sum\limits_{e\in\delta^+(v)}f(e)$
@@ -29,9 +29,9 @@
 \end{definition}
 \vspace{0.5cm}
 \begin{theorem}[max flow-min cut theorem]
-    Let $(G,s,t,c)$ be a flow network. Then $\max\{val(f):f\text{ flow}\}=\min\{c(S,T):(S,T) \text{ is a } (s,t)\text{-cut}\}$.
+    Let $(G,s,t,c)$ be a flow network. Then $\max\{\operatorname{val}(f):f\text{ flow}\}=\min\{c(S,T):(S,T) \text{ is a } (s,t)\text{-cut}\}$.
 \end{theorem}
 \vspace{0.5cm}
 \begin{lemma}
-    Let $f$ be a flow, $(S,T)$ be a $(s,t)$-cut. Then $val(f)=f(\delta^+(S))-f(\delta^-(S))$.
+    Let $f$ be a flow, $(S,T)$ be a $(s,t)$-cut. Then $\operatorname{val}(f)=f(\delta^+(S))-f(\delta^-(S))$.
 \end{lemma}

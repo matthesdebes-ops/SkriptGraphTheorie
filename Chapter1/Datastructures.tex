@@ -28,6 +28,12 @@ Assume that $G=(V,E)$ is a graph with $v=\{1,...n\}$
         0 & 1 & 0 & 0 \\
         1 & 1 & 0 & 0
         \end{pmatrix}$
+        \begin{itemize}
+            \item $v_1$: $v_2, v_4$
+            \item $v_2$: $v_1, v_3, v_4$
+            \item $v_3$: $v_2$
+            \item $v_4$: $v_1, v_2$
+        \end{itemize}
 \end{example}
 \vspace{0.5cm}
 
@@ -35,5 +41,5 @@ Assume that $G=(V,E)$ is a graph with $v=\{1,...n\}$
 \hfill \\
     Memory requirement: \par
     Adjacency matrix: $\theta (n^2)$\par
-    adjacency list: $\theta (n+m)$, where $m$ is the number of edges
+    Adjacency list: $\theta (n+m)$, where $m$ is the number of edges
 \end{remark}

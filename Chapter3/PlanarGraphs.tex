@@ -1,4 +1,4 @@
-\section{Planar Graphs}
+\section{PlanarGraphs}
 \begin{definition}
     A \textbf{planar drawing} of a graph $G$ consists of injective continuous functions 
     \begin{align*}
@@ -6,7 +6,7 @@
     \end{align*} s.t.:
     \begin{itemize}
         \item $\{\phi_{\{u,v\}}(0),\phi_{\{u,v\}}(1)\}=\{\phi_u(u),\phi_v(v)\} $ for all $\{u,v\}\in E(G)$
-        \item the set $\phi_e((0,1))$ for each $e\in E(G)$ are pairwise disjoint and disjoint from $Im(\phi_v)$ (i.e. no crossings)
+        \item The sets $\phi_e((0,1))$ for each $e\in E(G)$ are pairwise disjoint and disjoint from $\operatorname{Im}(\phi_v)$ (i.e. no crossings)
     \end{itemize} 
     A graph $G$ is called \textbf{planar} if it has a planar drawing.\\
     A \textbf{plane graph} is a planar graph, together with a fixed planar drawing.
@@ -45,16 +45,16 @@
 \end{example}
 \vspace{0.5cm}
 \begin{definition}
-    A \textbf{face} of a plane graph $G$ is a maximal connected part of $\mathbb{R}^2\backslash(Im(\phi_v(u))\cup Im(\phi_e))$. Every plane graph has exactly one unbounded face called the \textbf{outer face}. All other faces are called \textbf{inner faces}. The \textbf{boundary} of a face are the vertices and edges of $G$ incident with it. A plane graph is called \textbf{planar triangulation} if every face is bounded by a cycle of length precisely 3 (this includes the outer face).
+    A \textbf{face} of a plane graph $G$ is a maximal connected part of $\mathbb{R}^2\backslash(\operatorname{Im}(\phi_v(u))\cup \operatorname{Im}(\phi_e))$. Every plane graph has exactly one unbounded face called the \textbf{outer face}. All other faces are called \textbf{inner faces}. The \textbf{boundary} of a face are the vertices and edges of $G$ incident with it. A plane graph is called \textbf{planar triangulation} if every face is bounded by a cycle of length precisely 3 (this includes the outer face).
 \end{definition}
 \vspace{0.5cm}
 \begin{theorem}[Euler's formula]
-    Let $G=(V,E)$ be a connected planar graph. Then the number of faces $|F|$ of $G$ is $|F|=|E(G)|-|V|+2$.
+    Let $G=(V,E)$ be a connected planar graph. Then the number of faces $|F|$ of $G$ is $|F|=|E|-|V|+2$.
 \end{theorem}
 \begin{proof}
     Induction on $|E|$. \\
     Since $G$ is connected, we have $|E|\geq|V|-1$ so we start the induction at $|E|=|V|-1\implies G$ is a tree. Since a tree does not contain a cycle, we have $|F|=|E|-|V|+2$. \\
-    Now let $|E|>|V|-1$. Then $G$ is not a tree, so $G$ contains a cycle $C$. Choose an edge $e$ on $C$ and remove it to obtain a plane graph $G'$. $e$ seperates two faces in $G$, which fuse to a single face in $G'$. By induction, the number of faces $|F'|$ in $G'$ is $|F|-1=|F'|=|E|-1-|V|+2\implies|F|=|E|-|V|+2$.
+    Now let $|E|>|V|-1$. Then $G$ is not a tree, so $G$ contains a cycle $C$. Choose an edge $e$ on $C$ and remove it to obtain a plane graph $G'$. $e$ separates two faces in $G$, which fuse to a single face in $G'$. By induction, the number of faces $|F'|$ in $G'$ is $|F|-1=|F'|=|E|-1-|V|+2\implies|F|=|E|-|V|+2$.
 \end{proof}
 \vspace{2cm}
 \begin{lemma}
