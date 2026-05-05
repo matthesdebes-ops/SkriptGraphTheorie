@@ -1,0 +1,216 @@
+\section{Introduction}
+
+\begin{definition}
+    A \emph{(simple) graph}\index{graph} $G$ is a pair $(V, E)$ where $V$ is a non-empty set and $E \subseteq \{\{x,y\} \in V \times V: x \neq y\}$. We call the elements of $V$ \emph{vertices}\index{vertex} of $G$ and the elements of $E$ \emph{edges}\index{edge} of $G$. We also write $V(G)$ for $V$ and $E(G)$ for $E$ respectively.
+    
+    \lq Simple\rq{} means no loops and no double edges.
+\end{definition}
+
+\begin{remark}
+    $V$ is finite, unless otherwise stated.
+\end{remark}
+
+\begin{example}
+    We define a few common graphs. Let $n, m \in \mathbb{N}$.
+    
+    \begin{itemize}
+
+        \item The \emph{complete graph} $K_n$ has $n$ vertices and each pair of vertices is connected.
+
+        \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (0, 1)  {};
+            \node[vertex] (b) at (1, 1)  {};
+            \node[vertex] (c) at (0, 0)  {};
+            \node[vertex] (d) at (1, 0)  {};
+            \draw (a)--(b)--(c)--(d)--(a)--(c) (b)--(d);
+            \node at (0.5, -0.5) {$K_4$};
+        \end{tikzpicture}
+        \end{center}
+
+        \item The \emph{cycle} $C_n$ has $n$ vertices, which are cyclically connected.
+
+        \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (0, 1)  {};
+            \node[vertex] (b) at (1, 1)  {};
+            \node[vertex] (c) at (1, 0)  {};
+            \node[vertex] (d) at (0, 0)  {};
+            \draw (a)--(b)--(c)--(d)--(a);
+            \node at (0.5, -0.5) {$C_4$};
+        \end{tikzpicture}
+        \end{center}
+
+        \item Let $A$ and $B$ be disjoint sets with $\abs{A} = n$ and $\abs{B} = m$. The \emph{complete bipartite graph} $K_{m,n}$ is defined by
+        \begin{align}
+            V &= A \dot\cup B\\
+            E &= \{\{a, b\}: a \in A, b \in B\}
+        \end{align}
+
+        \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a1) at (0, 0.5) {};
+            \node[vertex] (a2) at (0, 1.5) {};
+            \node[vertex] (b1) at (1,   0) {};
+            \node[vertex] (b2) at (1,   1) {};
+            \node[vertex] (b3) at (1,   2) {};
+            \draw (a1)--(b1) (a1)--(b2) (a1)--(b3);
+            \draw (a2)--(b1) (a2)--(b2) (a2)--(b3);
+            \node at (0.5, -0.5) {$K_{2,3}$};
+        \end{tikzpicture}
+        \end{center}
+
+        \item The \emph{path} $P_n$ has the vertices $1, \ldots, n$ and edges $\{a, a+1\}$ for $a \in \{1, \ldots, n-1\}$. (in books sometimes $P_{n-1}$ has $n$ vertices)
+
+        \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (0,   0) {};
+            \node[vertex] (b) at (0.7, 0) {};
+            \node[vertex] (c) at (1.4, 0) {};
+            \node[vertex] (d) at (2.1, 0) {};
+            \node[vertex] (e) at (2.8, 0) {};
+            \draw (a)--(b)--(c)--(d)--(e);
+            \node at (1.4, -0.5) {$P_5$};
+        \end{tikzpicture}
+        \end{center}
+
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Let $G$ be a graph, $u,v\in V(G)$
+    \begin{itemize}
+        \item If $\{u,v\}\in E(G)$, then $u$ and $v$ are \textbf{adjacent} and the edge $e=\{u,v\}$ is \textbf{incident} with both $u$ and $v$
+        \item $N_G(v)=\{w\in V(G):\{v,w\}\in E(G)\}$ is the \textbf{neighbourhood} of $v$ in $G$
+        \item $\deg_G(v)=|N_G(v)|$ is the \textbf{degree} of $v$
+    \end{itemize}
+\end{definition}
+
+\vspace{0.5cm}
+
+\begin{lemma}[Handshake Lemma]
+    Let $G$ be a graph. Then
+    \begin{align}
+        \sum\limits_{v \in V(G)} \deg_G(v) = 2 \abs{E(G)}.
+    \end{align}
+    (in particular the sum of the degree is even).
+    
+    \begin{proof}
+        $\sum\limits_{v\in V(G)} \deg_G(v)=\#\{(v,e):v\in V(G),e\in E(G) \text{ such that } v \text{ incident to } e \}=2|E(G)|$
+    \end{proof}
+\end{lemma}
+
+\vspace{0.5cm}
+
+\begin{definition}
+    Two graphs $G=(V,E)$ and $G'=(V',E')$ are \textbf{isomorphic} if there exists an isomorphism $\phi$ between them, i.e. a bijection $\phi:V\to V'$ such that $\forall u,v\in V(G):\{u,v\}\in E(G)\iff \{\phi(u),\phi(v)\}\in E(G')$
+\end{definition}
+
+\vspace{0.5cm}
+
+\begin{definition}
+    Let $G=(V,E)$ be a graph. A \textbf{subgraph} of $G$ is a graph $H=(V',E')$ with $V'\subseteq V$ and $E'\subseteq E\cap \begin{pmatrix} V' \\ 2 \end{pmatrix}$ where $\begin{pmatrix}
+        S \\ K
+    \end{pmatrix}$ is the set of all $K$-subsets of $S$.\par
+    $H'$ is an \textbf{induced subgraph} of $G$ if it is a subgraph and $E'=E\cap \begin{pmatrix}
+        V' \\ 2
+    \end{pmatrix}$\par
+    $H''$ is a \textbf{spanning subgraph} if it is a subgraph and $V'=V$\par
+    For $W\subseteq V$, write $G[W]$ for the subgraph induced by the vertices in $W$
+\end{definition}
+\begin{example}
+\hfill
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (-6,   1) {};
+            \node[vertex] (b) at (-5, 1) {};
+            \node[vertex] (c) at (-4.5, 0.5) {};
+            \node[vertex] (d) at (-5, 0) {};
+            \node[vertex] (e) at (-4, 1) {};
+            \node[vertex] (f) at (-3.5,0.5){};
+            \draw (a)--(b)--(c)--(d);
+            \draw (c)--(e)--(f)--(c);
+            \node at (-5, -0.5) {$G$};
+
+            \node[vertex] (c') at (-1.5, 0.5) {};
+            \node[vertex] (d') at (-2, 0) {};
+            \node[vertex] (e') at (-1, 1) {};
+            \node[vertex] (f') at (-0.5,0.5){};
+            \draw (e')--(f')--(c');
+            \node at (-1, -0.5) {$H$};
+
+            \node[vertex] (c'') at (1.5, 0.5) {};
+            \node[vertex] (d'') at (1, 0) {};
+            \node[vertex] (e'') at (2, 1) {};
+            \node[vertex] (f'') at (2.5,0.5){};
+            \draw (e'')--(f'')--(c'')--(e'');
+            \draw (c'')--(d'');
+            \node at (2, -0.5) {$H'$};
+
+            \node[vertex] (a''') at (4,   1) {};
+            \node[vertex] (b''') at (5, 1) {};
+            \node[vertex] (c''') at (5.5, 0.5) {};
+            \node[vertex] (d''') at (5, 0) {};
+            \node[vertex] (e''') at (6, 1) {};
+            \node[vertex] (f''') at (6.5,0.5){};
+            \draw (a''')--(b''')--(c''')--(d''');
+            \draw (c''')--(e''')--(f''');
+            \node at (5.5, -0.5) {$H''$};
+        \end{tikzpicture}
+        \end{center}
+\end{example}
+
+\vspace{1cm}
+
+\begin{definition}
+Let $v_i$ be vertices of a graph $G$
+    \begin{itemize}
+        \item A \textbf{walk} is a sequence of vertices $v_i$ s.t. $\{v_i,v_{i+1}\}\in E(G) \forall i\in \{1,...,k-1\}$
+        \item The \textbf{length} of a walk is k (number of vertices in the walk)
+        \item The walk is \textbf{closed} if $v_1=v_k$
+        \item A \textbf{trail} is a walk that does not use an edge twice
+        \item A \textbf{path} is a walk for which $v_1,...,v_k$ are pairwise distinct
+    \end{itemize}
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (0, 0) {$4$};
+            \node[vertex] (b) at (0, 1) {$1$};
+            \node[vertex] (c) at (1, 1) {$2$};
+            \node[vertex] (d) at (1, 0) {$3$};
+            \draw (a)--(b)--(c)--(d)--(a);
+            \draw (a)--(c);
+            \node at (0.5, 0.5) {};
+
+        \end{tikzpicture}
+        \end{center}
+        $(1,2,3,4,2,3)$ is a walk, but no trail \\
+        $(1,2,3,4,2)$ is a trail, no path \\
+        $(1,2,3,4)$ is a path
+\end{definition}
+
+\vspace{0.5cm}
+
+\begin{definition} 
+Let $G$ be a graph
+    \begin{itemize}
+        \item A graph $G$ is \textbf{connected} if there is a walk between any pair of its vertices
+        \item A \textbf{(connected) component} of $G$ is an inclusion wise maximal connected subgraph
+    \end{itemize}
+\end{definition}
+
+
+\input{Chapter 1/Hamiltonian Cycles}
+\input{Chapter 1/Eulerian Trails.tex}
+\input{Chapter 1/Datastructures.tex}
