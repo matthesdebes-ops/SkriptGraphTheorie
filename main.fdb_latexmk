@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex main.idx"] 1777988938.21315 "main.idx" "main.ind" "main" 1777993231.92055 0
-  "main.idx" 1777993230 96 bc5681f4589769d46c306a8f574b3657 "pdflatex"
+["makeindex main.idx"] 1778070019.10071 "main.idx" "main.ind" "main" 1778072531.46659 0
+  "main.idx" 1778072530 96 bc5681f4589769d46c306a8f574b3657 "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1777993224.248 "c:/Users/lepsiundstupsi/Desktop/Skript/main.tex" "main.pdf" "main" 1777993231.92226 0
+["pdflatex"] 1778072525.02887 "c:/Users/lepsiundstupsi/Desktop/Skript/main.tex" "main.pdf" "main" 1778072531.46801 0
   "C:/Users/lepsiundstupsi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1777986854 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/lepsiundstupsi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1200.pk" 1777988648 42728 6858bcb9fd1677f4acf67e6ceb114bef ""
   "C:/Users/lepsiundstupsi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1777988665 31952 c5940ae3ff5afb07dd341ec8d9480e58 ""
@@ -216,22 +216,22 @@
   "Chapter1/Datastructures.tex" 1777992738 1401 16ce86843efec3676d3ac060f98b39ae ""
   "Chapter1/EulerianTrails.tex" 1777992291 3688 9ce7ed184f67a7a99487f4883ff2570f ""
   "Chapter1/HamiltonianCycles.tex" 1777992292 3214 f12963dac349f163aa021d2b0d4e476c ""
-  "Chapter1/Introduction.aux" 1777993229 1148 f9f2f0095883d9552accf4184795e10a "pdflatex"
+  "Chapter1/Introduction.aux" 1778072529 1148 f9f2f0095883d9552accf4184795e10a "pdflatex"
   "Chapter1/Introduction.tex" 1777989428 8255 8ce1f2c057a90643ac8a1e19709e450e ""
-  "Chapter2/Trees.aux" 1777993230 769 52b80d054ee2dd4aba80d1e67407b6d4 "pdflatex"
+  "Chapter2/Trees.aux" 1778072529 769 52b80d054ee2dd4aba80d1e67407b6d4 "pdflatex"
   "Chapter2/Trees.tex" 1777992738 6623 7650e9ee7fc9d06ef0a87d92fc49fb67 ""
-  "Chapter3/PlanarGraphs.aux" 1777993230 784 db4db5e9d295122a94c655608b4be09b "pdflatex"
+  "Chapter3/PlanarGraphs.aux" 1778072530 784 db4db5e9d295122a94c655608b4be09b "pdflatex"
   "Chapter3/PlanarGraphs.tex" 1777993020 4993 a42850499b0710f493e52df43cc0d29b ""
-  "Chapter4/Flows,Cuts,Connectivity.aux" 1777993230 805 848e8bc871ad48b18ab6623137200327 "pdflatex"
-  "Chapter4/Flows,Cuts,Connectivity.tex" 1777993222 2324 d5cc9b5c6708453bb022270be6dfccbf ""
-  "c:/Users/lepsiundstupsi/Desktop/Skript/main.tex" 1777988905 1781 6646dd1abff02951964240f0499eb28d ""
-  "main.aux" 1777993230 513 f6a4c5f34525f7f50ff076fc2e5c1390 "pdflatex"
-  "main.ind" 1777988938 153 9fa67f22a841bfccab5e2c35a5be7120 "makeindex main.idx"
-  "main.out" 1777993230 892 bbd02dd30478704c9d605b0c18cc9e0e "pdflatex"
-  "main.tex" 1777988905 1781 6646dd1abff02951964240f0499eb28d ""
-  "main.toc" 1777993230 598 b6ac31ca2dfb127db41374cf892e7564 "pdflatex"
+  "Chapter4/Flows,Cuts,Connectivity.aux" 1778072530 925 02aee0c9396e5ab74f11c468e3db3b8d "pdflatex"
+  "Chapter4/Flows,Cuts,Connectivity.tex" 1778072516 4965 13b907d84a129028c4b18939bccb6886 ""
+  "c:/Users/lepsiundstupsi/Desktop/Skript/main.tex" 1778071857 1867 31bec05b457c84996291165fceb90901 ""
+  "main.aux" 1778072530 513 850c3b0efa8744175f6a9e6ca69c446e "pdflatex"
+  "main.ind" 1778070019 153 9fa67f22a841bfccab5e2c35a5be7120 "makeindex main.idx"
+  "main.out" 1778072530 1009 d15677545e4cd805a8d32d972751a3f8 "pdflatex"
+  "main.tex" 1778071857 1867 31bec05b457c84996291165fceb90901 ""
+  "main.toc" 1778072530 677 4db2ea82a07e5686ac3d7458ab78a9c8 "pdflatex"
   "packages.tex" 1777988051 1003 46c85b0db11a5597cb58355ea7af46cd ""
-  "style.tex" 1777980894 611 aa976e6cf10caa31b2dc2285d894bf67 ""
+  "style.tex" 1778071857 717 74109d068aacf244496128e876b14b56 ""
   (generated)
   "Chapter1/Introduction.aux"
   "Chapter2/Trees.aux"

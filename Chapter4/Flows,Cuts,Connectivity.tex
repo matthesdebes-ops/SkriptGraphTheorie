@@ -35,3 +35,36 @@
 \begin{lemma}
     Let $f$ be a flow, $(S,T)$ be a $(s,t)$-cut. Then $\operatorname{val}(f)=f(\delta^+(S))-f(\delta^-(S))$.
 \end{lemma}
+\begin{proof}
+    \hfill \\
+    Claim: $\forall A\subset V:f(\delta^+(A))-f(\delta^-(A))=\sum\limits_{v\in A} f(\delta^+(v))-f(\delta^-(v))=(\ast)$\\
+    The sum $f(\delta^+(A))-f(\delta^-(A))$ does not account for edges $e\in E(G)$ with start and end in $A$. On the right side, $f(e)$ is counted twice, once with positiv and once with negativ sign, so the sum vanishes.\\
+    Then $\operatorname{val}(f)=f(\delta^-(t))\stackrel{(1)}{=}\sum\limits_{v\in T}f(\delta^-(v))-f(\delta^+(v))\stackrel{(\ast)}{=}f(\delta^-(T))-f(\delta^+(T))=f(\delta^+(S))-f(\delta^-(S))$\\
+    $(1)$ holds because $f(\delta^+(t))=0$ ($t$ is a sink) and $\forall v\notin \{s,t\}:f(\delta^-(v))-f(\delta^+(v))=0$ (by definition).
+\end{proof}
+\begin{corollary}
+    Let $f$ be a flow, $(S,T)$ an $(s,t)$-cut.\\
+    $\val(f)\leq c(\delta^+(S))$\\
+    Thus $\max\{\val(f): f \text{ flow}\}\leq \min\{c(S,T):(S,T) \  (s,t)\text{-cut}\}$.
+\end{corollary}
+\begin{proof}
+    \hfill
+    $\max$ flow $\leq\min$ cut due to Corollary $(4.7)$\\
+    Let $f$ maximum flow (i.e. a flow for which $\val(f)$ is maximal). Let $c':E(G)\to \mathbb{R}_0^+$ where $c'(e)=c(e)-f(e)$. Let $S\subset V(G)$ be defined as the set of reachable vertices according to the following rules:\\
+    \begin{itemize}
+        \item $s\in S$
+        \item $x\in V(G)$ is reachable if there is a walk (in the underlying directed graph) from $s$ to $x$ traversing $e_1,...,e_k$ s.t. 
+    \end{itemize}
+    $c(e_i)>0$ ($f(e_i)<c(e_i)$) if $e_i$ is traversed in the correct direction and $c'(e_i)<c(e_i)$ ($f(e_i)>0$) if $e_i$ is traversed in the opposit direction.\\
+    If $S=V(G)$, we can improve $f$ as follows:\\
+    Let $e_1,...e_k$ be a walk from $s$ that makes $t$ reachable, and $e_i$ is traversed in orientation $\sigma_i\in\{\pm 1\}$, then $\tilde{f}(e_i)=f(e_i)+\sigma_i\eps$, for $i\in\{1,...,k\}$ and $\tilde{f}(e_i)=f(e_i)$ otherwise. This defines a flow $\tilde{f}$ with $\val(\tilde{f})>\val(f)$ for $\eps>0$ sufficently small $\lightning$\\
+    Thus $t\notin S$. Set $T=V\setminus S\neq\emptyset$
+    \begin{itemize}
+        \item $\forall e\in\sigma^+(S)\quad c'(e)=0$, i.e. $f(e)=c(e)$\\
+        otherwise we would get a path from $s$ to the start $x$ of $e$, which makes $x$ reachable, and extends by $e\lightning$
+        \item $\forall e\in \delta^-(S)\quad c'(e)=c(e)\iff f(e)=0$ by the same argument
+        \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(4.6)}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut
+    \end{itemize}
+\end{proof}
+
+\subsection{Connectivity}

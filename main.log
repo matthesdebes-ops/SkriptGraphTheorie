@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  5 MAY 2026 17:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  6 MAY 2026 15:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -778,11 +778,16 @@ Overfull \hbox (0.3722pt too wide) in paragraph at lines 109--126
 ] [14]) [15]
 \openout2 = `Chapter4/Flows,Cuts,Connectivity.aux'.
 
- (Chapter4/Flows,Cuts,Connectivity.tex) [16
+ (Chapter4/Flows,Cuts,Connectivity.tex [16
 
 
 
-] (main.ind [17
+]
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
+
+ []
+
+[17]) [18] (main.ind [19
 
 
 
@@ -793,20 +798,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BBD02DD30478704C9D605B0C18CC9E0E;892.
+(rerunfilecheck)             Checksum: D15677545E4CD805A8D32D972751A3F8;1009.
  ) 
 Here is how much of TeX's memory you used:
- 26881 strings out of 467690
- 495660 string characters out of 5410611
- 933461 words of memory out of 5000000
- 55349 multiletter control sequences out of 15000+600000
+ 26889 strings out of 467690
+ 495727 string characters out of 5410611
+ 933483 words of memory out of 5000000
+ 55353 multiletter control sequences out of 15000+600000
  648733 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,14n,110p,1040b,877s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on main.pdf (17 pages, 276903 bytes).
+Output written on main.pdf (19 pages, 285964 bytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 11341 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 570 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 11349 words of extra memory for PDF output out of 12000 (max. 10000000)
 
