@@ -4,7 +4,7 @@
 \end{definition}
 \vspace{0.5cm}
 \begin{definition}
-    A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a graph, $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
+    A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a \textcolor{red}{directed} graph, $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
     \begin{itemize}
         \item s is called a \textbf{source}
         \item t is called a \textbf{target}
@@ -47,24 +47,59 @@
     $\val(f)\leq c(\delta^+(S))$\\
     Thus $\max\{\val(f): f \text{ flow}\}\leq \min\{c(S,T):(S,T) \  (s,t)\text{-cut}\}$.
 \end{corollary}
-\begin{proof}
-    \hfill
+\begin{proof}[4.5]
+    \hfill \\
     $\max$ flow $\leq\min$ cut due to Corollary $(4.7)$\\
-    Let $f$ maximum flow (i.e. a flow for which $\val(f)$ is maximal). Let $c':E(G)\to \mathbb{R}_0^+$ where $c'(e)=c(e)-f(e)$. Let $S\subset V(G)$ be defined as the set of reachable vertices according to the following rules:\\
+    Let $f$ maximum flow (i.e. a flow for which $\val(f)$ is maximal). Let $c':E(G)\to \mathbb{R}_0^+$ where $c'(e)=c(e)-f(e)$. Let $S\subset V(G)$ be defined as the set of reachable vertices\footnote{These are the vertices where the flow "is not maximal yet" but has a walk to $s$.} according to the following rules:
     \begin{itemize}
         \item $s\in S$
-        \item $x\in V(G)$ is reachable if there is a walk (in the underlying directed graph) from $s$ to $x$ traversing $e_1,...,e_k$ s.t. 
+        \item $x\in V(G)$ is in $S$ (i.e. reachable) if there is a walk (in the underlying directed graph) from $s$ to $x$ traversing $e_1,...,e_k$ s.t. 
+        \begin{enumerate}
+            \item $c'(e_i)>0$ ($\iff f(e_i)<c(e_i)$) if $e_i$ is traversed towards $x$.
+            \item $c'(e_i)<c(e_i)$ ($\iff f(e_i)>0$) if $e_i$ is traversed towards $s$.
+        \end{enumerate} 
     \end{itemize}
-    $c(e_i)>0$ ($f(e_i)<c(e_i)$) if $e_i$ is traversed in the correct direction and $c'(e_i)<c(e_i)$ ($f(e_i)>0$) if $e_i$ is traversed in the opposit direction.\\
+        
     If $S=V(G)$, we can improve $f$ as follows:\\
     Let $e_1,...e_k$ be a walk from $s$ that makes $t$ reachable, and $e_i$ is traversed in orientation $\sigma_i\in\{\pm 1\}$, then $\tilde{f}(e_i)=f(e_i)+\sigma_i\eps$, for $i\in\{1,...,k\}$ and $\tilde{f}(e_i)=f(e_i)$ otherwise. This defines a flow $\tilde{f}$ with $\val(\tilde{f})>\val(f)$ for $\eps>0$ sufficently small $\lightning$\\
     Thus $t\notin S$. Set $T=V\setminus S\neq\emptyset$
     \begin{itemize}
-        \item $\forall e\in\sigma^+(S)\quad c'(e)=0$, i.e. $f(e)=c(e)$\\
-        otherwise we would get a path from $s$ to the start $x$ of $e$, which makes $x$ reachable, and extends by $e\lightning$
-        \item $\forall e\in \delta^-(S)\quad c'(e)=c(e)\iff f(e)=0$ by the same argument
+        \item $\forall e\in\delta^+(S)\quad c'(e)=0$, i.e. $f(e)=c(e)$\\
+        $e=\{x,y\}$ with $x\in S,y\in T$. If $c'(e)\neq 0\implies e$ satisfies $(i)\implies y $ reachable $\lightning$
+        \item $\forall e\in \delta^-(S)\quad c'(e)=c(e)\iff f(e)=0$\\
+        \item $e=\{y,x\}$ with $x\in S,y\in T$. If $c'(e)\neq c(e)\implies e$ satisfies $(ii)\implies y $ reachable $\lightning$
         \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(4.6)}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut
     \end{itemize}
 \end{proof}
 
 \subsection{Connectivity}
+\begin{definition}
+    A graph $G$ is \textbf{$k$-vertex connected} ($k\in\mathbb{N}$) if it has at least $k+1$ vertices and whenever we remove up to $k-1$ vertices, the resulting graph is connected.\\
+    A graph $G$ is \textbf{$k$-edge connected} if whenever we remove up to $k-1$ edges, the resulting graph is connected.\\
+    The \textbf{vertex connectivity (edge connectivity)} is the largest $k\in\mathbb{N}$ s.t. $G$ is $k$-vertex/edge connected.
+\end{definition}
+\begin{remark}
+    $G$ graph, $k$ vertex connectivity,$\lambda$ edge connectivity,$\delta$ minimal degree of $G$, then $k\stackrel{(i)}{\leq}\lambda\stackrel{(ii)}{\leq}\delta$
+\end{remark}
+\begin{proof}
+    \begin{enumerate}
+        \item If we have a set of $\lambda$ edges whose removel makes the res. graph disconnected, then deleting one endpoint for eah edge also disconnects the graph.
+        \item Delete all edges incient to a vertex of minimal degree,this disconnects the graph.
+    \end{enumerate}
+\end{proof}
+\begin{lemma}
+    $G$ directed graph, $s,t\in V,s\neq t$. Then the maximal number of edge-disjoint $(s,t)$-paths (path which do not have any common edges) is equal to the size of a minimal $(S,T)$-cut .
+\end{lemma}
+\begin{proof}
+    "Max flow-min cut theorem" $(4.5)$ with $\forall e\in E\quad c(e)=1$.
+\end{proof}
+\begin{theorem}[Menger's theorem for edge-connectivity]
+    Let $G$ be a graph, $k\in\mathbb{N}$. $G$ is $k$-edge-connected iff there are $k$ edge-disjoint paths between any pair of vertices in $G$.
+\end{theorem}
+\begin{proof}
+    \hfill \\
+    "$\impliedby$" Removing $k-1$ edges will keep one edge intact, so the resulting graph is connected, hence $G$ is $k$-edge connected.\\
+    "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a dopple-edge (see graph(1)).\\
+    Claim: Any $(s,t)$-cut in $G'$ has at least size $k$.\\
+    If  
+\end{proof}

@@ -417,6 +417,12 @@ INPUT .\Chapter4\Flows,Cuts,Connectivity.tex
 INPUT Chapter4\Flows,Cuts,Connectivity.tex
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary5.tfm
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0700.tfm
 INPUT .\main.ind
 INPUT .\main.ind
 INPUT main.ind
@@ -435,6 +441,12 @@ INPUT .\Chapter4\Flows,Cuts,Connectivity.aux
 INPUT Chapter4\Flows,Cuts,Connectivity.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
+INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
 INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk
 INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk
 INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
