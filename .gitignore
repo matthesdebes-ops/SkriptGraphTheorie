@@ -4,6 +4,8 @@
 */*.fdb_latexmk
 *.synctex.gz
 */*.ilg
+*.aux
+*.log
 
 #macos files
 .DS_Store
