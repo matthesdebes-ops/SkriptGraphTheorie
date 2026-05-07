@@ -1,0 +1,9 @@
+*/*.aux
+*/*.log
+*/*.fls
+*/*.fdb_latexmk
+*.synctex.gz
+*/*.ilg
+
+#macos files
+.DS_Store
