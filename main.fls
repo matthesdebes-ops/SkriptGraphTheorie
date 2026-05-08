@@ -268,6 +268,9 @@ INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\base\makei
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\graphics\dvipsnam.def
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\graphics\dvipsnam.def
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\graphics\dvipsnam.def
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
 INPUT .\style.tex
 INPUT .\style.tex
 INPUT style.tex
@@ -287,6 +290,9 @@ INPUT Chapter3\PlanarGraphs.aux
 INPUT .\Chapter4\Flows,Cuts,Connectivity.aux
 INPUT .\Chapter4\Flows,Cuts,Connectivity.aux
 INPUT Chapter4\Flows,Cuts,Connectivity.aux
+INPUT .\Chapter5\Coloring.aux
+INPUT .\Chapter5\Coloring.aux
+INPUT Chapter5\Coloring.aux
 OUTPUT main.aux
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
@@ -423,6 +429,12 @@ INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\ams
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary5.tfm
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0700.tfm
+INPUT .\Chapter5\Coloring.tex
+INPUT .\Chapter5\Coloring.tex
+OUTPUT Chapter5\Coloring.aux
+INPUT .\Chapter5\Coloring.tex
+INPUT .\Chapter5\Coloring.tex
+INPUT Chapter5\Coloring.tex
 INPUT .\main.ind
 INPUT .\main.ind
 INPUT main.ind
@@ -439,6 +451,9 @@ INPUT Chapter3\PlanarGraphs.aux
 INPUT .\Chapter4\Flows,Cuts,Connectivity.aux
 INPUT .\Chapter4\Flows,Cuts,Connectivity.aux
 INPUT Chapter4\Flows,Cuts,Connectivity.aux
+INPUT .\Chapter5\Coloring.aux
+INPUT .\Chapter5\Coloring.aux
+INPUT Chapter5\Coloring.aux
 INPUT .\main.out
 INPUT .\main.out
 INPUT C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
@@ -471,6 +486,8 @@ INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\a
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb

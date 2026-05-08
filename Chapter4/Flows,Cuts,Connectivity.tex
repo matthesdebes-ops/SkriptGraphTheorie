@@ -99,7 +99,257 @@
 \begin{proof}
     \hfill \\
     "$\impliedby$" Removing $k-1$ edges will keep one edge intact, so the resulting graph is connected, hence $G$ is $k$-edge connected.\\
-    "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a dopple-edge (see graph(1)).\\
+    "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a dopple-edge (see graph($1$)).\par
+
     Claim: Any $(s,t)$-cut in $G'$ has at least size $k$.\\
-    If  
+    If $(S,T)$ is an $(s,t)$-cut of size$\leq k-1$,then $G$ has at most $k-1$ edges between $S$ and $T$. Removing them disconnects the graph $\lightning\quad G$ is $k$-edge connected. By Lemma $(4.10)$, there are $k$-edge disjoint paths $p_1,...,p_k$ from $s$ to $t$ in $G'$.\par
+
+    Suppose $x,y\in V$ s.t. $p_i$ uses $\{x,y\}$ and $p_j$ uses $\{y,x\}$. Replace $p_i$ and $p_i$ by the path following $p_i$ to $x$ and continue via $p_j$ and the path following $p_j$ to $y$ and continue via $p_i$. Repeat for each such edge. In each step, the sum of the lengths of the paths decreases so the process has to terminate. Then the underlying $k$-undirected paths in $G$ are edge disjoint (see graph($2$)).\\
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (-2, 1) {$t$};
+            \node[vertex] (b) at (-6, 1) {$s$};
+            \node[vertex] (c) at (-4.5, 1) {$x$};
+            \node[vertex] (d) at (-4.5, 0) {};
+            \node[vertex] (e) at (-4.5, 2) {};
+            \node[vertex] (h) at (-3.5,1) {$y$};
+            \node[vertex] (i) at (-3.5,0) {};
+            \node[vertex] (j) at (-3.5,2) {};
+
+            \draw (d)--(b)--(c);
+            \draw (b)--(e);
+            \draw (h)--(a)--(i);
+            \draw (a)--(j);
+
+            \draw[->, blue] (c) to[bend left] (h);
+            \draw[<-, blue] (c) to[bend right] (h);
+            \draw[->, blue] (d) to[bend left] (i);
+            \draw[<-, blue] (d) to[bend right] (i);
+            \draw[->, blue] (e) to[bend left] (j);
+            \draw[<-, blue] (e) to[bend right] (j);
+            \draw[dotted, thin] (c) to (h);
+            \draw[dotted, thin] (d) to (i);
+            \draw[dotted, thin] (e) to (j);
+
+            \node (f) at (-4, 2.5) {};
+            \node (g) at (-4,-0.5) {};
+
+            \draw[thick] (f)--(g);
+            \node at (-4, -2) {graph($1$)};
+            \node at (-5, 2.5) {$S$};
+            \node at (-3, 2.5) {$T$};
+
+            \node[vertex] (k) at (2,2) {$s$};
+            \node[vertex] (l) at (3.5,2) {$x$};
+            \node[vertex] (m) at (4.5,2) {$y$};
+            \node[vertex] (n) at (6,2) {$t$};
+
+            \draw[blue] (k)--(l);
+            \draw[->, blue] (l) to[bend left] (m);
+            \draw[blue] (m)--(n);
+            \draw[purple] (k) to [bend right=60] (m);
+            \draw[->, purple] (m) to [bend left] (l);
+            \draw[purple] (l) to [bend left=60] (n);
+
+            \node at (4,1) {old paths};
+
+            \node[vertex] (k') at (2,0) {$s$};
+            \node[vertex] (l') at (3.5,0) {$x$};
+            \node[vertex] (m') at (4.5,0) {$y$};
+            \node[vertex] (n') at (6,0) {$t$};
+
+            \draw[red] (k') to[bend left] (m');
+            \draw[red] (m') -- (n');
+            \draw[green] (k') -- (l');
+            \draw[green] (l') to [bend right] (n');
+
+            \node at (4,-1) {new paths};
+            \node at (4,-2) {graph($2$)};
+
+        \end{tikzpicture}
+        \end{center}
+\end{proof}
+\begin{theorem}[Menger's theorem for vertex-connectivity]
+    Let $G$ be a graph with at least $k+1$ vertices ($k\in\mathbb{N}$). Then $G$ is $k$-vertex connected iff there are at least $k$ internally disjoint paths (start and end are the only common vertices) between any pair of distinct vertices of $G$.
+\end{theorem}
+\begin{proof}
+    "$\impliedby$" As before (Proof of ($4.11$)).\\
+    "$\implies$" Let $a,b\in V$ be distinct and $v_1,...,v_n$ be the remaining vertices of $G$. Consider the following directed Graph $G'$ (see graph($1$)):
+    \begin{itemize}
+        \item $V(G')=\{s,t,v_1',...,v_n',v_1'',...,v_n''\}$
+        \item $E(G')=\{\{v_i',v_i''\}:i\in\{1,...,n\}\}\cup\{\{v_i'',v_j'\}:\{v_i,v_j\}\in E(G)\}\cup\{\{v_j'',v_i'\}:\{v_i,v_j\}\in E(G)\}\cup\{\{s,v_i\}:\{a,v_i\}\in E(G)\}\cup\{\{v_i'',t\}:\{b,v_i\}\in E(G)\}\cup\{\{s,t\}\text{ if }\{a,b\}\in E(G)\}$ where we call elements of $\{\{v_i',v_i''\}:i\in\{1,...,n\}\}$ red edges.
+    \end{itemize}
+    Let $k_0$ be the minimum size of an $(s,t)$-cut in $G'$. If $k_0\geq k$, $G'$ has $k$-edge disjoint paths from $s$ to $t$. Since no red edge is contained in two of those, this corresponds to $k$ internally disjoint paths from $a$ to $b$ in $G$: each path is of the form $(s,v_1',v_1'',...,v_m',v_m'',t)$ and corresponds to $(a,v_i,...,v_m,b)$ in $G$.\\
+    Now assume $k_0<k$ and consider an $(s,t)$-cut $(S,T)$ of $G'$ of size $k_0$\\
+    Claim: We may assume that every edge in $\delta^+(S)\setminus\{s,t\}$ is red:\\ 
+    If an edge entering $v_i'$ is in $\delta^+(S)$, move $v_i'$ from $T$ to $S$ without changing the size of the cut. Similarly if an edge leaving $v_i''$ is in $\delta^+(S)$, move $v_i''$ to $T$. If $\{s,t\}\notin E(G)$, then removing the $k_0$ vertices of $G$ that correspond to red edges in $\delta^+(S)$ disconnects $G$ (no path from $s$ to $t$ in $G'$ after removel $\implies$ none from $a$ to $b$ in $G$)$\lightning$.\\
+    If $\{s,t\}\in E(G)$, proceed as follows:\\
+    Let $A$ be the set of vertices in $G$ corresponding to red edges in $\delta^+(S)$ in $G'$ ($|A|=k_0-1$). Let $\hat G$ be the graph obtained by removing $A$.\\
+    If $\hat G$ not connected $\lightning$ $G$ is $k$-vertex connected.\\
+    Thus $\hat G$ connected. Since $G$ has $\geq k+1$ vertices either $a$ or $b$ has an additional neighbour.\\
+    Wlog $a$ does $\implies$ $\hat G-a$ is not connected $\lightning$ $G$ is $k$-vertex connected (see graph($2$)).
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (-6, 0.5) {};
+            \node[vertex] (b) at (-5, 0.5) {};
+            \node[vertex] (c) at (-5, 0) {};
+            \node[vertex] (d) at (-5, 1) {};
+            \node[vertex] (e) at (-4, 0.5) {};
+            \node[vertex] (f) at (-2,0.5) {};
+            \node[vertex] (g) at (-1,0.5) {};
+            \node[vertex] (h) at (-1,0) {};
+            \node[vertex] (i) at (-1,1) {};
+            \node[vertex] (j) at (0,0.5) {};
+            \node[vertex] (k) at (0,0) {};
+            \node[vertex] (l) at (0,1) {};
+            \node[vertex] (m) at (1,0.5) {};
+            \node[vertex] (n) at (3,0.5) {};
+            \node[vertex] (o) at (4,0.5) {};
+            \node[vertex] (p) at (4,0) {};
+            \node[vertex] (q) at (4,1) {};
+            \node[vertex] (r) at (5,0.5) {};
+            \node[vertex] (s) at (5,0) {};
+            \node[vertex] (t) at (5,1) {};
+            \node[vertex] (u) at (6,0.5) {};
+            \node at (-5, -1) {$G$};
+            \node at (-0.5,-1) {$G'$};
+            \node at (4.5,-1) {$\hat G$};
+
+            \draw (d)--(a)--(c)--(e)--(b);
+            \draw (a) to[bend right=80] (e);
+            \draw (a)--(b)--(d);
+            
+            \draw[-{Stealth[scale=1.5]}] (f)--(g);
+            \draw[-{Stealth[scale=1.5]}] (f)--(h);
+            \draw[-{Stealth[scale=1.5]}] (f)--(i);
+            \draw[-{Stealth[scale=1.5]}] (f) to[bend right=80] (m);
+            \draw[{Stealth[scale=1.5]}-,red] (j)--(g);
+            \draw[{Stealth[scale=1.5]}-,red] (k)--(h);
+            \draw[{Stealth[scale=1.5]}-,red] (l)--(i);
+            \draw[-{Stealth[scale=1.5]}] (j)--(i);
+            \draw[-{Stealth[scale=1.5]}] (l)--(g);
+            \draw[-{Stealth[scale=1.5]}] (k)--(m);
+            \draw[-{Stealth[scale=1.5]}] (j)--(m);
+
+            \draw[-{Stealth[scale=1.5]}] (n)--(o);
+            \draw[-{Stealth[scale=1.5]}] (n)--(p);
+            \draw[-{Stealth[scale=1.5]}] (n)--(q);
+            \draw[-{Stealth[scale=1.5]}] (n) to[bend right=80] (u);
+            \draw[-{Stealth[scale=1.5]}] (r)--(u);
+            \draw[-{Stealth[scale=1.5]}] (s)--(u);
+            \draw[-{Stealth[scale=1.5]}] (t)--(u);
+
+        \end{tikzpicture}
+        \end{center}
+\end{proof}
+\begin{definition}
+    A graph is \textbf{bipartite} with parts $A,B$ if $V(G)=A\cup B$ and every edge in $G$ has one en in $A$ and one in $B$.
+\end{definition}
+\begin{example}
+    \begin{itemize}
+        \item $K_{a,b}$
+        \item $Q_d,d\geq 1$
+    \end{itemize}
+\end{example}
+\begin{definition}
+    A \textbf{matching} in a graph $G$ is a set $M\subset E(G)$ s.t. no two edges in $M$ are incident.\\
+    A matching $M$ is \textbf{perfect} if every vertex in $G$ is incident to an edge in $M$.
+\end{definition}
+\begin{example}
+    \hfill
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (-5, 0.5) {};
+            \node[vertex] (b) at (-4.5, 1) {};
+            \node[vertex] (c) at (-4.5, 0) {};
+            \node[vertex] (d) at (-4, 0.5) {};
+            \node[vertex] (e) at (-2, 0.5) {};
+            \node[vertex] (f) at (-1.5,1) {};
+            \node[vertex] (g) at (-1.5,0) {};
+            \node[vertex] (h) at (-1,0.5) {};
+            \node[vertex] (i) at (1, 0.5) {};
+            \node[vertex] (j) at (1.5, 0) {};
+            \node[vertex] (k) at (1.5, 1) {};
+            \node[vertex] (l) at (2, 0.5) {};
+            \node[vertex] (m) at (4, 0.5) {};
+            \node[vertex] (n) at (4.5,1) {};
+            \node[vertex] (o) at (4.5,0) {};
+            \node[vertex] (p) at (5,0.5) {};
+            \node at (-4.5, -1) {perfect};
+            \node at (-1.5,-1) {maximal};
+            \node at (-1.5,-1.5) {not perfect};
+            \node at (1.5,-1) {matching};
+            \node at (1.5,-1.5) {not maximal};
+            \node at (1.5,-2) {not perfect};
+            \node at (4.5,-1) {not matching};
+
+            \draw (a)--(c)--(b)--(d);
+            \draw[red] (a)--(b);
+            \draw[red] (c)--(d);
+            
+            \draw (e)--(g)--(h)--(f)--(e);
+            \draw[red] (g)--(f);
+            
+            \draw (l)--(j)--(k)--(i)--(j);
+            \draw[red] (k)--(l);
+
+            \draw (n)--(m)--(o)--(n);
+            \draw[red] (n)--(p)--(o);
+
+        \end{tikzpicture}
+        \end{center}
+\end{example}
+\begin{theorem}[Hall's marriage theorem]
+    Let $G=(V,E)$ be a bipartite graph with part $A,B$. Then $G$ has a perfect matching iff $\forall P\subset A,|N_G(P)|\geq|P|$ and $\forall P\subset B,|N_G(P)|\geq|P|$.
+\end{theorem}
+\begin{proof}
+    "$\implies$" Assume (Wlog) $\exists P\subset A$ s.t. $|N_G(P)|<|P|$. Let $M$ be a perfect matching. Then $\forall v\in P$ the other endpoint of the matching edge incident to $v$ is in $N_G(v)\subset N_G(P)$, and these vertices are distinct $\implies|N_G(P)|\geq|P|\lightning$.\\
+    "$\impliedby$" Note that the condition implies $|A|=|B|$, since $|B|\geq|N_G(A)|\geq|A|$ and vice versa. Define an auxiliary graph $G'=(V',E')$ with:\\
+    \begin{itemize}
+        \item $V'=V\cup\{s,t\}$
+        \item $E'=\{\{s,a\}:a\in A\}\cup \{\{b,t\}:b\in B\}\cup\{\{a,b\}:a\in A,b\in B\}$
+        \item $\forall e\in E: c(e)=1$
+    \end{itemize}
+    Every matching $M$ in $G$ defines an integral $(s,t)$-flow ($f(e)\in\{0,1\}$) in $G$ with $\val(f)=|M|$ and vice versa.\\
+    Let $(S,T)$ be an $(s,t)$-cut. Let $A_S=A\cap S,A_T=A\cap T,B_S=B\cap S,B_T=B\cap T$.\\
+    It follows $|\delta^+(S)|\geq |A_T|+|B_S|+|N_{A_S}(B_T)|\geq|N_{A_T}(B_T)|+|B_S|+|N_{A_S}(B_T)|=|N_A(B_T)|+|B_S|\stackrel{condition}{\geq}|B_T|+|B_S|=|B|=|A|$.\\
+    Thus by maxflow-mincut, $\max\limits_{f\text{ flow}}\val(f)=\max\limits_{f\text{ integral flow}}\val(f)\geq|B|$.\\
+    Therefore there exists a matching in $G$ of size $\geq |B|$, i.e. a perfect matching.
+
+    \begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+        ]
+            \node[vertex] (a) at (1.5,0.5) {$t$};
+            \node[vertex,red] (b) at (0.5,1) {};
+            \node[vertex,red] (c) at (0.5,0.5) {};
+            \node[vertex,red] (d) at (0.5,0) {};
+            \node[vertex,blue] (e) at (-0.5, 0.5) {};
+            \node[vertex,blue] (f) at (-0.5,1) {};
+            \node[vertex,blue] (g) at (-0.5,0) {};
+            \node[vertex] (h) at (-1.5,0.5) {$s$};
+            \node (i) at (-1.5,0) {};
+            \node (j) at (1.5,1) {};
+            \node at (0.5,-0.5) {$B$};
+            \node at (-0.5,-0.5) {$A$};
+
+            \draw[green] (i)--(j);
+            \draw[-{Stealth[scale=1.5]}] (b)--(a);
+            \draw[-{Stealth[scale=1.5]}] (c)--(a);
+            \draw[-{Stealth[scale=1.5]}] (d)--(a);
+            \draw[-{Stealth[scale=1.5]}] (f)--(b);
+            \draw[-{Stealth[scale=1.5]}] (e)--(c);
+            \draw[-{Stealth[scale=1.5]}] (g)--(d);
+            \draw[-{Stealth[scale=1.5]}] (h)--(g);
+            \draw[-{Stealth[scale=1.5]}] (h)--(f);
+            \draw[-{Stealth[scale=1.5]}] (h)--(e);
+
+        \end{tikzpicture}
+        \end{center}
 \end{proof}
