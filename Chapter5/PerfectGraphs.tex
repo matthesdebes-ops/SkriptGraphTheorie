@@ -1,0 +1,26 @@
+\subsection{PerfectGraphs}
+\begin{definition}
+    A graph $G$ is \textbf{perfect} if for every induced subgraph $G'$ of $G$, we have $\chi(G')=\omega(G')$.
+\end{definition}
+\begin{example}
+    complete graphs and bipartite graphs.
+\end{example}
+\begin{theorem}[weak perfect Graph]
+    A graph $G$ is perfect if and only if $\overline{G}$ is perfect.\\
+    ($\overline{G}$ is the complement of $G$ which is the graph with the same vertex set as $G$ and two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$)
+\end{theorem}
+\begin{theorem}[strong perfect Graph]
+    A graph $G$ is perfect if and only if $G$ or its complement does not contain an odd cycle of length at least 5 or its complement as an induced subgraph.
+\end{theorem}
+\begin{definition}
+    A graph is chordal if it does not contain an induced cycle of length at least 4.
+\end{definition}
+\begin{remark}
+    Induced subgraphs of chordal graphs are chordal.
+\end{remark}
+\begin{theorem}
+    Every chordal graph is perfect.
+\end{theorem}
+\begin{proof}
+    Use Theorem $5.17$.
+\end{proof}
