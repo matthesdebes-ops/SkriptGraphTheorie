@@ -3,14 +3,14 @@
     A graph $G$ is \textbf{perfect} if for every induced subgraph $G'$ of $G$, we have $\chi(G')=\omega(G')$.
 \end{definition}
 \begin{example}
-    complete graphs and bipartite graphs.
+    complete graphs and bipartite graphs are perfect.
 \end{example}
 \begin{theorem}[weak perfect Graph]
     A graph $G$ is perfect if and only if $\overline{G}$ is perfect.\\
     ($\overline{G}$ is the complement of $G$ which is the graph with the same vertex set as $G$ and two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$)
 \end{theorem}
 \begin{theorem}[strong perfect Graph]
-    A graph $G$ is perfect if and only if $G$ or its complement does not contain an odd cycle of length at least 5 or its complement as an induced subgraph.
+    A graph $G$ is perfect if and only if $G$ or its complement does not contain an odd cycle of length at least 5 as an induced subgraph.
 \end{theorem}
 \begin{definition}
     A graph is chordal if it does not contain an induced cycle of length at least 4.
@@ -23,4 +23,68 @@
 \end{theorem}
 \begin{proof}
     Use Theorem $5.17$.
+\end{proof}
+\begin{definition}
+    A vertex $v$ in a graph $G$ is \textbf{simplicial} if $N_G(v)$ induces a complete graph.
+
+\begin{center}
+        \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node[vertex] (a) at (-1,0.5) {$v$};
+            \node[vertex, purple] (b) at (0,1) {};
+            \node[vertex, purple] (c) at (0,0.5) {};
+            \node[vertex, purple] (d) at (0,0) {};
+            
+
+            \draw (a)--(c);
+            \draw (a)--(d);
+            \draw (a)--(b);
+            \draw[purple] (b) to [bend left=45] (d);
+            \draw[purple] (b)--(c)--(d);
+        \end{tikzpicture}
+\end{center}
+\end{definition}
+\begin{lemma}
+    Let $G$ be a  graph. If $G$ is chordal, then it has a simplicial vertex.
+\end{lemma}
+\begin{proof}
+    Induction on $n:=|V(G)|$. Statement is true for $n=1$ and if $G$ is complete.\\
+    Now $n\geq 2$ and $G$ not complete.\\
+    Choose $U\subseteq V(G)$ of maximal size s.t. $G[U]$($=$ subgraph induced by the vertices in $U$) is connected and $U\cup N_G(U)\neq V(G)$ ($N_G(U)=\bigcup_{u\in U}N_G(u)\setminus U$).\\
+    If $u,u'\in V(G)$ are non-adjacent, $u\neq u'$, then $U=\{u\}$ satisfies the above condition.\\
+    Let $W=V(G)\setminus (U\cup N_G(U))$, then $W\neq \emptyset$. Every $x\in N_G(U)$ is adjacent to all vertices in $W$, otherwise we could add $x$ to $U\lightning$ maximality of $U$. $G[W]$ is chordal and by induction $W$ has a simplicial vertex $v$.\\
+    Claim: $v$ is simplicial in $G$.\\
+    We show that $N_G(U):=N(U)$ is a clique.\\
+    Suppose there are $a,b\in N(U)$, $a$ and $b$ non-adjacent, $a\neq b$. Let $w\in W\implies w$ is adjacent to both $a$ and $b$. Let $P$ be a shortest path from $a$ to $b$ with inner vertices in $U$ (exists since $G[U]$ is connected and both $a,b$ have neihgbours in $U$).\\
+    Then concatenating $P$ with ($b$,$\{b,w\}$,$w$,$\{a,w\}$,$a$) yields a cycle in $G$ that does not have a chord, the cycle has length $\geq 4\lightning G$ chordal.\\
+    $\implies N(U)$ is a clique.\\
+    $\implies N_G(v)=N(U)$ is a clique $\implies v$ is simplicial in $G$.\\
+    \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node[vertex, blue!40, text=black] (a) at (-1,1) {$u_1$};
+            \node[vertex, blue!40, text=black] (b) at (-1,0) {$u_2$};
+            \node[vertex, cyan!40, text=black] (c) at (0,1) {$a$};
+            \node[vertex, cyan!40, text=black] (d) at (0,0) {$b$};
+            \node[vertex, green!40, text=black] (e) at (1,0.5) {$w$};
+            \node (f) at (-1,-0.5) {\color{blue}$U$};
+            \node (h) at (1,-0.5) {\color{green}$W$};
+
+            \draw[decorate,decoration={snake}] (a)--(b);
+            \draw (a)--(c);
+            \draw (b)--(d);
+            \draw (c)--(e);
+            \draw (d)--(e);
+            \draw[dotted, red] (c)--(d);
+            \end{tikzpicture}
+        \end{center}
+\end{proof}
+\begin{theorem}
+    Let $G$ be a graph. Then $G$ is chordal iff $G$ has a perfect elemination ordering, i.e. an ordering $v_1,...,v_n$ of $V(G)$ s.t. $\forall i\in \{1,...n\}$, the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph.
+\end{theorem}
+\begin{proof}
+        "$\implies$" Let $v_1$ be a simplicial vertex in $G$ (exists by Lemma 5.23). Proceed inductively on $G-v_1$ (which is chordal).\\ 
+        $\impliedby$ Let $C$ be an induced cycle of $G$ of length $\geq 3$. Let $v_i$ be a PEO. Let $i$ be minimal s.t. $v_i\in V(C)$. Then the two neighbours of $v_i$ on $C$ are $v_i+j$ and $v_i+l$ for some $j,l>0$. Since the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph, $v_i+j$ and $v_i+l$ are adjacent, so $|V(C)|=3$. Thus $G$ is chordal.
 \end{proof}
