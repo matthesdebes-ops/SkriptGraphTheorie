@@ -1,5 +1,36 @@
 \section{Ramsey Theory}
 In this chapter, if we talk about coloring, we always mean a non-proper coloring (think of a child painting the graph randomly).\\
 \begin{example}
-    
+    In any group of 6 people, there are either 3 people who mutually know or don't know each other. $\iff$ Any Graph with six vertices contains a triangle or an independent set of size 3. $\iff$ Every $2$-edge coloring of $K_6$ containes a monochromatic triangle.
 \end{example}
+\begin{proof}
+    Let $G$ be a graph with 6 vertices. Pick a vertex $v$. $v$ has at least 3 neighbours or non-neighbours. Wlog $v$ has 3 neighbours $a,b,c$. If $a,b,c$ are non-adjacent, we are done. Otherwise, wlog $a$ and $b$ are adjacent, then $v,a,b$ is a triangle.
+\end{proof}
+\begin{definition}
+    An \textbf{independent set} in a graph $G$ is a set $U\subseteq V(G)$ s.t. $G[U]$ has no edges. Let $\alpha(G)$ denote the \textbf{independence number} of $G$, i.e. the size of the largest independent set in $G$.
+\end{definition}
+\begin{theorem}[Pideonhole Principle]
+    Let $n_1,...,n_t\in\mathbb{N}$. Let $X$ be a set with at least $1+\sum\limits_{i=1}^t (n_i-1)$ elements, and let $X_1,...,X_t$ be disjoint sets forming a partition of $X$. Then there exists $i\in\{1,...,t\}$ s.t. $|X_i|\geq n_i$.
+\end{theorem}
+\begin{proof}
+    Otherwise $|X|=\sum\limits_{i=1}^t |X_i|\leq \sum\limits_{i=1}^t (n_i-1) < 1+\sum\limits_{i=1}^t (n_i-1)\lightning$
+\end{proof}
+\begin{theorem}[Ramsey's Theorem]
+    For any $k\geq 2$, $n\in\mathbb{N}$, there exists a $N\in\mathbb{N}$ s.t. every edge coloring of $K_N$ with $k$ colors contains a monochromatic copy of $K_n$.
+\end{theorem}
+\begin{proof}
+    Set $N=k^{kn}$. Aim: Find $v_1,...,v_{kn}\in V(K_N)$ s.t. for all edges from $v_i$ to $v_{i+1},...,v_{kn}$ all have same color.\\
+    Suppose that we have constructed $v_1,...,v_l$ and a set $W$ s.t.\\
+    \begin{itemize}
+        \item $W\cap \{v_1,...,v_l\}=\emptyset$ (for every $i$, all edges from $v_i$ to $W_l\cup\{v_{i+1},...,v_{kn}\}$ have the same color)
+    \end{itemize}
+    For $l=0$, take $W=V(K_N)$. For the inductive step, suppose we have constructed $v_1,...,v_l$ and $W$.
+    \begin{itemize}
+        \item Take $v_{l+1}\in W_l$.
+        \item At least $\frac{|W_l|-1}{k}$ of the vertices in $W_l\setminus\{v_{l+1}\}$ are joined to $v_{l+1}$ by edges with the same color (pigeonhole principle).
+        \item Take this set of vertices as the new $W_{l+1}$.
+    \end{itemize}
+    Proof by induction: $|W_j|\geq k^{kn-j}-1$.\\
+    $|W_{l+1}|\geq \frac{|W_l|-1}{k}\geq \frac{k^{kn-l}-1-1}{k}=k^{kn-(l+1)}-1$.\\
+    For $i=1,...,kn$, let $c_i$ be the common color of the edges from $v_i$ to $v_{i+1},...,v_{kn}$. Since there are $k$ colors, there is $I\subseteq \{1,...,kn\}$, $I\geq n$ s.t. $c_i=c_j$ $\forall i,j\in I$. In particular, $G[\{v_i:i\in I\}]$ has a monochromatic coloring.
+\end{proof}        
