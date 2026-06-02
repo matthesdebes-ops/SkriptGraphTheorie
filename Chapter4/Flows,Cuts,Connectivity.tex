@@ -6,9 +6,9 @@
 \begin{definition}
     A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a \textcolor{red}{directed} graph, $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
     \begin{itemize}
-        \item s is called a \textbf{source}
-        \item t is called a \textbf{target}
-        \item $\forall e\in E(G):c(e)$ is the \textbf{capacity of e}
+        \item $s$ is called a \textbf{source}
+        \item $t$ is called a \textbf{target}
+        \item $\forall e\in E(G):c(e)$ is the \textbf{capacity of $e$}
     \end{itemize}
     A \textbf{flow} in a flow network is a function $f:E\to\mathbb{R}^+_0$ s.t.
     \begin{itemize}
@@ -38,7 +38,7 @@
 \begin{proof}
     \hfill \\
     Claim: $\forall A\subset V:f(\delta^+(A))-f(\delta^-(A))=\sum\limits_{v\in A} f(\delta^+(v))-f(\delta^-(v))=(\ast)$\\
-    The sum $f(\delta^+(A))-f(\delta^-(A))$ does not account for edges $e\in E(G)$ with start and end in $A$. On the right side, $f(e)$ is counted twice, once with positiv and once with negativ sign, so the sum vanishes.\\
+    The sum $f(\delta^+(A))-f(\delta^-(A))$ does not account for edges $e\in E(G)$ with start and end in $A$. On the right side, $f(e)$ is counted twice, once with positive and once with negative sign, so the sum vanishes.\\
     Then $\operatorname{val}(f)=f(\delta^-(t))\stackrel{(1)}{=}\sum\limits_{v\in T}f(\delta^-(v))-f(\delta^+(v))\stackrel{(\ast)}{=}f(\delta^-(T))-f(\delta^+(T))=f(\delta^+(S))-f(\delta^-(S))$\\
     $(1)$ holds because $f(\delta^+(t))=0$ ($t$ is a sink) and $\forall v\notin \{s,t\}:f(\delta^-(v))-f(\delta^+(v))=0$ (by definition).
 \end{proof}
@@ -61,14 +61,14 @@
     \end{itemize}
         
     If $S=V(G)$, we can improve $f$ as follows:\\
-    Let $e_1,...e_k$ be a walk from $s$ that makes $t$ reachable, and $e_i$ is traversed in orientation $\sigma_i\in\{\pm 1\}$, then $\tilde{f}(e_i)=f(e_i)+\sigma_i\eps$, for $i\in\{1,...,k\}$ and $\tilde{f}(e_i)=f(e_i)$ otherwise. This defines a flow $\tilde{f}$ with $\val(\tilde{f})>\val(f)$ for $\eps>0$ sufficently small $\lightning$\\
-    Thus $t\notin S$. Set $T=V\setminus S\neq\emptyset$
+    Let $e_1,\dots,e_k$ be a walk from $s$ that makes $t$ reachable, and $e_i$ is traversed in orientation $\sigma_i\in\{\pm 1\}$, then $\tilde{f}(e_i)=f(e_i)+\sigma_i\eps$, for $i\in\{1,...,k\}$ and $\tilde{f}(e_i)=f(e_i)$ otherwise. This defines a flow $\tilde{f}$ with $\val(\tilde{f})>\val(f)$ for $\eps>0$ sufficently small $\lightning$\\
+    Thus $t\notin S$. Set $T=V\setminus S\neq\emptyset$.
     \begin{itemize}
         \item $\forall e\in\delta^+(S)\quad c'(e)=0$, i.e. $f(e)=c(e)$\\
         $e=\{x,y\}$ with $x\in S,y\in T$. If $c'(e)\neq 0\implies e$ satisfies $(i)\implies y $ reachable $\lightning$
         \item $\forall e\in \delta^-(S)\quad c'(e)=c(e)\iff f(e)=0$\\
         \item $e=\{y,x\}$ with $x\in S,y\in T$. If $c'(e)\neq c(e)\implies e$ satisfies $(ii)\implies y $ reachable $\lightning$
-        \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(4.6)}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut
+        \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(4.6)}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut \qedhere
     \end{itemize}
 \end{proof}
 
@@ -79,12 +79,12 @@
     The \textbf{vertex connectivity (edge connectivity)} is the largest $k\in\mathbb{N}$ s.t. $G$ is $k$-vertex/edge connected.
 \end{definition}
 \begin{remark}
-    $G$ graph, $k$ vertex connectivity,$\lambda$ edge connectivity,$\delta$ minimal degree of $G$, then $k\stackrel{(i)}{\leq}\lambda\stackrel{(ii)}{\leq}\delta$
+    $G$ graph, $k$ vertex connectivity, $\lambda$ edge connectivity, $\delta$ minimal degree of $G$, then $k\stackrel{(i)}{\leq}\lambda\stackrel{(ii)}{\leq}\delta$
 \end{remark}
 \begin{proof}
     \begin{enumerate}
-        \item If we have a set of $\lambda$ edges whose removel makes the res. graph disconnected, then deleting one endpoint for eah edge also disconnects the graph.
-        \item Delete all edges incient to a vertex of minimal degree,this disconnects the graph.
+        \item If we have a set of $\lambda$ edges whose removal makes the res. graph disconnected, then deleting one endpoint for each edge also disconnects the graph.
+        \item Delete all edges incident to a vertex of minimal degree, this disconnects the graph.
     \end{enumerate}
 \end{proof}
 \begin{lemma}
@@ -99,12 +99,12 @@
 \begin{proof}
     \hfill \\
     "$\impliedby$" Removing $k-1$ edges will keep one edge intact, so the resulting graph is connected, hence $G$ is $k$-edge connected.\\
-    "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a dopple-edge (see graph($1$)).\par
+    "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a double-edge (see graph($1$)).\par
 
     Claim: Any $(s,t)$-cut in $G'$ has at least size $k$.\\
-    If $(S,T)$ is an $(s,t)$-cut of size$\leq k-1$,then $G$ has at most $k-1$ edges between $S$ and $T$. Removing them disconnects the graph $\lightning\quad G$ is $k$-edge connected. By Lemma $(4.10)$, there are $k$-edge disjoint paths $p_1,...,p_k$ from $s$ to $t$ in $G'$.\par
+    If $(S,T)$ is an $(s,t)$-cut of size $\leq k-1$, then $G$ has at most $k-1$ edges between $S$ and $T$. Removing them disconnects the graph $\lightning\quad G$ is $k$-edge connected. By Lemma $(4.10)$, there are $k$-edge disjoint paths $p_1,...,p_k$ from $s$ to $t$ in $G'$.\par
 
-    Suppose $x,y\in V$ s.t. $p_i$ uses $\{x,y\}$ and $p_j$ uses $\{y,x\}$. Replace $p_i$ and $p_i$ by the path following $p_i$ to $x$ and continue via $p_j$ and the path following $p_j$ to $y$ and continue via $p_i$. Repeat for each such edge. In each step, the sum of the lengths of the paths decreases so the process has to terminate. Then the underlying $k$-undirected paths in $G$ are edge disjoint (see graph($2$)).\\
+    Suppose $x,y\in V$ s.t. $p_i$ uses $\{x,y\}$ and $p_j$ uses $\{y,x\}$. Replace $p_i$ and $p_j$ by the path following $p_i$ to $x$ and continue via $p_j$ and the path following $p_j$ to $y$ and continue via $p_i$. Repeat for each such edge. In each step, the sum of the lengths of the paths decreases so the process has to terminate. Then the underlying $k$-undirected paths in $G$ are edge disjoint (see graph($2$)).\\
     \begin{center}
         \begin{tikzpicture}[
             vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
@@ -182,9 +182,9 @@
         \item $E(G')=\{\{v_i',v_i''\}:i\in\{1,...,n\}\}\cup\{\{v_i'',v_j'\}:\{v_i,v_j\}\in E(G)\}\cup\{\{v_j'',v_i'\}:\{v_i,v_j\}\in E(G)\}\cup\{\{s,v_i\}:\{a,v_i\}\in E(G)\}\cup\{\{v_i'',t\}:\{b,v_i\}\in E(G)\}\cup\{\{s,t\}\text{ if }\{a,b\}\in E(G)\}$ where we call elements of $\{\{v_i',v_i''\}:i\in\{1,...,n\}\}$ red edges.
     \end{itemize}
     Let $k_0$ be the minimum size of an $(s,t)$-cut in $G'$. If $k_0\geq k$, $G'$ has $k$-edge disjoint paths from $s$ to $t$. Since no red edge is contained in two of those, this corresponds to $k$ internally disjoint paths from $a$ to $b$ in $G$: each path is of the form $(s,v_1',v_1'',...,v_m',v_m'',t)$ and corresponds to $(a,v_i,...,v_m,b)$ in $G$.\\
-    Now assume $k_0<k$ and consider an $(s,t)$-cut $(S,T)$ of $G'$ of size $k_0$\\
-    Claim: We may assume that every edge in $\delta^+(S)\setminus\{s,t\}$ is red:\\ 
-    If an edge entering $v_i'$ is in $\delta^+(S)$, move $v_i'$ from $T$ to $S$ without changing the size of the cut. Similarly if an edge leaving $v_i''$ is in $\delta^+(S)$, move $v_i''$ to $T$. If $\{s,t\}\notin E(G)$, then removing the $k_0$ vertices of $G$ that correspond to red edges in $\delta^+(S)$ disconnects $G$ (no path from $s$ to $t$ in $G'$ after removel $\implies$ none from $a$ to $b$ in $G$)$\lightning$.\\
+    Now assume $k_0<k$ and consider an $(s,t)$-cut $(S,T)$ of $G'$ of size $k_0$.\\
+    Claim: We may assume that every edge in $\delta^+(S)\setminus\{(s,t)\}$ is red:\\ 
+    If an edge entering $v_i'$ is in $\delta^+(S)$, move $v_i'$ from $T$ to $S$ without changing the size of the cut. Similarly if an edge leaving $v_i''$ is in $\delta^+(S)$, move $v_i''$ to $T$. If $\{s,t\}\notin E(G)$, then removing the $k_0$ vertices of $G$ that correspond to red edges in $\delta^+(S)$ disconnects $G$ (no path from $s$ to $t$ in $G'$ after removal $\implies$ none from $a$ to $b$ in $G$)$\lightning$.\\
     If $\{s,t\}\in E(G)$, proceed as follows:\\
     Let $A$ be the set of vertices in $G$ corresponding to red edges in $\delta^+(S)$ in $G'$ ($|A|=k_0-1$). Let $\hat G$ be the graph obtained by removing $A$.\\
     If $\hat G$ not connected $\lightning$ $G$ is $k$-vertex connected.\\
@@ -247,7 +247,7 @@
         \end{center}
 \end{proof}
 \begin{definition}
-    A graph is \textbf{bipartite} with parts $A,B$ if $V(G)=A\cup B$ and every edge in $G$ has one en in $A$ and one in $B$.
+    A graph is \textbf{bipartite} with parts $A,B$ if $V(G)=A\dcup B$ and every edge in $G$ has one end in $A$ and one in $B$.
 \end{definition}
 \begin{example}
     \begin{itemize}
@@ -306,10 +306,10 @@
         \end{center}
 \end{example}
 \begin{theorem}[Hall's marriage theorem]
-    Let $G=(V,E)$ be a bipartite graph with part $A,B$. Then $G$ has a perfect matching iff $\forall P\subset A,|N_G(P)|\geq|P|$ and $\forall P\subset B,|N_G(P)|\geq|P|$.
+    Let $G=(V,E)$ be a bipartite graph with parts $A,B$. Then $G$ has a perfect matching iff $\forall P\subseteq A,|N_G(P)|\geq|P|$ and $\forall P\subseteq B,|N_G(P)|\geq|P|$.
 \end{theorem}
 \begin{proof}
-    "$\implies$" Assume (Wlog) $\exists P\subset A$ s.t. $|N_G(P)|<|P|$. Let $M$ be a perfect matching. Then $\forall v\in P$ the other endpoint of the matching edge incident to $v$ is in $N_G(v)\subset N_G(P)$, and these vertices are distinct $\implies|N_G(P)|\geq|P|\lightning$.\\
+    "$\implies$" Assume (Wlog) $\exists P\subseteq A$ s.t. $|N_G(P)|<|P|$. Let $M$ be a perfect matching. Then $\forall v\in P$ the other endpoint of the matching edge incident to $v$ is in $N_G(v)\subset N_G(P)$, and these vertices are distinct $\implies|N_G(P)|\geq|P|\lightning$.\\
     "$\impliedby$" Note that the condition implies $|A|=|B|$, since $|B|\geq|N_G(A)|\geq|A|$ and vice versa. Define an auxiliary graph $G'=(V',E')$ with:\\
     \begin{itemize}
         \item $V'=V\cup\{s,t\}$

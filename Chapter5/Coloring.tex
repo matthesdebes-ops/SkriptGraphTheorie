@@ -1,6 +1,6 @@
 \section{Coloring}
 \begin{definition}
-    Let $k\in \mathbb{N}$. A (proper) \textbf{$k$-vertex-coloring} ($k$-coloring) of a graph $G$ is a function $c: V(G) \to \{1, 2, \dots, k\}$ such that for every edge $\{u,v\} \in E(G)$, we have $c(u) \neq c(v)$. The \textbf{chromatic number} $\chi(G)$ of a graph $G$ is the smallest integer $k$ such that $G$ has a proper $k$-coloring. We call $G$ \textbf{colorable} if it has a $k$-vertex-coloring. \\
+    Let $k\in \mathbb{N}$. A (proper) \textbf{$k$-vertex-coloring} ($k$-coloring) of a graph~$G$ is a function $c: V(G) \to \{1, 2, \dots, k\}$ such that for every edge $\{u,v\} \in E(G)$, we have $c(u) \neq c(v)$. The \textbf{chromatic number} $\chi(G)$ of a graph $G$ is the smallest integer $k$ such that $G$ has a proper $k$-coloring. We call $G$ \textbf{$k$-colorable} if it has a $k$-vertex-coloring. \\
     Write $\Delta(G)$ for the maximum degree of a vertex in $G$.
 \end{definition}
 \begin{lemma}
@@ -13,12 +13,12 @@
     The bound $\chi(G) \leq \Delta(G) + 1$ is tight with equality for exactly the complete graphs $K_n$ and the odd cycles $C_{2k+1}$. 
 \end{remark}
 \begin{lemma}
-    Let $G$ be a (connected) graph. If there is $v\in V(G)$ such that $\deg_G(v) < \chi(G)$, then $G$ has a coloring with $\Delta(G)$ colors.
+    Let $G$ be a (connected) graph. If there is $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$, then $G$ has a coloring with $\Delta(G)$ colors.
 \end{lemma}
 \begin{proof}
     Proof by Induction on $|V(G)|$.\\
     Base case: If $|V(G)| = 1$, then $\chi(G) = 1$ and $\Delta(G) = 0$, so the statement holds.\\
-    Induction step: Assume the statement holds for all graphs with fewer than $n$ vertices, and let $G$ be a graph with $n$ vertices. Let $v\in V(G)$ such that $\deg_G(v) < \chi(G)$. Consider the graph $G' = G - v$. Since $G'$ has fewer vertices than $G$, by the induction hypothesis, we have $\chi(G') \leq \Delta(G')$. Now lets look at two cases:\\
+    Induction step: Assume the statement holds for all graphs with fewer than $n$ vertices, and let $G$ be a graph with $n$ vertices. Let $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$. Consider the graph $G' = G - v$. Since $G'$ has fewer vertices than $G$, by the induction hypothesis, we have $\chi(G') \leq \Delta(G')$. Now let's look at two cases:\\
     ($1$) $\exists w\in V(G)$ such that $\deg_{G}(w) = \Delta(G)$ and $w$ is a neighbour of $v$ in $G$ and there is no $w' \in V(G')$ with $\deg_{G}(w') = \Delta(G)$ not a neighbour of $v$. Then it follows that $\Delta(G)=\Delta(G')+1=\chi(G')+1$ and $\chi(G)=\chi(G')+1$. Therefore $\Delta(G)=\chi(G)$.\\
     ($2$) There is no $w\in V(G)$ with $\deg_{G}(w) = \Delta(G)$ s.t. $w$ is a neighbour of $v$ in $G$. Then $\Delta(G)=\Delta(G')$ and $\chi(G)=\chi(G')$. Therefore $\Delta(G)=\chi(G)$.
      \begin{center}
@@ -45,8 +45,10 @@
 \end{theorem}
 \begin{proof}
     $\Delta(G)=0$: Then $G$ is a single vertex and therefore complete.\\
-    $\Delta(G)=1$: Then $G$ is a path and therefore complete.\\
-    $\Delta(G)=2$: Then $G$ is a cycle. If $G$ is an odd cycle, then $\chi(G)=3=\Delta(G)+1$. If $G$ is an even cycle, then $\chi(G)=2=\Delta(G)$.\\
+    $\Delta(G)=1$: Then $G$ is a single edge and therefore complete.\\
+    $\Delta(G)=2$: Then $G$ is a cycle. By assumption, $G$ is an even cycle, so
+    %If $G$ is an odd cycle, then $\chi(G)=3=\Delta(G)+1$. If $G$ is an even cycle, then
+    $\chi(G)=2=\Delta(G)$.\\
     Let $\Delta(G)\geq 3$\\
     By Lemma ("$5.4$"), we may assume that $G$ is $\Delta(G)$-regular ($\forall v\in V(G)$, $\deg_G(v)=\Delta(G)$).\\
     \begin{enumerate}
@@ -95,9 +97,9 @@
             \Delta(G)-(k-1) & \{v,v'\}\in E(G) \\
             \Delta(G)-(k-2) & \{v,v'\}\notin E(G)
         \end{cases}$   \\
-        Same goes for $\deg_{G_i'(v')}$\\
+        Same goes for $\deg_{G_i'}(v')$.\\
         If $\deg_{G_i'}(v)<\Delta(G)$ or $\deg_{G_i'}(v')<\Delta(G)$, then we can $\Delta(G)$-color $G_i$ by Lemma $(5.4)$.\\
-        If $G_1',...,G_k'$ have a $\Delta(G)$-coloring $\implies$ can combine them to a $\Delta(G)$-coloring of $G$.\\
+        If $G_1',\dots,G_k'$ have a $\Delta(G)$-coloring $\implies$ can combine them to a $\Delta(G)$-coloring of $G$.\\
         Suppose $\exists i\in\{1,...k\}$ s.t. $\deg_{G_i'}(v)=\deg_{G_i'}(v')=\Delta(G)$. Wlog $i=2$. Then $k=2, \{v,v'\}\notin E(G)$ ($\deg_{G_i'}(v)<\Delta(G)$ if $k\geq 3$) and $|N_{C_1}(v)|=|N_{C_2}(v')|=1$.\\
         Let $v''\in V(C_1)$ be the neighbour of $v'$\\
         Observation: $\bar G=G-v-v''$ is not connected. $\bar G$ has components $D_1:=C_1-v''$ and $D_2=[V(C_2)\cup \{v'\}]$. $v$ has $\Delta(G)-1$ neighbours in $D_2$ and $v''$ has $\Delta(G)-1$ neighbours in $D_1$. Use the above coloring argument on $G-v-v''$. 
@@ -123,7 +125,7 @@
     $G$ not complete $\implies \exists x,x'\in V(G), x\neq x',$ non adjacent. Let $P$ be a shortest path from $x$ to $x'$. Let $z$ be the neighbour of $x$ on $P$ and $y$ be the neighbour of $z$ on $P$ distinct from $x$. As $P$ is a shortest path, $x$ and $y$ are nonadjacent.\\
     Fix a spanning tree of $G-x-y$ rooted at $z$. Set $v_1=x,v_2=y$ and $v_3,...,v_n$ is a listing of the remaining vertices of $G$ s.t. every vertex in the tree precedes its parents. In particular $v_n=z$. Now we give the same color to $v_1$ and $v_2$.\\
     Suppose $v_1,v_2,...,v_{i-1}$ are colored already. \\
-    If $i<n\implies v_i$ is adjacent to at least one vertex in $\{v_{i+1},...,v_n\}$ namely its parent. So $v_i$ has at most $\Delta(G)-1$neighbours that already have a color, so we have 1 color left.\\
+    If $i<n\implies v_i$ is adjacent to at least one vertex in $\{v_{i+1},...,v_n\}$ namely its parent. So $v_i$ has at most $\Delta(G)-1$ neighbours that already have a color, so we have 1 color left.\\
     For $i=n,z$ has two neighbours with same color $(x,y)$, so again there is a color not present among the neighbours of $z$, which we assign to $z$.\\
     \begin{center}
             \begin{tikzpicture}[
@@ -163,7 +165,7 @@
     Suppose $\exists v\in V(G)\quad \deg_G(v)\leq 4$. Then color $G-v$ by ind. with $5$ colors. The neighbours of $v$ use at most $4$ colors, so there is a color we can assign to $v$.\\
     Now assume that $G$ is maximal.\\
     From the proof of Lemma ("$3.4$"), it follows that $G$ is a triangulation. By Ex $3.2\quad\exists w\in V(G)$ s.t. $\deg_G(w)=5$. Let $v_1,...,v_5$ be the neighbours of $w$, listed in cyclic ordering around $w$. Then $\{v_1,v_3\}$ or $\{v_2,v_4\}$ is not an edge in $E(G)$, Wlog $\{v_1,v_3\}$.\\
-    Let $G'$ be the plane graph obtained by removing $w,v_1,v_3$ and inserting $w'$ at the position of $w$. Join every neighbour $u$ of $v_1$ in $G$ to $w'$ by inserting an edge along $\{u,v_1\}$ and then along $\{v_1,w\}$ (same for the neighbours of $v_3$ but put only one neighbour of both $v_1,v_3$). $|V(G')=n-2$. $G'$ is planar. By induction, there exists a $5$-coloring $c':V(G')\to \{1,...,5\}$ of $G'$.\\
+    Let $G'$ be the plane graph obtained by removing $w,v_1,v_3$ and inserting $w'$ at the position of $w$. Join every neighbour $u$ of $v_1$ in $G$ to $w'$ by inserting an edge along $\{u,v_1\}$ and then along $\{v_1,w\}$ (same for the neighbours of $v_3$ but put only one neighbour of both $v_1,v_3$). $|V(G')|=n-2$. $G'$ is planar. By induction, there exists a $5$-coloring $c':V(G')\to \{1,...,5\}$ of $G'$.\\
     Let $c:V(G)\to\{1,...,5\}$ with $c(v)=\begin{cases}
         c'(v), \quad v\in V(G)\setminus \{w,v_1,v_3\} \\
         c(v_1)=c'(w')\\
@@ -176,7 +178,7 @@
     The \textbf{clique number} of a graph $G$, denoted $\omega(G)$, is the order of the largest complete subgraph of $G$.
 \end{definition}
 \begin{remark}
-    Clearly, $\omega(G)\leq\lambda(G)\leq\Delta(G)+1$.
+    Clearly, $\omega(G)\leq \chi(G)\leq\Delta(G)+1$.
 \end{remark}
 \begin{theorem}
     Let $k\geq 2$. There exists a graph $G$ with $\omega(G)=2$ and $\chi(G)>k$.
@@ -193,9 +195,9 @@
 \begin{remark}
     $5.12\implies 5.10$ as $g(G)>3\implies G$ has no triangles $\implies\omega(G)\leq2$.
 \end{remark}
-\begin{corollary}
+\begin{conjecture}[Reed]
     $\chi(G)\leq\lceil\frac{\omega(G)+\Delta(G)+1}{2}\rceil$
-\end{corollary}
+\end{conjecture}
 
 \input{Chapter5/PerfectGraphs}
 \input{Chapter5/EdgeColoring}
