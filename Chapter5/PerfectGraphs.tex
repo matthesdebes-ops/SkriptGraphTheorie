@@ -5,12 +5,12 @@
 \begin{example}
     complete graphs and bipartite graphs are perfect.
 \end{example}
-\begin{theorem}[weak perfect Graph]
+\begin{theorem}[Weak perfect graph theorem]
     A graph $G$ is perfect if and only if $\overline{G}$ is perfect.\\
     ($\overline{G}$ is the complement of $G$ which is the graph with the same vertex set as $G$ and two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$)
 \end{theorem}
-\begin{theorem}[strong perfect Graph]
-    A graph $G$ is perfect if and only if $G$ or its complement does not contain an odd cycle of length at least 5 as an induced subgraph.
+\begin{theorem}[Strong perfect graph theorem]
+    A graph $G$ is perfect if and only if $G$ does not contain an odd cycle of length at least 5 or the complement of an odd cycle of length at least $5$ as an induced subgraph.
 \end{theorem}
 \begin{definition}
     A graph is chordal if it does not contain an induced cycle of length at least 4.
@@ -82,9 +82,9 @@
         \end{center}
 \end{proof}
 \begin{theorem}
-    Let $G$ be a graph. Then $G$ is chordal iff $G$ has a perfect elemination ordering, i.e. an ordering $v_1,...,v_n$ of $V(G)$ s.t. $\forall i\in \{1,...n\}$, the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph.
+    Let $G$ be a graph. Then $G$ is chordal iff $G$ has a perfect elimination ordering, i.e. an ordering $v_1,...,v_n$ of $V(G)$ s.t. $\forall i\in \{1,\dots, n\}$, the neighbours of $v_i$ in $\{v_{i+1},\dots,v_n\}$ induce a complete graph.
 \end{theorem}
 \begin{proof}
         "$\implies$" Let $v_1$ be a simplicial vertex in $G$ (exists by Lemma 5.23). Proceed inductively on $G-v_1$ (which is chordal).\\ 
-        $\impliedby$ Let $C$ be an induced cycle of $G$ of length $\geq 3$. Let $v_i$ be a PEO. Let $i$ be minimal s.t. $v_i\in V(C)$. Then the two neighbours of $v_i$ on $C$ are $v_i+j$ and $v_i+l$ for some $j,l>0$. Since the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph, $v_i+j$ and $v_i+l$ are adjacent, so $|V(C)|=3$. Thus $G$ is chordal.
+        $\impliedby$ Let $C$ be an induced cycle of $G$ of length $\geq 3$. Let $v_i$ be a PEO. Let $i$ be minimal s.t. $v_i\in V(C)$. Then the two neighbours of $v_i$ on $C$ are $v_{i+j}$ and $v_{i+l}$ for some $j,l>0$. Since the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph, $v_{i+j}$ and $v_{i+l}$ are adjacent, so $|V(C)|=3$. Thus $G$ is chordal.
 \end{proof}

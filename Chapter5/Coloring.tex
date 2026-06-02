@@ -13,32 +13,40 @@
     The bound $\chi(G) \leq \Delta(G) + 1$ is tight with equality for exactly the complete graphs $K_n$ and the odd cycles $C_{2k+1}$. 
 \end{remark}
 \begin{lemma}
-    Let $G$ be a (connected) graph. If there is $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$, then $G$ has a coloring with $\Delta(G)$ colors.
+    Let $G$ be a connected graph. If there is $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$, then $G$ has a coloring with $\Delta(G)$ colors.
 \end{lemma}
 \begin{proof}
-    Proof by Induction on $|V(G)|$.\\
-    Base case: If $|V(G)| = 1$, then $\chi(G) = 1$ and $\Delta(G) = 0$, so the statement holds.\\
-    Induction step: Assume the statement holds for all graphs with fewer than $n$ vertices, and let $G$ be a graph with $n$ vertices. Let $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$. Consider the graph $G' = G - v$. Since $G'$ has fewer vertices than $G$, by the induction hypothesis, we have $\chi(G') \leq \Delta(G')$. Now let's look at two cases:\\
-    ($1$) $\exists w\in V(G)$ such that $\deg_{G}(w) = \Delta(G)$ and $w$ is a neighbour of $v$ in $G$ and there is no $w' \in V(G')$ with $\deg_{G}(w') = \Delta(G)$ not a neighbour of $v$. Then it follows that $\Delta(G)=\Delta(G')+1=\chi(G')+1$ and $\chi(G)=\chi(G')+1$. Therefore $\Delta(G)=\chi(G)$.\\
-    ($2$) There is no $w\in V(G)$ with $\deg_{G}(w) = \Delta(G)$ s.t. $w$ is a neighbour of $v$ in $G$. Then $\Delta(G)=\Delta(G')$ and $\chi(G)=\chi(G')$. Therefore $\Delta(G)=\chi(G)$.
-     \begin{center}
-        \begin{tikzpicture}[
-            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
-        ]
-            \node[vertex,red] (a) at (0,2) {};
-            \node[vertex,blue] (b) at (0,1) {};
-            \node[vertex,red] (c) at (0,0) {};
-            \node[vertex,green] (d) at (1,1) {};
-            \node[vertex,green] (e) at (-1,1) {};
-           
-            \draw (a)--(b);
-            \draw (a)--(d)--(b);
-            \draw (a)--(e)--(b);
-            \draw[dotted] (d)--(c)--(e);
-            \draw[dotted] (b)--(c);
-
-        \end{tikzpicture}
-        \end{center}
+Let $w \in V(G)$ such that $\operatorname{deg}_G(w) < \Delta(G)$.
+	Fix a spanning tree $T$ of $G$ rooted at $w$.
+	Let $v_1, \dots, v_n$ be the vertices of $G$ listed in the way such that each non-root vertex precedes its parent (and the root is the last vertex, i.e., $v_n = w$). 
+	Coloar the vertices one by one, starting at $v_1$. 
+	Suppose that $v_1, \dots, v_{i-1}$ are already colored. 
+	The vertex $v_i$ is adjacent to at most $\Delta(G)-1$ vertices among $v_1, \dots, v_{i-1}$: if $i <n$, then the parent of $v_i$ is not among these vertices, and if $i = n$, then $v_i = w$ has degree at most $\Delta(G)-1$ by assumption. 
+	In both cases, there thus exists a color not assigned to any neighbor of $v_i$, and we can assign it to $v_i$. 
+	This yields vertex coloring of $G$ using at most $\Delta(G)$ colors.
+%    Proof by Induction on $|V(G)|$.\\
+%    Base case: If $|V(G)| = 1$, then $\chi(G) = 1$ and $\Delta(G) = 0$, so the statement holds.\\
+%    Induction step: Assume the statement holds for all graphs with fewer than $n$ vertices, and let $G$ be a graph with $n$ vertices. Let $v\in V(G)$ such that $\deg_G(v) < \Delta(G)$. Consider the graph $G' = G - v$. Since $G'$ has fewer vertices than $G$, by the induction hypothesis, we have $\chi(G') \leq \Delta(G')$. Now let's look at two cases:\\
+%    ($1$) $\exists w\in V(G)$ such that $\deg_{G}(w) = \Delta(G)$ and $w$ is a neighbour of $v$ in $G$ and there is no $w' \in V(G')$ with $\deg_{G}(w') = \Delta(G)$ not a neighbour of $v$. Then it follows that $\Delta(G)=\Delta(G')+1=\chi(G')+1$ and $\chi(G)=\chi(G')+1$. Therefore $\Delta(G)=\chi(G)$.\\
+%    ($2$) There is no $w\in V(G)$ with $\deg_{G}(w) = \Delta(G)$ s.t. $w$ is a neighbour of $v$ in $G$. Then $\Delta(G)=\Delta(G')$ and $\chi(G)=\chi(G')$. Therefore $\Delta(G)=\chi(G)$.
+%     \begin{center}
+%        \begin{tikzpicture}[
+%            vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}
+%        ]
+%            \node[vertex,red] (a) at (0,2) {};
+%            \node[vertex,blue] (b) at (0,1) {};
+%            \node[vertex,red] (c) at (0,0) {};
+%            \node[vertex,green] (d) at (1,1) {};
+%            \node[vertex,green] (e) at (-1,1) {};
+%           
+%            \draw (a)--(b);
+%            \draw (a)--(d)--(b);
+%            \draw (a)--(e)--(b);
+%            \draw[dotted] (d)--(c)--(e);
+%            \draw[dotted] (b)--(c);
+%
+%        \end{tikzpicture}
+%        \end{center}
 \end{proof}
 \begin{theorem}[Brooks' Theorem]
     Let $G$ be a connected graph. If $G$ is neither an odd cycle nor a complete graph, then $\chi(G) \leq \Delta(G)$.
