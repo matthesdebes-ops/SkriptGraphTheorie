@@ -20,17 +20,18 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
 \end{theorem}
 \begin{proof}
     Set $N=k^{kn}$. Aim: Find $v_1,...,v_{kn}\in V(K_N)$ s.t. for all edges from $v_i$ to $v_{i+1},...,v_{kn}$ all have same color.\\
-    Suppose that we have constructed $v_1,...,v_l$ and a set $W$ s.t.\\
+    We construct $W$ and $v_i$ inductively ($v_i$ are the vertices we want at the end and $W$ is a big enough set of candidates for later iterationsteps).\\
     \begin{itemize}
-        \item $W_l\cap \{v_1,...,v_l\}=\emptyset$, and, 
-        \item for every $i = 1, \dots, l$, the edges from $v_i$ to $W_l \cup \{v_{i+1}, \dots, v_l\}$ have the same color.
+        \item Set $W_0:=V(K_N)$.
+        \item We want to show that for every $l\in \{1,...,nk\}$ we can find $\{v_1,...,v_l\}$ with $\{v_1,...,v_l\}\cap W_l=\emptyset$ and for every $i = 1, \dots, l$, the edges from $v_i$ to $W_l \cup \{v_{i+1}, \dots, v_l\}$ have the same color.
     \end{itemize}
-    For $l=0$, take $W=V(K_N)$. For the inductive step, suppose we have constructed $v_1,...,v_l$ and $W_l$.
+    To show that we always find a "next" suitable vertex in $W$, we look at the following:
     \begin{itemize}
         \item Take $v_{l+1}\in W_l$.
         \item Of the vertices in $W_l\setminus\{v_{l+1}\}$ at least $\frac{|W_l|-1}{k}$ ($|W_l|-1$ edges and $k$ colors) are joined to $v_{l+1}$ by edges with the same color (pigeonhole principle).
         \item Take this set of vertices as the new $W_{l+1}$.
     \end{itemize}
+    Now we show, that we actually have enough vertices in $W$ to do the above construction.\\
     Proof by induction: $|W_j|\geq k^{kn-j}-1$.\\
     $|W_{l+1}|\geq \frac{|W_l|-1}{k}\geq \frac{k^{kn-l}-1-1}{k}=k^{kn-(l+1)}-1$.\\
     For $i=1,...,kn$, let $c_i$ be the common color of the edges from $v_i$ to $v_{i+1},...,v_{kn}$. Since there are $k$ colors, there is $I\subseteq \{1,...,kn\}$, $I\geq n$ s.t. $c_i=c_j$ $\forall i,j\in I$. In particular, the edges in $G[\{v_i:i\in I\}]$ are monochromatic.
