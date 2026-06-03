@@ -1,0 +1,124 @@
+\section{Ramsey Theory}
+In this chapter, if we talk about coloring, we always mean a not necessarily proper coloring (think of a child painting the graph randomly).\\
+\begin{example}
+    In any group of 6 people, there are either 3 people who mutually know or don't know each other. $\iff$ Any Graph with six vertices contains a triangle or an independent set of size 3. $\iff$ Every $2$-edge coloring of $K_6$ contains a monochromatic triangle.
+\end{example}
+\begin{proof}
+    Let $G$ be a graph with 6 vertices. Pick a vertex $v$. $v$ has at least 3 neighbours or non-neighbours. Wlog $v$ has 3 neighbours $a,b,c$. If $a,b,c$ are non-adjacent, we are done. Otherwise, wlog $a$ and $b$ are adjacent, then $v,a,b$ is a triangle.
+\end{proof}
+\begin{definition}
+    An \textbf{independent set} in a graph $G$ is a set $U\subseteq V(G)$ s.t. $G[U]$ has no edges. Let $\alpha(G)$ denote the \textbf{independence number} of $G$, i.e. the size of the largest independent set in $G$.
+\end{definition}
+\begin{theorem}[Pigeonhole Principle]
+    Let $n_1,...,n_t\in\mathbb{N}$. Let $X$ be a set with at least $1+\sum\limits_{i=1}^t (n_i-1)$ elements, and let $X_1,...,X_t$ be disjoint sets forming a partition of $X$. Then there exists $i\in\{1,...,t\}$ s.t. $|X_i|\geq n_i$.
+\end{theorem}
+\begin{proof}
+    Otherwise $|X|=\sum\limits_{i=1}^t |X_i|\leq \sum\limits_{i=1}^t (n_i-1) < 1+\sum\limits_{i=1}^t (n_i-1)\lightning$
+\end{proof}
+\begin{theorem}[Ramsey's Theorem]
+    For any $k\geq 2$, $n\in\mathbb{N}$, there exists a $N\in\mathbb{N}$ s.t. every edge coloring of $K_N$ with $k$ colors contains a monochromatic copy of $K_n$.
+\end{theorem}
+\begin{proof}
+    Set $N=k^{kn}$. Aim: Find $v_1,...,v_{kn}\in V(K_N)$ s.t. for all edges from $v_i$ to $v_{i+1},...,v_{kn}$ all have same color.\\
+    Suppose that we have constructed $v_1,...,v_l$ and a set $W$ s.t.\\
+    \begin{itemize}
+        \item $W_l\cap \{v_1,...,v_l\}=\emptyset$, and, 
+        \item for every $i = 1, \dots, l$, the edges from $v_i$ to $W_l \cup \{v_{i+1}, \dots, v_l\}$ have the same color.
+    \end{itemize}
+    For $l=0$, take $W=V(K_N)$. For the inductive step, suppose we have constructed $v_1,...,v_l$ and $W_l$.
+    \begin{itemize}
+        \item Take $v_{l+1}\in W_l$.
+        \item Of the vertices in $W_l\setminus\{v_{l+1}\}$ at least $\frac{|W_l|-1}{k}$ ($|W_l|-1$ edges and $k$ colors) are joined to $v_{l+1}$ by edges with the same color (pigeonhole principle).
+        \item Take this set of vertices as the new $W_{l+1}$.
+    \end{itemize}
+    Proof by induction: $|W_j|\geq k^{kn-j}-1$.\\
+    $|W_{l+1}|\geq \frac{|W_l|-1}{k}\geq \frac{k^{kn-l}-1-1}{k}=k^{kn-(l+1)}-1$.\\
+    For $i=1,...,kn$, let $c_i$ be the common color of the edges from $v_i$ to $v_{i+1},...,v_{kn}$. Since there are $k$ colors, there is $I\subseteq \{1,...,kn\}$, $I\geq n$ s.t. $c_i=c_j$ $\forall i,j\in I$. In particular, the edges in $G[\{v_i:i\in I\}]$ are monochromatic.
+\end{proof}        
+\begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node[vertex, blue] (a) at (-2,0) {};
+            \node[vertex, red] (b) at (-1,0) {};
+            \node[vertex, cyan] (c) at (0,0) {};
+            \node[vertex, purple] (d) at (2,0) {};
+            \node[vertex, green] (e) at (3,0) {};
+
+            \draw[blue] (a) to [bend left] (b);
+            \draw[blue] (a) to [bend left] (c);
+            \draw[dotted, blue] (a) to [bend left] (d);
+            \draw[dotted, blue] (a) to [bend left] (e);
+            \draw[red] (b) to [bend right] (c);
+            \draw[dotted, red] (b) to [bend right] (d);
+            \draw[dotted, red] (b) to [bend right] (e);
+            \draw[dotted, cyan] (c) to [bend left] (d);
+            \draw[dotted, cyan] (c) to [bend left] (e);
+            \draw[purple] (d) to [bend right] (e);
+
+            \node[vertex, blue] (f) at (6,0) {};
+            \node[vertex, red] (g) at (7,0) {};
+            \node[vertex, blue] (h) at (8,0) {};
+            \node[vertex, blue] (i) at (10,0) {};
+            \node[vertex, green] (j) at (11,0) {};
+
+            \draw[blue] (f) to [bend left] (g);
+            \draw[blue] (f) to [bend left] (h);
+            \draw[dotted, blue] (f) to [bend left] (i);
+            \draw[dotted, blue] (f) to [bend left] (j);
+            \draw[red] (g) to [bend right] (h);
+            \draw[dotted, red] (g) to [bend right] (i);
+            \draw[dotted, red] (g) to [bend right] (j);
+            \draw[dotted, blue] (h) to [bend left] (i);
+            \draw[dotted, blue] (h) to [bend left] (j);
+            \draw[blue] (i) to [bend right] (j);
+            \end{tikzpicture}
+\end{center}
+\begin{theorem}
+    Let $k,l\in \mathbb{N}$. Let $G$ be a graph of order $\geq \begin{pmatrix}
+k+l-2\\
+k-1
+    \end{pmatrix}$. Then $\omega(G)\geq k$ or $\alpha(G)\geq l$.
+\end{theorem}
+\begin{proof}
+    Like $6.4$.
+\end{proof}
+\begin{definition}
+    Let $r(k,l)$ be the minimum $N$ s.t. every graph of order $N$ has $\omega(G)\geq k$ or $\alpha(G)\geq l$. $r(k,l)$ is called the \textbf{Ramsey number}. Set $r(n)=r(n,n)$.
+\end{definition}
+\begin{remark}
+    $r(3,3)=6$, $r(4,4)=18$, $43\leq r(5,5)\leq 48$\\
+    $r(4,2)=4$, $r(4,5)=25$\\
+    The proof of Ramsey's theorem gives $r(n)\leq 4^n$\\
+    The best known upper bound is $r(n)\leq 3.9999^n$
+\end{remark}
+\begin{proposition}
+    $r(n)>(n-1)^2$
+\end{proposition}
+\begin{proof}
+    The task is to find a $2$-edge coloring of $K_N$ with $N=(n-1)^2$ s.t. there is no monochromatic $K_n$.\\
+    Split $V(K_N)$ into $n-1$ parts of size $n-1$. Color edges between different parts blue and edges within the same part red. \\
+    The red graph is a disjoint union of $n-1$ copies of $K_{n-1}$, so it does not contain a red $K_n$. Given $n$ vertices, at least two will be in the same part, thus connected by red edge, so there cannot be a blue $K_n$.
+\begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node[vertex, red] (a) at (-2,0) {};
+            \node[vertex, red] (b) at (-1,0) {};
+            \node[vertex, red] (c) at (0,0) {};
+            \node[vertex, red] (d) at (1,0) {};
+            \node[vertex, red] (e) at (2,0) {};
+
+            \draw[blue] (a) to [bend left] (b);
+            \draw[blue] (b) to [bend left] (c);
+            \draw[blue] (c) to [bend left] (d);
+            \draw[blue] (d) to [bend left] (e);
+            \end{tikzpicture}
+\end{center}
+\end{proof}
+\begin{theorem}[Erd\H{o}s]
+    $r(n)\geq 2^{\frac{n}{2}}$
+\end{theorem}
+\begin{proof}
+    Probabilistic method. Show that a random $2$-edge coloring of $K_N$ with $N=2^{\frac{n}{2}}$ has a positive probability of containing no monochromatic $K_n$.\\
+\end{proof}
