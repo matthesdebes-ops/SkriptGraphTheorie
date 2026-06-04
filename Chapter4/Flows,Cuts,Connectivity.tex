@@ -1,9 +1,9 @@
-\section{Flows,Cuts,Connectivity}
-\begin{definition}
+\section{Flows, Cuts, Connectivity}
+\begin{definition}\label{4.1}
     A \textbf{directed graph} is a pair $(V,E)$ with $E\subseteq (V\times V)\backslash\{(x,x):x\in V\}$. Write $\delta_G^+(v)$ for edges starting in $v$ and $\delta_G ^-(v)$ for edges ending in $v$.
 \end{definition}
 \vspace{0.5cm}
-\begin{definition}
+\begin{definition}\label{4.2}
     A \textbf{flow network} is a tuple $(G,s,t,c)$ where $G$ is a \textcolor{red}{directed} graph, $s,t\in V(G),s\neq t$ and $c:E\to\mathbb{R}_0^+$.
     \begin{itemize}
         \item $s$ is called a \textbf{source}
@@ -18,21 +18,21 @@
     \end{itemize}
     The \textbf{value} of a flow $f$ is $\operatorname{val}(f)=\sum\limits_{e\in\delta^-(v)} f(e)=\sum\limits_{e\in\delta^+(v)}f(e)$
 \end{definition}
-\begin{remark}
+\begin{remark}\label{4.3}
     For $v\in V$, write $f(\delta^+(v))=\sum\limits_{e\in\delta^+(v)} f(e) \text{ ; }f(\delta^-(v))=\sum\limits_{e\in\delta^+(v)}f(e)$
 \end{remark}
 \vspace{0.5cm}
-\begin{definition}
+\begin{definition}\label{4.4}
     A \textbf{cut} in a graph/directed graph $G$ is a partition of $V(G)$ into two non-empty parts $A$ and $B$ (i.e. $V(G)=A\stackrel{.}{\cup} B$ and $A,B\neq\emptyset$). For $s,t\in V(G),s\neq t \implies (A,B)$ is a $(s,t)$-cut if $s\in A,t\in B$.\\
     If $(S,T)$ is a $(s,t)$-cut, write $\delta^+(S)=\{e\in E(G):e$ start in $S$ ends in $T\}=\delta^-(T)$ and $\delta ^-(S)=\{e\in E(G): e$ starts in $T$ and ends in $S\}=\delta^+(T)$.\\
     The \textbf{capacity} of the cut is $c(S,T)=\sum\limits_{e\in \delta^+(S)}c(e)=c(\delta^+(S))=c(\delta^-(T))$.
 \end{definition}
 \vspace{0.5cm}
-\begin{theorem}[max flow-min cut theorem]
+\begin{theorem}[max flow-min cut theorem]\label{4.5}
     Let $(G,s,t,c)$ be a flow network. Then $\max\{\operatorname{val}(f):f\text{ flow}\}=\min\{c(S,T):(S,T) \text{ is a } (s,t)\text{-cut}\}$.
 \end{theorem}
 \vspace{0.5cm}
-\begin{lemma}
+\begin{lemma}\label{4.6}
     Let $f$ be a flow, $(S,T)$ be a $(s,t)$-cut. Then $\operatorname{val}(f)=f(\delta^+(S))-f(\delta^-(S))$.
 \end{lemma}
 \begin{proof}
@@ -42,14 +42,14 @@
     Then $\operatorname{val}(f)=f(\delta^-(t))\stackrel{(1)}{=}\sum\limits_{v\in T}f(\delta^-(v))-f(\delta^+(v))\stackrel{(\ast)}{=}f(\delta^-(T))-f(\delta^+(T))=f(\delta^+(S))-f(\delta^-(S))$\\
     $(1)$ holds because $f(\delta^+(t))=0$ ($t$ is a sink) and $\forall v\notin \{s,t\}:f(\delta^-(v))-f(\delta^+(v))=0$ (by definition).
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{4.7}
     Let $f$ be a flow, $(S,T)$ an $(s,t)$-cut.\\
     $\val(f)\leq c(\delta^+(S))$\\
     Thus $\max\{\val(f): f \text{ flow}\}\leq \min\{c(S,T):(S,T) \  (s,t)\text{-cut}\}$.
 \end{corollary}
-\begin{proof}[4.5]
+\begin{proof} Theorem \ref{4.5}
     \hfill \\
-    $\max$ flow $\leq\min$ cut due to Corollary $(4.7)$\\
+    $\max$ flow $\leq\min$ cut due to Corollary \ref{4.7}\\
     Let $f$ maximum flow (i.e. a flow for which $\val(f)$ is maximal). Let $c':E(G)\to \mathbb{R}_0^+$ where $c'(e)=c(e)-f(e)$. Let $S\subset V(G)$ be defined as the set of reachable vertices\footnote{These are the vertices where the flow "is not maximal yet" but has a walk to $s$.} according to the following rules:
     \begin{itemize}
         \item $s\in S$
@@ -68,17 +68,17 @@
         $e=\{x,y\}$ with $x\in S,y\in T$. If $c'(e)\neq 0\implies e$ satisfies $(i)\implies y $ reachable $\lightning$
         \item $\forall e\in \delta^-(S)\quad c'(e)=c(e)\iff f(e)=0$\\
         \item $e=\{y,x\}$ with $x\in S,y\in T$. If $c'(e)\neq c(e)\implies e$ satisfies $(ii)\implies y $ reachable $\lightning$
-        \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(4.6)}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut \qedhere
+        \item $c(S,T)=\sum\limits_{e\in\delta^+(S)}c(e)=\sum\limits_{e\in\delta^+(S)}f(e)-\sum\limits_{e\in\delta^-(S)}f(e)=f(\delta^+(S))-f(\delta^-(S))\stackrel{(\ref{4.6})}{=}\val(f)\implies\val(f)\geq c(S,T)\geq \min(s,t)$-cut \qedhere
     \end{itemize}
 \end{proof}
 
 \subsection{Connectivity}
-\begin{definition}
+\begin{definition}\label{4.8}
     A graph $G$ is \textbf{$k$-vertex connected} ($k\in\mathbb{N}$) if it has at least $k+1$ vertices and whenever we remove up to $k-1$ vertices, the resulting graph is connected.\\
     A graph $G$ is \textbf{$k$-edge connected} if whenever we remove up to $k-1$ edges, the resulting graph is connected.\\
     The \textbf{vertex connectivity (edge connectivity)} is the largest $k\in\mathbb{N}$ s.t. $G$ is $k$-vertex/edge connected.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{4.9}
     $G$ graph, $k$ vertex connectivity, $\lambda$ edge connectivity, $\delta$ minimal degree of $G$, then $k\stackrel{(i)}{\leq}\lambda\stackrel{(ii)}{\leq}\delta$
 \end{remark}
 \begin{proof}
@@ -87,13 +87,13 @@
         \item Delete all edges incident to a vertex of minimal degree, this disconnects the graph.
     \end{enumerate}
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{4.10}
     $G$ directed graph, $s,t\in V,s\neq t$. Then the maximal number of edge-disjoint $(s,t)$-paths (path which do not have any common edges) is equal to the size of a minimal $(S,T)$-cut .
 \end{lemma}
 \begin{proof}
-    "Max flow-min cut theorem" $(4.5)$ with $\forall e\in E\quad c(e)=1$.
+    "Max flow-min cut theorem" \ref{4.5} with $\forall e\in E\quad c(e)=1$.
 \end{proof}
-\begin{theorem}[Menger's theorem for edge-connectivity]
+\begin{theorem}[Menger's theorem for edge-connectivity]\label{4.11}
     Let $G$ be a graph, $k\in\mathbb{N}$. $G$ is $k$-edge-connected iff there are $k$ edge-disjoint paths between any pair of vertices in $G$.
 \end{theorem}
 \begin{proof}
@@ -102,7 +102,7 @@
     "$\implies$" Let $s,t\in V,s\neq t$. Let $G'$ be the graph obtained from $G$ by replacing each edge by a double-edge (see graph($1$)).\par
 
     Claim: Any $(s,t)$-cut in $G'$ has at least size $k$.\\
-    If $(S,T)$ is an $(s,t)$-cut of size $\leq k-1$, then $G$ has at most $k-1$ edges between $S$ and $T$. Removing them disconnects the graph $\lightning\quad G$ is $k$-edge connected. By Lemma $(4.10)$, there are $k$-edge disjoint paths $p_1,...,p_k$ from $s$ to $t$ in $G'$.\par
+    If $(S,T)$ is an $(s,t)$-cut of size $\leq k-1$, then $G$ has at most $k-1$ edges between $S$ and $T$. Removing them disconnects the graph $\lightning\quad G$ is $k$-edge connected. By Lemma \ref{4.10}, there are $k$-edge disjoint paths $p_1,...,p_k$ from $s$ to $t$ in $G'$.\par
 
     Suppose $x,y\in V$ s.t. $p_i$ uses $\{x,y\}$ and $p_j$ uses $\{y,x\}$. Replace $p_i$ and $p_j$ by the path following $p_i$ to $x$ and continue via $p_j$ and the path following $p_j$ to $y$ and continue via $p_i$. Repeat for each such edge. In each step, the sum of the lengths of the paths decreases so the process has to terminate. Then the underlying $k$-undirected paths in $G$ are edge disjoint (see graph($2$)).\\
     \begin{center}
@@ -171,11 +171,11 @@
         \end{tikzpicture}
         \end{center}
 \end{proof}
-\begin{theorem}[Menger's theorem for vertex-connectivity]
+\begin{theorem}[Menger's theorem for vertex-connectivity]\label{4.12}
     Let $G$ be a graph with at least $k+1$ vertices ($k\in\mathbb{N}$). Then $G$ is $k$-vertex connected iff there are at least $k$ internally disjoint paths (start and end are the only common vertices) between any pair of distinct vertices of $G$.
 \end{theorem}
 \begin{proof}
-    "$\impliedby$" As before (Proof of ($4.11$)).\\
+    "$\impliedby$" As before (Proof of Theorem \ref{4.11}).\\
     "$\implies$" Let $a,b\in V$ be distinct and $v_1,...,v_n$ be the remaining vertices of $G$. Consider the following directed Graph $G'$ (see graph($1$)):
     \begin{itemize}
         \item $V(G')=\{s,t,v_1',...,v_n',v_1'',...,v_n''\}$
@@ -246,21 +246,21 @@
         \end{tikzpicture}
         \end{center}
 \end{proof}
-\begin{definition}
+\begin{definition}\label{4.13}
     A graph is \textbf{bipartite} with parts $A,B$ if $V(G)=A\dcup B$ and every edge in $G$ has one end in $A$ and one in $B$.
 \end{definition}
-\begin{example}
+\begin{example}\label{4.14}
     \begin{itemize}
         \item $K_{a,b}$
         \item $Q_d,d\geq 1$
     \end{itemize}
 \end{example}
-\begin{definition}
+\begin{definition}\label{4.15}
     A \textbf{matching} in a graph $G$ is a set $M\subset E(G)$ s.t. no two edges in $M$ are incident.\\
     A matching $M$ is \textbf{perfect} if every vertex in $G$ is incident to an edge in $M$.\\
     A \text{maximal matching} is a matching where no edge from $E(G)$ can be added to the matching without violating the matching property. 
 \end{definition}
-\begin{example}
+\begin{example}\label{4.16}
     \hfill
     \begin{center}
         \begin{tikzpicture}[
@@ -306,7 +306,7 @@
         \end{tikzpicture}
         \end{center}
 \end{example}
-\begin{theorem}[Hall's marriage theorem]
+\begin{theorem}[Hall's marriage theorem]\label{4.17}
     Let $G=(V,E)$ be a bipartite graph with parts $A,B$. Then $G$ has a perfect matching iff $\forall P\subseteq A,|N_G(P)|\geq|P|$ and $\forall P\subseteq B,|N_G(P)|\geq|P|$.
 \end{theorem}
 \begin{proof}

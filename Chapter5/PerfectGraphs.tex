@@ -1,30 +1,30 @@
 \subsection{PerfectGraphs}
-\begin{definition}
+\begin{definition}\label{5.15}
     A graph $G$ is \textbf{perfect} if for every induced subgraph $G'$ of $G$, we have $\chi(G')=\omega(G')$.
 \end{definition}
-\begin{example}
+\begin{example}\label{5.16}
     complete graphs and bipartite graphs are perfect.
 \end{example}
-\begin{theorem}[Weak perfect graph theorem]
+\begin{theorem}[Weak perfect graph theorem]\label{5.17}
     A graph $G$ is perfect if and only if $\overline{G}$ is perfect.\\
     ($\overline{G}$ is the complement of $G$ which is the graph with the same vertex set as $G$ and two vertices are adjacent in $\overline{G}$ if and only if they are not adjacent in $G$)
 \end{theorem}
-\begin{theorem}[Strong perfect graph theorem]
+\begin{theorem}[Strong perfect graph theorem]\label{5.18}
     A graph $G$ is perfect if and only if $G$ does not contain an odd cycle of length at least 5 or the complement of an odd cycle of length at least $5$ as an induced subgraph.
 \end{theorem}
-\begin{definition}
+\begin{definition}\label{5.19}
     A graph is \textbf{chordal} if it does not contain an induced cycle of length at least 4.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{5.20}
     Induced subgraphs of chordal graphs are chordal.
 \end{remark}
-\begin{theorem}
+\begin{theorem}\label{5.21}
     Every chordal graph is perfect.
 \end{theorem}
 \begin{proof}
-    Use Theorem $5.17$.
+    Use Theorem \ref{5.17}.
 \end{proof}
-\begin{definition}
+\begin{definition}\label{5.22}
     A vertex $v$ in a graph $G$ is \textbf{simplicial} if $N_G(v)$ induces a complete graph.
 
 \begin{center}
@@ -45,7 +45,7 @@
         \end{tikzpicture}
 \end{center}
 \end{definition}
-\begin{lemma}
+\begin{lemma}\label{5.23}
     Let $G$ be a  graph. If $G$ is chordal, then it has a simplicial vertex.
 \end{lemma}
 \begin{proof}
@@ -81,10 +81,10 @@
             \end{tikzpicture}
         \end{center}
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{5.24}
     Let $G$ be a graph. Then $G$ is chordal iff $G$ has a perfect elimination ordering, i.e. an ordering $v_1,...,v_n$ of $V(G)$ s.t. $\forall i\in \{1,\dots, n\}$, the neighbours of $v_i$ in $\{v_{i+1},\dots,v_n\}$ induce a complete graph.
 \end{theorem}
 \begin{proof}
-        "$\implies$" Let $v_1$ be a simplicial vertex in $G$ (exists by Lemma 5.23). Proceed inductively on $G-v_1$ (which is chordal).\\ 
+        "$\implies$" Let $v_1$ be a simplicial vertex in $G$ (exists by Lemma \ref{5.23}). Proceed inductively on $G-v_1$ (which is chordal).\\ 
         $\impliedby$ Let $C$ be an induced cycle of $G$ of length $\geq 3$. Let $v_i$ be a PEO. Let $i$ be minimal s.t. $v_i\in V(C)$. Then the two neighbours of $v_i$ on $C$ are $v_{i+j}$ and $v_{i+l}$ for some $j,l>0$. Since the neighbours of $v_i$ in $\{v_{i+1},...,v_n\}$ induce a complete graph, $v_{i+j}$ and $v_{i+l}$ are adjacent, so $|V(C)|=3$. Thus $G$ is chordal.
 \end{proof}

@@ -1,16 +1,16 @@
 \section{Introduction}
 
-\begin{definition}
+\begin{definition}\label{1.1}
     A \emph{(simple) graph}\index{graph} $G$ is a pair $(V, E)$ where $V$ is a non-empty set and $E \subseteq \{\{x,y\} \in V \times V: x \neq y\}$. We call the elements of $V$ \emph{vertices}\index{vertex} of $G$ and the elements of $E$ \emph{edges}\index{edge} of $G$. We also write $V(G)$ for $V$ and $E(G)$ for $E$, respectively.
     
     \lq Simple\rq{} means no loops and no double edges.
 \end{definition}
 
-\begin{remark}
+\begin{remark}\label{1.2}
     $V$ is finite, unless otherwise stated.
 \end{remark}
 
-\begin{example}
+\begin{example}\label{1.3}
     We define a few common graphs. Let $n, m \in \mathbb{N}$.
     
     \begin{itemize}
@@ -85,7 +85,7 @@
     \end{itemize}
 \end{example}
 
-\begin{definition}
+\begin{definition}\label{1.4}
     Let $G$ be a graph, $u,v\in V(G)$
     \begin{itemize}
         \item If $\{u,v\}\in E(G)$, then $u$ and $v$ are \textbf{adjacent} and the edge $e=\{u,v\}$ is \textbf{incident} with both $u$ and $v$.
@@ -96,7 +96,7 @@
 
 \vspace{0.5cm}
 
-\begin{lemma}[Handshake Lemma]
+\begin{lemma}[Handshake Lemma]\label{1.5}
     Let $G$ be a graph. Then
     \begin{align}
         \sum\limits_{v \in V(G)} \deg_G(v) = 2 \abs{E(G)}.
@@ -110,13 +110,13 @@
 
 \vspace{0.5cm}
 
-\begin{definition}
+\begin{definition}\label{1.6}
     Two graphs $G=(V,E)$ and $G'=(V',E')$ are \textbf{isomorphic} if there exists an isomorphism $\phi$ between them, i.e. a bijection $\phi:V\to V'$ such that $\forall u,v\in V(G):\{u,v\}\in E(G)\iff \{\phi(u),\phi(v)\}\in E(G')$
 \end{definition}
 
 \vspace{0.5cm}
 
-\begin{definition}
+\begin{definition}\label{1.7}
     Let $G=(V,E)$ be a graph. A \textbf{subgraph} of $G$ is a graph $H=(V',E')$ with $V'\subseteq V$ and $E'\subseteq E\cap \begin{pmatrix} V' \\ 2 \end{pmatrix}$ where $\begin{pmatrix}
         S \\ K
     \end{pmatrix}$ is the set of all $K$-subsets of $S$.\par
@@ -126,7 +126,7 @@
     $H''$ is a \textbf{spanning subgraph} if it is a subgraph and $V'=V$\par
     For $W\subseteq V$, write $G[W]$ for the subgraph induced by the vertices in $W$
 \end{definition}
-\begin{example}
+\begin{example}\label{1.8}
 \hfill
     \begin{center}
         \begin{tikzpicture}[
@@ -172,7 +172,7 @@
 
 \vspace{1cm}
 
-\begin{definition}
+\begin{definition}\label{1.9}
 Let $v_i$ be vertices of a graph $G$
     \begin{itemize}
         \item A \textbf{walk} is a sequence of vertices $v_i$ s.t. $\{v_i,v_{i+1}\}\in E(G) \forall i\in \{1,...,k-1\}$
@@ -202,7 +202,7 @@ Let $v_i$ be vertices of a graph $G$
 
 \vspace{0.5cm}
 
-\begin{definition} 
+\begin{definition} \label{1.10}
 Let $G$ be a graph
     \begin{itemize}
         \item A graph $G$ is \textbf{connected} if there is a walk between any pair of its vertices

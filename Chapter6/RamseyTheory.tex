@@ -1,21 +1,21 @@
 \section{Ramsey Theory}
 In this chapter, if we talk about coloring, we always mean a not necessarily proper coloring (think of a child painting the graph randomly).\\
-\begin{example}
+\begin{example}\label{6.1}
     In any group of 6 people, there are either 3 people who mutually know or don't know each other. $\iff$ Any Graph with six vertices contains a triangle or an independent set of size 3. $\iff$ Every $2$-edge coloring of $K_6$ contains a monochromatic triangle.
 \end{example}
 \begin{proof}
     Let $G$ be a graph with 6 vertices. Pick a vertex $v$. $v$ has at least 3 neighbours or non-neighbours. Wlog $v$ has 3 neighbours $a,b,c$. If $a,b,c$ are non-adjacent, we are done. Otherwise, wlog $a$ and $b$ are adjacent, then $v,a,b$ is a triangle.
 \end{proof}
-\begin{definition}
+\begin{definition}\label{6.2}
     An \textbf{independent set} in a graph $G$ is a set $U\subseteq V(G)$ s.t. $G[U]$ has no edges. Let $\alpha(G)$ denote the \textbf{independence number} of $G$, i.e. the size of the largest independent set in $G$.
 \end{definition}
-\begin{theorem}[Pigeonhole Principle]
+\begin{theorem}[Pigeonhole Principle]\label{6.3}
     Let $n_1,...,n_t\in\mathbb{N}$. Let $X$ be a set with at least $1+\sum\limits_{i=1}^t (n_i-1)$ elements, and let $X_1,...,X_t$ be disjoint sets forming a partition of $X$. Then there exists $i\in\{1,...,t\}$ s.t. $|X_i|\geq n_i$.
 \end{theorem}
 \begin{proof}
     Otherwise $|X|=\sum\limits_{i=1}^t |X_i|\leq \sum\limits_{i=1}^t (n_i-1) < 1+\sum\limits_{i=1}^t (n_i-1)\lightning$
 \end{proof}
-\begin{theorem}[Ramsey's Theorem]
+\begin{theorem}[Ramsey's Theorem]\label{6.4}
     For any $k\geq 2$, $n\in\mathbb{N}$, there exists a $N\in\mathbb{N}$ s.t. every edge coloring of $K_N$ with $k$ colors contains a monochromatic copy of $K_n$.
 \end{theorem}
 \begin{proof}
@@ -28,7 +28,7 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
     To show that we always find a "next" suitable vertex in $W$, we look at the following:
     \begin{itemize}
         \item Take $v_{l+1}\in W_l$.
-        \item Of the vertices in $W_l\setminus\{v_{l+1}\}$ at least $\frac{|W_l|-1}{k}$ ($|W_l|-1$ edges and $k$ colors) are joined to $v_{l+1}$ by edges with the same color (pigeonhole principle).
+        \item Of the vertices in $W_l\setminus\{v_{l+1}\}$ at least $\frac{|W_l|-1}{k}$ ($|W_l|-1$ edges and $k$ colors) are joined to $v_{l+1}$ by edges with the same color (pigeonhole principle \ref{6.3}).
         \item Take this set of vertices as the new $W_{l+1}$.
     \end{itemize}
     Now we show, that we actually have enough vertices in $W$ to do the above construction.\\
@@ -75,25 +75,25 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
             \draw[blue] (i) to [bend right] (j);
             \end{tikzpicture}
 \end{center}
-\begin{theorem}
+\begin{theorem}\label{6.5}
     Let $k,l\in \mathbb{N}$. Let $G$ be a graph of order $\geq \begin{pmatrix}
 k+l-2\\
 k-1
     \end{pmatrix}$. Then $\omega(G)\geq k$ or $\alpha(G)\geq l$.
 \end{theorem}
 \begin{proof}
-    Like $6.4$.
+    Like Theorem \ref{6.4}.
 \end{proof}
-\begin{definition}
+\begin{definition}\label{6.6}
     Let $r(k,l)$ be the minimum $N$ s.t. every graph of order $N$ has $\omega(G)\geq k$ or $\alpha(G)\geq l$. $r(k,l)$ is called the \textbf{Ramsey number}. Set $r(n)=r(n,n)$.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{6.7}
     $r(3,3)=6$, $r(4,4)=18$, $43\leq r(5,5)\leq 48$\\
     $r(4,2)=4$, $r(4,5)=25$\\
     The proof of Ramsey's theorem gives $r(n)\leq 4^n$\\
     The best known upper bound is $r(n)\leq 3.9999^n$
 \end{remark}
-\begin{proposition}
+\begin{proposition}\label{6.8}
     $r(n)>(n-1)^2$
 \end{proposition}
 \begin{proof}
@@ -117,9 +117,10 @@ k-1
             \end{tikzpicture}
 \end{center}
 \end{proof}
-\begin{theorem}[Erd\H{o}s]
+\begin{theorem}[Erd\H{o}s]\label{6.9}
     $r(n)\geq 2^{\frac{n}{2}}$
 \end{theorem}
 \begin{proof}
     Probabilistic method. Show that a random $2$-edge coloring of $K_N$ with $N=2^{\frac{n}{2}}$ has a positive probability of containing no monochromatic $K_n$.\\
+    Postponed to \cref{6.9p}
 \end{proof}

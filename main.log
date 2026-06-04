@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  3 JUN 2026 14:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  4 JUN 2026 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -610,7 +610,23 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip71
-) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/base\makeidx.sty
+) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/cleveref\cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
+)
+==> First Aid for cleveref.sty applied!
+(C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/base\makeidx.sty
 Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 ) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
@@ -818,12 +834,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 313--316
 \openout2 = `Chapter5/Coloring.aux'.
 
  (Chapter5/Coloring.tex
-Underfull \hbox (badness 10000) in paragraph at lines 55--63
+Underfull \hbox (badness 10000) in paragraph at lines 32--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
@@ -832,7 +848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
 
 ] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 131--138
+Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
@@ -858,7 +874,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--25
 
 
 
-] [29]) [30] (main.ind [31
+]
+
+LaTeX Warning: Reference `6.9p' on page 1 undefined on input line 125.
+
+[29]) [30] (main.ind [31
 
 
 
@@ -868,21 +888,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--25
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0A9BB22238E091928946C6AB6A864260;1446.
+(rerunfilecheck)             Checksum: 3D85A47B7F3B718DA277C8CDDCF46B41;1486.
  ) 
 Here is how much of TeX's memory you used:
- 28049 strings out of 467690
- 527565 string characters out of 5410611
- 966583 words of memory out of 5000000
- 56397 multiletter control sequences out of 15000+600000
+ 29847 strings out of 467690
+ 566712 string characters out of 5410611
+ 1002042 words of memory out of 5000000
+ 58190 multiletter control sequences out of 15000+600000
  651113 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,14n,110p,1040b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,14n,110p,1040b,905s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on main.pdf (31 pages, 388563 bytes).
+Output written on main.pdf (31 pages, 392367 bytes).
 PDF statistics:
- 784 PDF objects out of 1000 (max. 8388607)
+ 804 PDF objects out of 1000 (max. 8388607)
  157 named destinations out of 1000 (max. 500000)
  12917 words of extra memory for PDF output out of 14400 (max. 10000000)
 

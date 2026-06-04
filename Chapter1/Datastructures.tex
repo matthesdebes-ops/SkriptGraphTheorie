@@ -2,14 +2,14 @@
 
 Assume that $G=(V,E)$ is a graph with $v=\{1,...n\}$
 \vspace{0.5cm}
-\begin{definition}
+\begin{definition}\label{1.18}
     The \textbf{adjacency matrix} of $G$ is the matrix $A=(a_{ij})$ with $a_{ij}=\begin{cases}
             1 & \{i,j\}\in E \\
             0 & else
             \end{cases}$\\
     The \textbf{adjacency list} of $G$ stores a label for each vertex, and a list of (pointers to) its neighbours.
 \end{definition}
-\begin{example}
+\begin{example}\label{1.19}
 \hfill \\
         \begin{center}
         \begin{tikzpicture}[vertex/.style={circle, draw, fill=gray!20, minimum size=2mm, inner sep=0pt}]
@@ -37,7 +37,7 @@ Assume that $G=(V,E)$ is a graph with $v=\{1,...n\}$
 \end{example}
 \vspace{0.5cm}
 
-\begin{remark}
+\begin{remark}\label{1.20}
 \hfill \\
     Memory requirement: \par
     Adjacency matrix: $\theta (n^2)$\par
