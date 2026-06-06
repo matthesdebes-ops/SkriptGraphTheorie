@@ -1,0 +1,36 @@
+\section{Probabilistic Method}
+\begin{definition*}[Rules and key ideas for this chapter]
+    Let $n\in\mathbb{N}$, $V=\{1,...,n\}$, $\mathcal{G}$ is the set of all graphs with vertex set $V$.
+    Aim:\begin{itemize}
+        \item What is the probability that a random graph $G\in \mathcal{G}$ has a certain property $\mathcal{P}$?
+        \item What is the expected value of a certain parameter of a random graph $G\in \mathcal{G}$?
+    \end{itemize}
+    Key Idea: If the probability that a random graph $G\in \mathcal{G}$ has a certain property $\mathcal{P}$ is non zero i.e. positive, then there exists a graph $G\in \mathcal{G}$ with property $\mathcal{P}$.\par
+    For every $e\in \binom{V}{2}$, draw the edge with probability $0\leq p \leq 1$, independently. This will give us a graph $G$.\\
+    If $G_0$ is a fixed graph, then the probability that $G=G_0$ is $p^{m}(1-p)^{\binom{n}{2}-m}$ where $m=|E(G_0)|$.\par
+
+    $\bigtriangleup$\kern-1.3ex! This does not say anything about isomorphism types.
+\end{definition*}
+\begin{definition}\label{7.1}
+    A \textbf{(discrete) probability space}\index{probability space} is a finite set $\Omega$ (usually $\Omega=\mathcal{G}$), together with a probability function $p':\Omega\rightarrow[0,1]$ with the property $\sum\limits_{\omega\in\Omega}p'(\omega)=1$.\\
+    An \textbf{event}\index{event} is a subset of $A\subseteq\Omega$, the probability of $A$ is $\mathbb{P}(A)=\sum\limits_{\omega\in A}p'(\omega)$.\par
+    Here $\Omega=\mathcal{G}$. One needs to show that there exists a probability function $p:\mathcal{G}\rightarrow[0,1]$ s.t. each edge occurs independantly with probability $p$.\\
+    Let $\mathcal{G}(n,p)$ be the resulting probability space. 
+\end{definition}
+\begin{remark*}\label{7.1r}
+    For countable sequences $A_1,A_2,...\in\Omega$, we have $\mathbb{P}(\bigcup\limits_{i=1}^{\infty}A_i)\leq \sum\limits_{i=1}^{\infty}\mathbb{P}(A_i)$.
+\end{remark*}
+\begin{lemma}\label{7.2}
+    For all $n,k\in\mathbb{N},n\geq k\geq2$, the probability that $G\in\mathcal{G}(n,p)$ has an independant set of size $\geq k$ is $\mathbb{P}(\alpha(G)\geq k)\leq \binom{n}{k}(1-p)^{\binom{k}{2}}$.
+\end{lemma}
+\begin{proof}
+    The probability that a fixed set $U\subseteq V$, $|U|=k$, is a independent set in $G$ is $(1-p)^{\binom{k}{2}}$. There are $\binom{n}{k}$ such sets. By Remark \ref{7.1r}, we have $\mathbb{P}(\alpha(G)\geq k)\leq \mathbb{P}(\bigcup\limits_{U\subseteq V,|U|=k}\{U\text{ is an independent set}\})\leq \sum\limits_{U\subseteq V,|U|=k}\mathbb{P}(U\text{ is an independent set})=\binom{n}{k}(1-p)^{\binom{k}{2}}$.\\
+    Analogously, $\mathbb{P}(\omega(G)\geq k)\leq p^{\binom{k}{2}}$.
+\end{proof}
+\begin{proof}[Proof to Theorem \ref{6.9}]\label{6.9p}
+    Thm: $r(n) > 2^{\frac{n}{2}}$ for $n\geq 3$.\\
+    $n=3$: $r(3)\geq 3>2^{\frac{3}{2}}$.\\
+    Let $n\geq 4$: We show that $\forall N\leq 2^{\frac{n}{2}}$ (where $N$ is the order of), the probabilities for $G\in\mathcal{G}(N,\frac{1}{2})$ to have $\omega(G)\geq n$ or $\alpha(G)\geq n$ are both less than $\frac{1}{2}$.\\
+    Then $\mathbb{P}(\omega(G)\geq n\text{ or }\alpha(G)\geq n)\leq \mathbb{P}(\omega(G)\geq n)+\mathbb{P}(\alpha(G)\geq n)<\frac{1}{2}+\frac{1}{2}=1$ so there exists a graph $G$ on $N$ vertices s.t. $\omega(G)<n$ and $\alpha(G)<n$, thus $r(n)>N$.\\
+    $\mathbb{P}(\omega(G)\geq n)\stackrel{\ref{7.2}}{\leq} \binom{N}{n}\frac{1}{2}^{\binom{n}{2}}=\frac{N!}{(N-n)!n!}\frac{1}{2}^{\binom{n}{2}}\stackrel{n!>2}{<}\frac{N!}{(N-n)!2^n}\frac{1}{2}^{\binom{n}{2}}\leq\frac{N^n}{2^n}\frac{1}{2}^{\binom{n}{2}}=\frac{N^n}{2^n}\frac{1}{2}^{\frac{n!}{2(n-2)!}}=\frac{2^{\frac{n}{2}n}}{2^n}2^\frac{-n(n-1)}{2}=2^{\frac{n^2}{2}-n-\frac{n^2}{2}+\frac{n}{2}}=2^{-\frac{n}{2}}<1$.
+\end{proof}

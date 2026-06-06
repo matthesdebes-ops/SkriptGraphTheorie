@@ -7,7 +7,7 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
     Let $G$ be a graph with 6 vertices. Pick a vertex $v$. $v$ has at least 3 neighbours or non-neighbours. Wlog $v$ has 3 neighbours $a,b,c$. If $a,b,c$ are non-adjacent, we are done. Otherwise, wlog $a$ and $b$ are adjacent, then $v,a,b$ is a triangle.
 \end{proof}
 \begin{definition}\label{6.2}
-    An \textbf{independent set} in a graph $G$ is a set $U\subseteq V(G)$ s.t. $G[U]$ has no edges. Let $\alpha(G)$ denote the \textbf{independence number} of $G$, i.e. the size of the largest independent set in $G$.
+    An \textbf{independent set}\index{independent set} in a graph $G$ is a set $U\subseteq V(G)$ s.t. $G[U]$ has no edges. Let $\alpha(G)$ denote the \textbf{independence number} of $G$, i.e. the size of the largest independent set in $G$.
 \end{definition}
 \begin{theorem}[Pigeonhole Principle]\label{6.3}
     Let $n_1,...,n_t\in\mathbb{N}$. Let $X$ be a set with at least $1+\sum\limits_{i=1}^t (n_i-1)$ elements, and let $X_1,...,X_t$ be disjoint sets forming a partition of $X$. Then there exists $i\in\{1,...,t\}$ s.t. $|X_i|\geq n_i$.
@@ -76,16 +76,13 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
             \end{tikzpicture}
 \end{center}
 \begin{theorem}\label{6.5}
-    Let $k,l\in \mathbb{N}$. Let $G$ be a graph of order $\geq \begin{pmatrix}
-k+l-2\\
-k-1
-    \end{pmatrix}$. Then $\omega(G)\geq k$ or $\alpha(G)\geq l$.
+    Let $k,l\in \mathbb{N}$. Let $G$ be a graph of order $\geq \binom{k+l-2}{k-1}$. Then $\omega(G)\geq k$ or $\alpha(G)\geq l$.
 \end{theorem}
 \begin{proof}
     Like Theorem \ref{6.4}.
 \end{proof}
 \begin{definition}\label{6.6}
-    Let $r(k,l)$ be the minimum $N$ s.t. every graph of order $N$ has $\omega(G)\geq k$ or $\alpha(G)\geq l$. $r(k,l)$ is called the \textbf{Ramsey number}. Set $r(n)=r(n,n)$.
+    Let $r(k,l)$ be the minimum $N$ s.t. every graph of order $N$ has $\omega(G)\geq k$ or $\alpha(G)\geq l$. $r(k,l)$ is called the \textbf{Ramsey number}\index{Ramsey number}. Set $r(n)=r(n,n)$.
 \end{definition}
 \begin{remark}\label{6.7}
     $r(3,3)=6$, $r(4,4)=18$, $43\leq r(5,5)\leq 48$\\
@@ -122,7 +119,7 @@ k-1
 \end{theorem}
 \begin{proof}
     Probabilistic method. Show that a random $2$-edge coloring of $K_N$ with $N=2^{\frac{n}{2}}$ has a positive probability of containing no monochromatic $K_n$.\\
-    Postponed to \cref{6.9p}
+    Postponed to \ref{6.9p}
 \end{proof}
 \begin{theorem}\label{6.10}
     For every $2$-coloring of $\begin{pmatrix}

@@ -15,7 +15,7 @@
     
     \begin{itemize}
 
-        \item The \emph{complete graph} $K_n$ has $n$ vertices and each pair of vertices is connected.
+        \item The \emph{complete graph}\index{complete graph} $K_n$ has $n$ vertices and each pair of vertices is connected.
 
         \begin{center}
         \begin{tikzpicture}[
@@ -30,7 +30,7 @@
         \end{tikzpicture}
         \end{center}
 
-        \item The \emph{cycle} $C_n$ has $n$ vertices, which are cyclically connected.
+        \item The \emph{cycle}\index{cycle} $C_n$ has $n$ vertices, which are cyclically connected.
 
         \begin{center}
         \begin{tikzpicture}[
@@ -90,7 +90,7 @@
     \begin{itemize}
         \item If $\{u,v\}\in E(G)$, then $u$ and $v$ are \textbf{adjacent} and the edge $e=\{u,v\}$ is \textbf{incident} with both $u$ and $v$.
         \item $N_G(v)=\{w\in V(G):\{v,w\}\in E(G)\}$ is the \textbf{neighbourhood} of $v$ in $G$.
-        \item $\deg_G(v)=|N_G(v)|$ is the \textbf{degree} of $v$.
+        \item $\deg_G(v)=|N_G(v)|$ is the \textbf{degree}\index{degree} of $v$.
     \end{itemize}
 \end{definition}
 
@@ -104,7 +104,7 @@
     (in particular the sum of the degree is even).
     
     \begin{proof}
-        $\sum\limits_{v\in V(G)} \deg_G(v)=\#\{(v,e):v\in V(G),e\in E(G) \text{ such that } v \text{ incident to } e \}=2|E(G)|$
+        $\sum\limits_{v\in V(G)} \deg_G(v)=\{(v,e):v\in V(G),e\in E(G) \text{ such that } v \text{ incident to } e \}=2|E(G)|$
     \end{proof}
 \end{lemma}
 
@@ -117,7 +117,7 @@
 \vspace{0.5cm}
 
 \begin{definition}\label{1.7}
-    Let $G=(V,E)$ be a graph. A \textbf{subgraph} of $G$ is a graph $H=(V',E')$ with $V'\subseteq V$ and $E'\subseteq E\cap \begin{pmatrix} V' \\ 2 \end{pmatrix}$ where $\begin{pmatrix}
+    Let $G=(V,E)$ be a graph. A \textbf{subgraph}\index{subgraph} of $G$ is a graph $H=(V',E')$ with $V'\subseteq V$ and $E'\subseteq E\cap \begin{pmatrix} V' \\ 2 \end{pmatrix}$ where $\begin{pmatrix}
         S \\ K
     \end{pmatrix}$ is the set of all $K$-subsets of $S$.\par
     $H'$ is an \textbf{induced subgraph} of $G$ if it is a subgraph and $E'=E\cap \begin{pmatrix}
@@ -175,11 +175,11 @@
 \begin{definition}\label{1.9}
 Let $v_i$ be vertices of a graph $G$
     \begin{itemize}
-        \item A \textbf{walk} is a sequence of vertices $v_i$ s.t. $\{v_i,v_{i+1}\}\in E(G) \forall i\in \{1,...,k-1\}$
-        \item The \textbf{length} of a walk is $k$ (number of vertices in the walk)
-        \item The walk is \textbf{closed} if $v_1=v_k$
-        \item A \textbf{trail} is a walk that does not use an edge twice
-        \item A \textbf{path} is a walk for which $v_1,...,v_k$ are pairwise distinct
+        \item A \textbf{walk}\index{walk} is a sequence of vertices $v_i$ s.t. $\{v_i,v_{i+1}\}\in E(G) \forall i\in \{1,...,k-1\}$
+        \item The \textbf{length}\index{length} of a walk is $k$ (number of vertices in the walk)
+        \item The walk is \textbf{closed}\index{closed walk} if $v_1=v_k$
+        \item A \textbf{trail}\index{trail} is a walk that does not use an edge twice
+        \item A \textbf{path}\index{path} is a walk for which $v_1,...,v_k$ are pairwise distinct
     \end{itemize}
     \begin{center}
         \begin{tikzpicture}[
@@ -205,8 +205,8 @@ Let $v_i$ be vertices of a graph $G$
 \begin{definition} \label{1.10}
 Let $G$ be a graph
     \begin{itemize}
-        \item A graph $G$ is \textbf{connected} if there is a walk between any pair of its vertices
-        \item A \textbf{(connected) component} of $G$ is an inclusion wise maximal connected subgraph
+        \item A graph $G$ is \textbf{connected}\index{connected graph} if there is a walk between any pair of its vertices
+        \item A \textbf{(connected) component}\index{component} of $G$ is an inclusion wise maximal connected subgraph
     \end{itemize}
 \end{definition}
 

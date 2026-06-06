@@ -1,6 +1,6 @@
 \section{Coloring}
 \begin{definition}\label{5.1}
-    Let $k\in \mathbb{N}$. A (proper) \textbf{$k$-vertex-coloring} ($k$-coloring) of a graph~$G$ is a function $c: V(G) \to \{1, 2, \dots, k\}$ such that for every edge $\{u,v\} \in E(G)$, we have $c(u) \neq c(v)$. The \textbf{chromatic number} $\chi(G)$ of a graph $G$ is the smallest integer $k$ such that $G$ has a proper $k$-coloring. We call $G$ \textbf{$k$-colorable} if it has a $k$-vertex-coloring. \\
+    Let $k\in \mathbb{N}$. A (proper) \textbf{$k$-vertex-coloring}\index{vertex coloring} ($k$-coloring) of a graph~$G$ is a function $c: V(G) \to \{1, 2, \dots, k\}$ such that for every edge $\{u,v\} \in E(G)$, we have $c(u) \neq c(v)$. The \textbf{chromatic number}\index{chromatic number} $\chi(G)$ of a graph $G$ is the smallest integer $k$ such that $G$ has a proper $k$-coloring. We call $G$ \textbf{$k$-colorable}\index{colorable} if it has a $k$-vertex-coloring. \\
     Write $\Delta(G)$ for the maximum degree of a vertex in $G$.
 \end{definition}
 \begin{lemma}\label{5.2}
@@ -159,7 +159,7 @@ Let $w \in V(G)$ such that $\operatorname{deg}_G(w) < \Delta(G)$.
     Then $c$ is a $5$-coloring of $G$.
 \end{proof}
 \begin{definition}\label{5.8}
-    The \textbf{clique number} of a graph $G$, denoted $\omega(G)$, is the order of the largest complete subgraph of $G$.
+    The \textbf{clique number}\index{clique number} of a graph $G$, denoted $\omega(G)$, is the order of the largest complete subgraph of $G$.
 \end{definition}
 \begin{remark}\label{5.9}
     Clearly, $\omega(G)\leq \chi(G)\leq\Delta(G)+1$.
@@ -168,7 +168,7 @@ Let $w \in V(G)$ such that $\operatorname{deg}_G(w) < \Delta(G)$.
     Let $k\geq 2$. There exists a graph $G$ with $\omega(G)=2$ and $\chi(G)>k$.
 \end{theorem}
 \begin{definition}\label{5.11}
-    The \textbf{girth} of a graph $G$ is the length of the shortest cycle in $G$.
+    The \textbf{girth}\index{girth} of a graph $G$ is the length of the shortest cycle in $G$.
 \end{definition}
 \begin{theorem}\label{5.12}
     For every $k\geq 1$, there exists a graph $G$ with $g(G)>k$ and $\chi(G)>k$.
