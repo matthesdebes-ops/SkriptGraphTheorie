@@ -34,3 +34,73 @@
     Then $\mathbb{P}(\omega(G)\geq n\text{ or }\alpha(G)\geq n)\leq \mathbb{P}(\omega(G)\geq n)+\mathbb{P}(\alpha(G)\geq n)<\frac{1}{2}+\frac{1}{2}=1$ so there exists a graph $G$ on $N$ vertices s.t. $\omega(G)<n$ and $\alpha(G)<n$, thus $r(n)>N$.\\
     $\mathbb{P}(\omega(G)\geq n)\stackrel{\ref{7.2}}{\leq} \binom{N}{n}\frac{1}{2}^{\binom{n}{2}}=\frac{N!}{(N-n)!n!}\frac{1}{2}^{\binom{n}{2}}\stackrel{n!>2}{<}\frac{N!}{(N-n)!2^n}\frac{1}{2}^{\binom{n}{2}}\leq\frac{N^n}{2^n}\frac{1}{2}^{\binom{n}{2}}=\frac{N^n}{2^n}\frac{1}{2}^{\frac{n!}{2(n-2)!}}=\frac{2^{\frac{n}{2}n}}{2^n}2^\frac{-n(n-1)}{2}=2^{\frac{n^2}{2}-n-\frac{n^2}{2}+\frac{n}{2}}=2^{-\frac{n}{2}}<1$.
 \end{proof}
+\begin{definition*}
+    For a probabilistic space $(\Omega,p)$ a \textbf{random variable} is a function $X:\Omega\rightarrow\mathbb{R}$ $[(\Omega,p)=\mathcal{G}(n,p)]$.\\
+    Graph invariants like maximal degree, girth, etc. can be interpreted as random variables. The \textbf{expection}\index{expection} of $X$ is $\mathbb{E}[X]=\sum\limits_{\omega\in\Omega}\mathbb{P}(\omega)X(\omega)$. Note that $\mathbb{E}[x+y]=\mathbb{E}[x]+\mathbb{E}[y]$ and $\forall \lambda\in\mathbb{R}:\mathbb{E}[\lambda x]=\lambda\mathbb{E}[x]$.
+\end{definition*}
+\begin{lemma}\label{7.3}
+    Let $k\in\mathbb{N}$, $p=p(n)$ a function s.t. $p\geq\frac{6k\ln(n)}{n}$ for large enough $n$. Let $g\in\mathcal{G}(n,p(n))$. Then $\lim\limits_{n\to\infty}\mathbb{P}(\alpha(G)\geq\frac{1}{2}\frac{n}{k})=0$.
+\end{lemma}
+\begin{proof}
+    $\forall n,r\in\mathbb{N}$ with $n\geq r\geq2$, we have:\\
+    $\mathbb{P}[\alpha(G)\geq r]\stackrel{\ref{7.2}}{\leq}\binom{n}{r}(1-p)^{\binom{r}{2}}\leq n^r (1-p)^{\binom{r}{2}}=(n(1-p)^{\frac{r-1}{2}})^r\stackrel{1-p\leq e^{-p}}{\leq}(ne^{-p\frac{r-1}{2}})^r$.\\
+    Using $p\geq \frac{6k\ln(n)}{n}$ and $r\geq\frac{1}{2}\frac{n}{k}$, we have
+    \[ne^{-p\frac{r-1}{2}}=ne^{-\frac{pr}{2}+\frac{p}{2}}\leq ne^{-\frac{3}{2}\ln(n)+\frac{p}{2}}=n^{-1/2}e^{p/2}\leq\sqrt{\frac{e}{n}}.\]
+    Thus $\lim_{n\to\infty}\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]\leq\lim_{n\to\infty}[(ne^{-p\frac{r-1}{2}})^r]\leq\lim_{n\to\infty}[\sqrt{\frac{e}{n}}^{\frac{n}{2k}}]=0$.
+\end{proof}
+\begin{lemma}\label{7.4}
+    Fix $n,p$ and $k\geq 3$. Let $X:\mathcal{G}(n,p)\to\mathbb{N}$ be the number of $k$-cycles. The expected number of $k$-cycles is $\mathbb{E}[X]=\frac{(n)_k}{2k}p^k$, where $(n)_k=n(n-1)...(n-k+1)$.
+\end{lemma}
+\begin{proof}
+    For every possible $k$-cycle $C$ with vertices in $\{1,...,n\}$, let $X_C:\mathcal{G}(n,p)\to\{0,1\},G\to\begin{cases}
+        1, & C\subseteq G \\
+        0, & else
+    \end{cases}$.\\
+    $\mathbb{E}[X_C]=\mathbb{P}(X_C=1)=\mathbb{P}(C\subseteq G)=p^k$. There are $(n)_k$ sequences $v_1,...,v_k$ of distinct vertices in $\{1,...,n\}$, but each cycle is labeled by $2k$ such squences so there are $\frac{(n)_k}{2k}$ possible cycles.\\
+    $X=\sum\limits_{C \text{ }k\text{-cycle}} X_C$ so $\mathbb{E}[X]=\sum\limits_{C \text{ }k\text{-cycle}} \mathbb{E}[X_C]=\frac{(n)_k}{2k}p^k$.
+\end{proof}
+\begin{lemma}[Markov's inequality]\label{7.5}
+    Let $X:\Omega\to\mathbb{R}$. Then $\forall a>0:\mathbb{P}(X\geq a)\leq\frac{\mathbb{E}[X]}{a}$.
+\end{lemma}
+\begin{proof}[Theorem \ref{5.12}]
+    Thm: For every $k\in\mathbb{N}$, there exists a graph with girth $g(G)>k$ and chromatic number $\chi(G)>k$.\\
+    \\
+    We may assume $k\geq 3$.\\
+    Fix $\eps$ with $0<\eps<\frac{1}{k}$, $p=p(n)=n^{\eps-1}$.\\
+    Let $X:\mathcal{G}(n,p)\to\mathbb{R}$ be a random variable assigning to every graph $G\in\mathcal{G}(n,p)$ the number of cycles of length $\leq k$. \\
+    Want to enforce $\mathbb{P}[X\geq \frac{n}{2}]<\frac{1}{2}$ (few small cycles),$\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}$ (few independent sets).\\
+    By Lemma \ref{7.4}, $\mathbb{E}[X]=\sum\limits_{i=3}^k \frac{(n)_i}{2i}p^i\leq\frac{1}{2}\sum\limits_{i=3}^k n^ip^i\leq\frac{1}{2}(k-2)n^kp^k$.\\
+    By Lemma \ref{7.5}, $\mathbb{P}[X\geq \frac{n}{2}]\leq\frac{\mathbb{E}[X]}{\frac{n}{2}}\leq (k-2)n^{k-1}p^k\stackrel{np=n^\eps}{=}(k-2)n^{k-1}n^{k(\eps-1)}=(k-2)n^{k-1+k\eps-k}=(k-2)n^{k\eps-1}$.\\
+    As $k\eps-1<0$, this yields $\lim\limits_{n\to\infty}\mathbb{P}[X\geq \frac{n}{2}]=0$. By choosing $n$ sufficiently large, we can enforce $\mathbb{P}[X\geq \frac{n}{2}]<\frac{1}{2}$ and $\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}$ by Lemma \ref{7.3}.\\
+    Then $\mathbb{P}[X\geq \frac{n}{2}\text{ or }\alpha(G)\geq \frac{1}{2}\frac{n}{k}]\leq\mathbb{P}[X\geq \frac{n}{2}]+\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}+\frac{1}{2}=1\implies$ There exists a graph $G$ with $<\frac{n}{2}$ cycles of length $\leq k$ and $\alpha(G)<\frac{1}{2}\frac{n}{k}$.\\
+    Now delete a vertex from each cycle of length $\leq k$, call the resulting graph $H$. Then $|V(H)|\geq\frac{n}{2}$, $g(H)>k$ and thus $\chi(H)\geq\frac{|V(H)|}{\alpha(H)}>\frac{\frac{n}{2}}{\frac{1}{2}\frac{n}{k}}=k$.
+\end{proof}
+\begin{definition*}
+    Fix a probability space. Events $A,B$ are \textbf{independent}\index{independent} if $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$ or if $\mathbb{P}(A|B)=\mathbb{P}(A)$ and $\mathbb{P}(B)\neq 0$ ($\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$).\\
+    An event is \textbf{mutually independent}\index{mutually independent} from events $B_1,...,B_n$ if for every $I\subseteq\{1,...,n\}$: $\mathbb{P}(A|\bigcap_{i\in I} B_i)=\mathbb{P}(A)$.\\
+    An \textbf{dependency graph}\index{dependency graph} for events $B_1,...,B_n$ is a graph on a vertex set $\{B_1,...,B_n\}$ and a set of edges s.t. $\forall i\in\{1,...,n\}$, the event $B_i$ is mutually independent from $V\setminus(\{B_i\}\cup N(B_i))$.
+\end{definition*}
+\begin{theorem}[Lovász Local Lemma]\label{7.6}
+    Let $B_1,...,B_n$ be events in a (finite) probability space. If there exists $p\in \mathbb{R}$ with $0\leq p<1$ s.t.
+    \begin{itemize}
+        \item $\mathbb{P}(B_i)<p$ for all $i$
+        \item the max. degree in the dependency graph for $B_1,...,B_n$ is at most $d$
+        \item $p\leq\frac{1}{4d}$ ($p$ is at least $1$ (graph connected) so $d\leq \frac{1}{4}$)
+    \end{itemize}
+    Then $\mathbb{P}(\bigcap\limits_{i=1}^k \overline{B_i})>0$ ($\overline{B}$ is the complement of $B$).
+\end{theorem}
+\begin{proof}
+    For $S\subseteq\{1,...,n\}$, we show inductively that:
+    \begin{enumerate}
+        \item $\mathbb{P}(\bigcap\limits_{i\in S} \overline{B_i})>0$
+        \item $\forall k\in S:\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})\leq2p$
+    \end{enumerate}
+    Wlog assume that the dependency graph is connected.\\
+    Proof by induction on $|S|$.\\
+    $|S|=1$, i.e. $S=\{k\}$: (i):$\mathbb{P}(\overline{B_k})=1-\mathbb{P}(B_k)>1-p>0$.\\
+    (ii): If $B_i$ and $B_k$ are mutually independent, then $\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})=\mathbb{P}(B_k)\leq p\leq 2p$.\\
+        If $B_i$ and $B_k$ are not mutually independent, then $\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})=\frac{\mathbb{P}(B_k\cap \overline{B_i})}{\mathbb{P}(\overline{B_i})}\leq\frac{\mathbb{P}(B_k)}{\mathbb{P}(\bigcap\limits_{i\in S} \overline{B_i})}\stackrel{(i)}{\leq}\frac{p}{1-p}\leq 2p$.\\
+    Wlog $S=\{1,...,s\}$\\
+    (i): $\mathbb{P}(\bigcap\limits_{i=1}^s \overline{B_i})=\mathbb{P}({\overline B_1})\mathbb{P}(\overline{B_2}|\overline{B_1})...\mathbb{P}(\overline{B_s}|\bigcap\limits_{i=1}^{s-1} \overline{B_i})=\prod_{i=1}^s \mathbb{P}(\overline{B_i}|\bigcap\limits_{j=1}^{i-1} \overline{B_j})=\prod_{i=1}^s (1-\mathbb{P}(B_i|\bigcap\limits_{j=1}^{i-1} \overline{B_j}))\stackrel{HI}{\geq}s(1-2p)>0$.\\
+    (ii): Need to show that $\mathbb{P}(B_k|\bigcap\limits_{i=1}^s \overline{B_i})\leq 2p$.\\
+\end{proof}

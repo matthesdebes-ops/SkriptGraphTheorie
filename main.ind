@@ -24,6 +24,7 @@
   \indexspace
 
   \item degree, \hyperpage{4}
+  \item dependency graph, \hyperpage{33}
   \item directed graph, \hyperpage{16}
 
   \indexspace
@@ -34,6 +35,7 @@
   \item Eulerian graph, \hyperpage{7}
   \item Eulerian trail, \hyperpage{7}
   \item event, \hyperpage{31}
+  \item expection, \hyperpage{32}
 
   \indexspace
 
@@ -51,6 +53,7 @@
 
   \indexspace
 
+  \item independent, \hyperpage{33}
   \item independent set, \hyperpage{28}
 
   \indexspace
@@ -62,6 +65,7 @@
 
   \item matching, \hyperpage{20}
   \item minor, \hyperpage{15}
+  \item mutually independent, \hyperpage{33}
 
   \indexspace
 
