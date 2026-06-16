@@ -13,15 +13,15 @@
 \end{definition*}
 \begin{definition}\label{7.1}
     A \textbf{(discrete) probability space}\index{probability space} is a finite set $\Omega$ (usually $\Omega=\mathcal{G}$), together with a probability function $p':\Omega\rightarrow[0,1]$ with the property $\sum\limits_{\omega\in\Omega}p'(\omega)=1$.\\
-    An \textbf{event}\index{event} is a subset of $A\subseteq\Omega$, the probability of $A$ is $\mathbb{P}(A)=\sum\limits_{\omega\in A}p'(\omega)$.\par
-    Here $\Omega=\mathcal{G}$. One needs to show that there exists a probability function $p:\mathcal{G}\rightarrow[0,1]$ s.t. each edge occurs independantly with probability $p$.\\
+    An \textbf{event}\index{event} is a subset $A\subseteq\Omega$, the probability of $A$ is $\mathbb{P}(A)=\sum\limits_{\omega\in A}p'(\omega)$.\par
+    Here $\Omega=\mathcal{G}$. One needs to show that there exists a probability function $p:\mathcal{G}\rightarrow[0,1]$ s.t. each edge occurs independently with probability $p$.\\
     Let $\mathcal{G}(n,p)$ be the resulting probability space. 
 \end{definition}
 \begin{remark*}\label{7.1r}
     For countable sequences $A_1,A_2,...\in\Omega$, we have $\mathbb{P}(\bigcup\limits_{i=1}^{\infty}A_i)\leq \sum\limits_{i=1}^{\infty}\mathbb{P}(A_i)$.
 \end{remark*}
 \begin{lemma}\label{7.2}
-    For all $n,k\in\mathbb{N},n\geq k\geq2$, the probability that $G\in\mathcal{G}(n,p)$ has an independant set of size $\geq k$ is $\mathbb{P}(\alpha(G)\geq k)\leq \binom{n}{k}(1-p)^{\binom{k}{2}}$.
+    For all $n,k\in\mathbb{N},n\geq k\geq2$, the probability that $G\in\mathcal{G}(n,p)$ has an independent set of size $\geq k$ is $\mathbb{P}(\alpha(G)\geq k)\leq \binom{n}{k}(1-p)^{\binom{k}{2}}$.
 \end{lemma}
 \begin{proof}
     The probability that a fixed set $U\subseteq V$, $|U|=k$, is a independent set in $G$ is $(1-p)^{\binom{k}{2}}$. There are $\binom{n}{k}$ such sets. By Remark \ref{7.1r}, we have $\mathbb{P}(\alpha(G)\geq k)\leq \mathbb{P}(\bigcup\limits_{U\subseteq V,|U|=k}\{U\text{ is an independent set}\})\leq \sum\limits_{U\subseteq V,|U|=k}\mathbb{P}(U\text{ is an independent set})=\binom{n}{k}(1-p)^{\binom{k}{2}}$.\\
@@ -39,7 +39,8 @@
     Graph invariants like maximal degree, girth, etc. can be interpreted as random variables. The \textbf{expection}\index{expection} of $X$ is $\mathbb{E}[X]=\sum\limits_{\omega\in\Omega}\mathbb{P}(\omega)X(\omega)$. Note that $\mathbb{E}[x+y]=\mathbb{E}[x]+\mathbb{E}[y]$ and $\forall \lambda\in\mathbb{R}:\mathbb{E}[\lambda x]=\lambda\mathbb{E}[x]$.
 \end{definition*}
 \begin{lemma}\label{7.3}
-    Let $k\in\mathbb{N}$, $p=p(n)$ a function s.t. $p\geq\frac{6k\ln(n)}{n}$ for large enough $n$. Let $g\in\mathcal{G}(n,p(n))$. Then $\lim\limits_{n\to\infty}\mathbb{P}(\alpha(G)\geq\frac{1}{2}\frac{n}{k})=0$.
+    Let $k\in\mathbb{N}$, $p=p(n)$ a function s.t. $p\geq\frac{6k\ln(n)}{n}$ for large enough $n$. Let $
+    G\in\mathcal{G}(n,p(n))$. Then $\lim\limits_{n\to\infty}\mathbb{P}(\alpha(G)\geq\frac{1}{2}\frac{n}{k})=0$.
 \end{lemma}
 \begin{proof}
     $\forall n,r\in\mathbb{N}$ with $n\geq r\geq2$, we have:\\
@@ -54,9 +55,9 @@
 \begin{proof}
     For every possible $k$-cycle $C$ with vertices in $\{1,...,n\}$, let $X_C:\mathcal{G}(n,p)\to\{0,1\},G\to\begin{cases}
         1, & C\subseteq G \\
-        0, & else
+        0, & \text{else}
     \end{cases}$.\\
-    $\mathbb{E}[X_C]=\mathbb{P}(X_C=1)=\mathbb{P}(C\subseteq G)=p^k$. There are $(n)_k$ sequences $v_1,...,v_k$ of distinct vertices in $\{1,...,n\}$, but each cycle is labeled by $2k$ such squences so there are $\frac{(n)_k}{2k}$ possible cycles.\\
+    $\mathbb{E}[X_C]=\mathbb{P}(X_C=1)=\mathbb{P}(C\subseteq G)=p^k$. There are $(n)_k$ sequences $v_1,...,v_k$ of distinct vertices in $\{1,...,n\}$, but each cycle is labeled by $2k$ such sequences so there are $\frac{(n)_k}{2k}$ possible cycles.\\
     $X=\sum\limits_{C \text{ }k\text{-cycle}} X_C$ so $\mathbb{E}[X]=\sum\limits_{C \text{ }k\text{-cycle}} \mathbb{E}[X_C]=\frac{(n)_k}{2k}p^k$.
 \end{proof}
 \begin{lemma}[Markov's inequality]\label{7.5}
@@ -68,7 +69,7 @@
     We may assume $k\geq 3$.\\
     Fix $\eps$ with $0<\eps<\frac{1}{k}$, $p=p(n)=n^{\eps-1}$.\\
     Let $X:\mathcal{G}(n,p)\to\mathbb{R}$ be a random variable assigning to every graph $G\in\mathcal{G}(n,p)$ the number of cycles of length $\leq k$. \\
-    Want to enforce $\mathbb{P}[X\geq \frac{n}{2}]<\frac{1}{2}$ (few small cycles),$\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}$ (few independent sets).\\
+    Want to enforce $\mathbb{P}[X\geq \frac{n}{2}]<\frac{1}{2}$ (few small cycles), $\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}$ (few independent sets).\\
     By Lemma \ref{7.4}, $\mathbb{E}[X]=\sum\limits_{i=3}^k \frac{(n)_i}{2i}p^i\leq\frac{1}{2}\sum\limits_{i=3}^k n^ip^i\leq\frac{1}{2}(k-2)n^kp^k$.\\
     By Lemma \ref{7.5}, $\mathbb{P}[X\geq \frac{n}{2}]\leq\frac{\mathbb{E}[X]}{\frac{n}{2}}\leq (k-2)n^{k-1}p^k\stackrel{np=n^\eps}{=}(k-2)n^{k-1}n^{k(\eps-1)}=(k-2)n^{k-1+k\eps-k}=(k-2)n^{k\eps-1}$.\\
     As $k\eps-1<0$, this yields $\lim\limits_{n\to\infty}\mathbb{P}[X\geq \frac{n}{2}]=0$. By choosing $n$ sufficiently large, we can enforce $\mathbb{P}[X\geq \frac{n}{2}]<\frac{1}{2}$ and $\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}$ by Lemma \ref{7.3}.\\
@@ -76,9 +77,9 @@
     Now delete a vertex from each cycle of length $\leq k$, call the resulting graph $H$. Then $|V(H)|\geq\frac{n}{2}$, $g(H)>k$ and thus $\chi(H)\geq\frac{|V(H)|}{\alpha(H)}>\frac{\frac{n}{2}}{\frac{1}{2}\frac{n}{k}}=k$.
 \end{proof}
 \begin{definition*}
-    Fix a probability space. Events $A,B$ are \textbf{independent}\index{independent} if $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$ or if $\mathbb{P}(A|B)=\mathbb{P}(A)$ and $\mathbb{P}(B)\neq 0$ ($\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$).\\
+    Fix a probability space. Events $A,B$ are \textbf{independent}\index{independent} if $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$, which is equivalent to $\mathbb{P}(A|B)=\mathbb{P}(A)$ provided that $\mathbb{P}(B)\neq 0$ (where $\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$).\\
     An event is \textbf{mutually independent}\index{mutually independent} from events $B_1,...,B_n$ if for every $I\subseteq\{1,...,n\}$: $\mathbb{P}(A|\bigcap_{i\in I} B_i)=\mathbb{P}(A)$.\\
-    An \textbf{dependency graph}\index{dependency graph} for events $B_1,...,B_n$ is a graph on a vertex set $\{B_1,...,B_n\}$ and a set of edges s.t. $\forall i\in\{1,...,n\}$, the event $B_i$ is mutually independent from $V\setminus(\{B_i\}\cup N(B_i))$.
+    A \textbf{dependency graph}\index{dependency graph} for events $B_1,...,B_n$ is a graph on a vertex set $\{B_1,...,B_n\}$ and a set of edges s.t. $\forall i\in\{1,...,n\}$, the event $B_i$ is mutually independent from $V\setminus(\{B_i\}\cup N(B_i))$.
 \end{definition*}
 \begin{theorem}[Lovász Local Lemma]\label{7.6}
     Let $B_1,...,B_n$ be events in a (finite) probability space. If there exists $p\in \mathbb{R}$ with $0\leq p<1$ s.t.

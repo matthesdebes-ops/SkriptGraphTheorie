@@ -20,7 +20,7 @@ In this chapter, if we talk about coloring, we always mean a not necessarily pro
 \end{theorem}
 \begin{proof}
     Set $N=k^{kn}$. Aim: Find $v_1,...,v_{kn}\in V(K_N)$ s.t. for all edges from $v_i$ to $v_{i+1},...,v_{kn}$ all have same color.\\
-    We construct $W$ and $v_i$ inductively ($v_i$ are the vertices we want at the end and $W$ is a big enough set of candidates for later iterationsteps).\\
+    We construct $W$ and $v_i$ inductively ($v_i$ are the vertices we want at the end and $W$ is a big enough set of candidates for later iteration steps).\\
     \begin{itemize}
         \item Set $W_0:=V(K_N)$.
         \item We want to show that for every $l\in \{1,...,nk\}$ we can find $\{v_1,...,v_l\}$ with $\{v_1,...,v_l\}\cap W_l=\emptyset$ and for every $i = 1, \dots, l$, the edges from $v_i$ to $W_l \cup \{v_{i+1}, \dots, v_l\}$ have the same color.
