@@ -76,25 +76,25 @@
     Then $\mathbb{P}[X\geq \frac{n}{2}\text{ or }\alpha(G)\geq \frac{1}{2}\frac{n}{k}]\leq\mathbb{P}[X\geq \frac{n}{2}]+\mathbb{P}[\alpha(G)\geq \frac{1}{2}\frac{n}{k}]<\frac{1}{2}+\frac{1}{2}=1\implies$ There exists a graph $G$ with $<\frac{n}{2}$ cycles of length $\leq k$ and $\alpha(G)<\frac{1}{2}\frac{n}{k}$.\\
     Now delete a vertex from each cycle of length $\leq k$, call the resulting graph $H$. Then $|V(H)|\geq\frac{n}{2}$, $g(H)>k$ and thus $\chi(H)\geq\frac{|V(H)|}{\alpha(H)}>\frac{\frac{n}{2}}{\frac{1}{2}\frac{n}{k}}=k$.
 \end{proof}
-\begin{definition*}
+\begin{definition}\label{7.6}
     Fix a probability space. Events $A,B$ are \textbf{independent}\index{independent} if $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$, which is equivalent to $\mathbb{P}(A|B)=\mathbb{P}(A)$ provided that $\mathbb{P}(B)\neq 0$ (where $\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$).\\
     An event is \textbf{mutually independent}\index{mutually independent} from events $B_1,...,B_n$ if for every $I\subseteq\{1,...,n\}$: $\mathbb{P}(A|\bigcap_{i\in I} B_i)=\mathbb{P}(A)$.\\
     A \textbf{dependency graph}\index{dependency graph} for events $B_1,...,B_n$ is a graph on a vertex set $\{B_1,...,B_n\}$ and a set of edges s.t. $\forall i\in\{1,...,n\}$, the event $B_i$ is mutually independent from $V\setminus(\{B_i\}\cup N(B_i))$.
-\end{definition*}
-\begin{theorem}[Lovász Local Lemma]\label{7.6}
+\end{definition}
+\begin{theorem}[Lovász Local Lemma]\label{7.7}
     Let $B_1,...,B_n$ be events in a (finite) probability space. If there exists $p\in \mathbb{R}$ with $0\leq p<1$ s.t.
     \begin{itemize}
-        \item $\mathbb{P}(B_i)<p$ for all $i$
+        \item $\mathbb{P}(B_i)<p$ for all $i\in\{1,...,n\}$
         \item the max. degree in the dependency graph for $B_1,...,B_n$ is at most $d$
-        \item $p\leq\frac{1}{4d}$ ($p$ is at least $1$ (graph connected) so $d\leq \frac{1}{4}$)
+        \item $p\leq\frac{1}{4d}$ ($d$ is at least $1$ (graph connected) so $p\leq \frac{1}{4}$)
     \end{itemize}
-    Then $\mathbb{P}(\bigcap\limits_{i=1}^k \overline{B_i})>0$ ($\overline{B}$ is the complement of $B$).
+    Then $\mathbb{P}(\bigcap\limits_{i=1}^n \overline{B_i})>0$ ($\overline{B}$ is the complement of $B$).
 \end{theorem}
 \begin{proof}
     For $S\subseteq\{1,...,n\}$, we show inductively that:
     \begin{enumerate}
         \item $\mathbb{P}(\bigcap\limits_{i\in S} \overline{B_i})>0$
-        \item $\forall k\in S:\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})\leq2p$
+        \item $\forall k\in \{1,...,n\}:\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})\leq2p$
     \end{enumerate}
     Wlog assume that the dependency graph is connected.\\
     Proof by induction on $|S|$.\\
@@ -103,5 +103,60 @@
         If $B_i$ and $B_k$ are not mutually independent, then $\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})=\frac{\mathbb{P}(B_k\cap \overline{B_i})}{\mathbb{P}(\overline{B_i})}\leq\frac{\mathbb{P}(B_k)}{\mathbb{P}(\bigcap\limits_{i\in S} \overline{B_i})}\stackrel{(i)}{\leq}\frac{p}{1-p}\leq 2p$.\\
     Wlog $S=\{1,...,s\}$\\
     (i): $\mathbb{P}(\bigcap\limits_{i=1}^s \overline{B_i})=\mathbb{P}({\overline B_1})\mathbb{P}(\overline{B_2}|\overline{B_1})...\mathbb{P}(\overline{B_s}|\bigcap\limits_{i=1}^{s-1} \overline{B_i})=\prod_{i=1}^s \mathbb{P}(\overline{B_i}|\bigcap\limits_{j=1}^{i-1} \overline{B_j})=\prod_{i=1}^s (1-\mathbb{P}(B_i|\bigcap\limits_{j=1}^{i-1} \overline{B_j}))\stackrel{HI}{\geq}s(1-2p)>0$.\\
-    (ii): Need to show that $\mathbb{P}(B_k|\bigcap\limits_{i=1}^s \overline{B_i})\leq 2p$.\\
+    (ii): Need to show that $\mathbb{P}(B_k|\bigcap\limits_{i=1}^s \overline{B_i})\leq 2p$ ($k\in\{1,...,n\}$).\\
+    We split $S=S_1\cupdot S_2$ s.t. $B_k$ is mutually independent from $S_2$. If $S_2=S$, then $\mathbb{P}(B_k|\bigcap\limits_{i\in S} \overline{B_i})=\mathbb{P}(B_k)<p$. So assume $S_2\subsetneq S$.\\
+    Set $F_S=\bigcap\limits_{i\in S} \overline{B_i}\stackrel{(1)}{\neq}\emptyset$, $F_{S_1}=\bigcap\limits_{i\in S_1} \overline{B_i}$, $F_{S_2}=\bigcap\limits_{i\in S_2} \overline{B_i}$.\\
+    We want to show that $\mathbb{P}(B_k|F_S)\leq 2p$.\\
+    We have: $\mathbb{P}(B_k|F_S)=\frac{\mathbb{P}(B_k\cap F_S)}{\bbP(F_S)}=\frac{\bbP(B_k\cap F_{S_1}|F_{S_2})\bbP(F_{S_2})}{\bbP(F_{S_1}|F_{S_2})\bbP(F_{S_2})}=\frac{\bbP(B_k\cap F_{S_1}|F_{S_2})}{\bbP(F_{S_1}|F_{S_2})}=(\ast)$\\
+    We have: $\bbP(B_k\cap F_{S_1}|F_{S_2})\leq\bbP(B_k|F_{S_2})\leq\bbP(B_k)\leq p$.\\
+    For the denominator, we calculate: $\bbP(F_{S_1}|F_{S_2})=1-\bbP(\bigcup\limits_{i\in S_1} B_i|F_{S_2})\geq 1-\sum\limits_{i\in S_1} \bbP(B_i|F_{S_2})\stackrel{IH}{\geq}1-\sum\limits_{i\in S_1} 2p\stackrel{S_2\subsetneq S}{\geq}1-2pd\stackrel{p\leq\frac{1}{4d}}{\geq}\frac{1}{2}$.\\
+    $\implies (\ast)\leq\frac{p}{\frac{1}{2}}=2p$.
 \end{proof}
+\begin{remark}\label{7.8}
+    \begin{itemize}
+        \item The bounds can be slightly improved
+        \item Asymmetric version exists
+        \item There is an algorithmic version, the Moser-Trados-Algorithm
+    \end{itemize}
+\end{remark}
+\begin{lemma}\label{7.9}
+    Let $k,n\in\mathbb{N}_{\geq 2}$ s.t. $4\binom{k}{2}\binom{n-k}{k-2}2^{1-\binom{k}{2}}<1$.\\
+    Then there exists a $2$-edge coloring of $K_n$ that does not contain a monochromatic $K_k$. Thus $r(k)>n$.
+\end{lemma}
+\begin{proof}
+    Consider a random $2$-edge coloring of $K_n$. For $S\subseteq\{1,...,n\}$ of size $k$, consider the event $A_S$ that the graph induced by $S$ is monochromatic. Thus $\mathbb{P}(A_S)=\frac{2}{2^{\binom{k}{2}}}=2^{1-\binom{k}{2}}$. Set $p=2^{1-\binom{k}{2}}+\eps$ with $\eps>0$.\\
+    $A_S$ is mutually independent from the events $A_T$ with $|S\cap T|\leq 1$.
+    \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+            ]
+            \node[vertex] (a) at (0,1) {};
+            \node[vertex] (b) at (1,0) {};
+            \node[vertex] (c) at (2,1) {};
+            \node[vertex] (d) at (3,0) {};
+            \node[vertex] (e) at (4,1) {};
+            \node[vertex] (f) at (5,0) {};
+            \node[vertex] (g) at (6,0) {};
+            \node[vertex] (h) at (7,1) {};
+            \node[vertex] (i) at (8,0) {};
+            \node (j) at (1,0.5) {$T$};
+            \node (k) at (2,0.5) {$S$};
+            \node (l) at (4,0.5) {$T$};
+            \node (m) at (7,0.5) {$T$};
+
+            \draw[dashed] (a)--(c)--(b)--(a);
+            \draw (b)--(c)--(d)--(b);
+            \draw (d)--(e)--(f)--(d);
+            \draw (g)--(i)--(h)--(g);
+            \draw[red] (0.8,0.6)--(1.2,0.4);
+            
+            \end{tikzpicture}
+    \end{center}
+
+    Thus the maximal degree of the correspondingdependency graph satisfies $d\leq \binom{k}{2}\binom{n-2}{k-2}$.\\
+    Then $p\leq \frac{1}{4d}$. Thus by Theorem \ref{7.7} we have $\bbP(\bigcap\limits_{S\subseteq\{1,...,n\},|S|=k} \overline{A_S})>0$ ($\bbP(\text{no monochromatic} K_k)>0$).\\
+    Thus there exists a $2$-edge coloring of $K_n$ that does not contain a monochromatic $K_k$.
+\end{proof}
+\begin{remark}\label{7.10}
+    This yields $r(k)>\frac{\sqrt{2}}{4}(1+o(1))k2^{\frac{k}{2}}$.
+\end{remark}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  12 JUN 2026 15:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.5)  18 JUN 2026 13:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -510,6 +510,83 @@ File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathmorphing.code.tex)) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/manfnt\manfnt.sty
 Package: manfnt 1999/07/010.2LaTeX2e manfnt package
 \dbend@height=\skip67
+) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/mnsymbol\MnSymbol.sty
+Package: MnSymbol 2007/01/21 v1.4 support for the MnSymbol font
+ (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+LaTeX Info: Redefining \dagger on input line 84.
+LaTeX Info: Redefining \ddagger on input line 84.
+LaTeX Info: Redefining \mathparagraph on input line 84.
+LaTeX Info: Redefining \mathsection on input line 84.
+LaTeX Info: Redefining \mathdollar on input line 84.
+LaTeX Info: Redefining \mathsterling on input line 84.
+LaTeX Info: Redefining \yen on input line 84.
+LaTeX Info: Redefining \circledR on input line 84.
+LaTeX Info: Redefining \circledS on input line 84.
+LaTeX Info: Redefining \Re on input line 84.
+LaTeX Info: Redefining \Im on input line 84.
+LaTeX Info: Redefining \dotplus on input line 84.
+LaTeX Info: Redefining \thicksim on input line 84.
+LaTeX Info: Redefining \thickapprox on input line 84.
+LaTeX Info: Redefining \veebar on input line 84.
+LaTeX Info: Redefining \barwedge on input line 84.
+LaTeX Info: Redefining \doublebarwedge on input line 84.
+LaTeX Info: Redefining \centerdot on input line 84.
+LaTeX Info: Redefining \divideontimes on input line 84.
+\symMnSyA=\mathgroup7
+\symMnSyB=\mathgroup8
+\symMnSyC=\mathgroup9
+\symMnSyD=\mathgroup10
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/MnSymbolE/m/n on input line 119.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/MnSymbolE/m/n on input line 119.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 120.
+LaTeX Font Info:    Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 120.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> U/MnSymbolF/m/n on input line 120.
+LaTeX Font Info:    Encoding `OMS' has changed to `U' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 120.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> U/MnSymbolF/m/n on input line 120.
+LaTeX Font Info:    Overwriting symbol font `MnSyA' in version `bold'
+(Font)                  U/MnSymbolA/m/n --> U/MnSymbolA/b/n on input line 121.
+LaTeX Font Info:    Overwriting symbol font `MnSyB' in version `bold'
+(Font)                  U/MnSymbolB/m/n --> U/MnSymbolB/b/n on input line 122.
+LaTeX Font Info:    Overwriting symbol font `MnSyC' in version `bold'
+(Font)                  U/MnSymbolC/m/n --> U/MnSymbolC/b/n on input line 123.
+LaTeX Font Info:    Overwriting symbol font `MnSyD' in version `bold'
+(Font)                  U/MnSymbolD/m/n --> U/MnSymbolD/b/n on input line 124.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/MnSymbolE/m/n --> OMX/MnSymbolE/b/n on input line 125.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  U/MnSymbolF/m/n --> U/MnSymbolF/b/n on input line 126.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 241.
+LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `bold'
+(Font)                  OMS/MnSymbolS/m/n --> OMS/MnSymbolS/b/n on input line 241.
+LaTeX Info: Redefining \longrightarrow on input line 548.
+LaTeX Info: Redefining \longleftarrow on input line 549.
+LaTeX Info: Redefining \longleftrightarrow on input line 550.
+LaTeX Info: Redefining \Longrightarrow on input line 551.
+LaTeX Info: Redefining \Longleftarrow on input line 552.
+LaTeX Info: Redefining \Longleftrightarrow on input line 553.
+LaTeX Info: Redefining \longmapsto on input line 554.
+LaTeX Info: Redefining \vdots on input line 868.
+LaTeX Font Info:    Redeclaring math symbol \braceld on input line 1721.
+LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 1722.
+LaTeX Font Info:    Redeclaring math symbol \bracerd on input line 1723.
+LaTeX Font Info:    Redeclaring math symbol \braceru on input line 1724.
+LaTeX Info: Redefining \downbracefill on input line 1799.
+LaTeX Info: Redefining \upbracefill on input line 1800.
+LaTeX Info: Redefining \overbrace on input line 1819.
+LaTeX Info: Redefining \underbrace on input line 1820.
+LaTeX Info: Redefining \surd on input line 1843.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 1845.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 1846.
+LaTeX Font Info:    Redeclaring math accent \vec on input line 1848.
 ) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/paralist\paralist.sty
 Package: paralist 2017/01/22 v2.7 Extended list environments
 \pltopsep=\skip68
@@ -523,12 +600,12 @@ Package: hyperref 2026-04-24 v7.01q Hypertext links for LaTeX
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+)
+(C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
  (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+) (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
  (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -647,7 +724,7 @@ File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 
 
 Writing index file main.idx
-(main.aux (Chapter1/Introduction.aux) (Chapter2/Trees.aux) (Chapter3/PlanarGraphs.aux) (Chapter4/Flows,Cuts,Connectivity.aux) (Chapter5/Coloring.aux) (Chapter6/RamseyTheory.aux) (Chapter7/ProbabilisticMethod.aux))
+(main.aux (Chapter1/Introduction.aux) (Chapter2/Trees.aux) (Chapter3/PlanarGraphs.aux) (Chapter4/Flows,Cuts,Connectivity.aux) (Chapter5/Coloring.aux) (Chapter6/RamseyTheory.aux) (Chapter7/ProbabilisticMethod.aux) (Chapter8/Treedecompositionsandtreewidth.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -743,6 +820,12 @@ Package hyperref Info: Link coloring OFF on input line 45.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/14.4'
+(microtype)             (new value: 14.4pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 48.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
  (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -756,7 +839,63 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 48.
- (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd) (main.toc)
+ (C:\Users\lepsiundstupsi\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/14.4'
+(microtype)             (new value: 14.4pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/14.4'
+(microtype)             (new value: 14.4pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/14.4'
+(microtype)             (new value: 14.4pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/14.4'
+(microtype)             (new value: 14.4pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 48.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 48.
+ (main.toc
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/12'
+(microtype)             (new value: 12.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/8'
+(microtype)             (new value: 8.0pt) on input line 4.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 4.
+)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -767,19 +906,30 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 48
 
  (Chapter1/Introduction.tex [3
 
-] [4] (Chapter1/HamiltonianCycles.tex [5]
+{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}] [4{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}] (Chapter1/HamiltonianCycles.tex [5]
 Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[6]) (Chapter1/EulerianTrails.tex
+[6]
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 41.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 41.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 41.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 41.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/10.95'
+(microtype)             (new value: 10.95pt) on input line 41.
+) (Chapter1/EulerianTrails.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--17
 
  []
 
 
-Overfull \hbox (11.46016pt too wide) in paragraph at lines 18--19
-\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v[]; e; v[]; e[]; v[]; :::; v[]; e[]; v[]; e[]; :::; v[]; e[]\OT1/cmr/m/n/12 )$ \T1/cmr/m/n/12 is a longer trail hence $\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 ) =
+Overfull \hbox (3.28894pt too wide) in paragraph at lines 18--19
+\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 v[]; e; v[]; e[]; v[]; :::; v[]; e[]; v[]; e[]; :::; v[]; e[]\OMX/MnSymbolE/m/n/12 ç$ \T1/cmr/m/n/12 is a longer trail hence $\OML/cmm/m/it/12 V\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 T\OMX/MnSymbolE/m/n/12 ç \U/MnSymbolD/m/n/12 ^^@
  []
 
 [7]) (Chapter1/Datastructures.tex
@@ -795,8 +945,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
 
 ] [11]
-Overfull \hbox (0.3722pt too wide) in paragraph at lines 109--126
-\OML/cmm/m/it/12 Q[] \OT1/cmr/m/n/12 = [] [] [] = [] [] [] =
+Overfull \hbox (21.94263pt too wide) in paragraph at lines 109--126
+\OML/cmm/m/it/12 Q[] \U/MnSymbolD/m/n/12 ^^@ [] [] [] ^^@ [] [] [] ^^@ []$ 
  []
 
 ) [12]
@@ -814,6 +964,17 @@ Overfull \hbox (0.3722pt too wide) in paragraph at lines 109--126
 
 
 ]
+Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 53.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 53.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 53.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 53.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 53.
+
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
@@ -879,35 +1040,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--25
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 66--77
+{C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
 
  []
 
-[32] [33]) [34] (main.ind [35
+[32]
+Overfull \hbox (1.46071pt too wide) in paragraph at lines 80--83
+\T1/cmr/m/n/12 An event is \T1/cmr/bx/n/12 mu-tu-ally in-de-pen-dent[] \T1/cmr/m/n/12 from events $\OML/cmm/m/it/12 B[]; :::; B[]$ \T1/cmr/m/n/12 if for ev-ery $\OML/cmm/m/it/12 I \U/MnSymbolD/m/n/12 b \OMX/MnSymbolE/m/n/12 ò\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; :::; n\OMX/MnSymbolE/m/n/12 ù$\T1/cmr/m/n/12 :
+ []
+
+
+Overfull \hbox (2.69604pt too wide) in paragraph at lines 99--114
+\T1/cmr/m/n/12 If $\OML/cmm/m/it/12 B[]$ \T1/cmr/m/n/12 and $\OML/cmm/m/it/12 B[]$ \T1/cmr/m/n/12 are not mu-tu-ally in-de-pen-dent, then $\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 B[]\OMX/MnSymbolE/m/n/12 S [] []ç \U/MnSymbolD/m/n/12 ^^@ [] B [] []
+ []
+
+
+Overfull \hbox (42.85854pt too wide) in paragraph at lines 99--114
+\T1/cmr/m/n/12 (i): $\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[] []ç \U/MnSymbolD/m/n/12 ^^@ \U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[]ç\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[]S[]ç\OML/cmm/m/it/12 :::\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[]S [] []ç \U/MnSymbolD/m/n/12 ^^@ [][] \U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[]S [] []ç \U/MnSymbolD/m/n/12 ^^@ [][]\OMX/MnSymbolE/m/n/12 à\OT1/cmr/m/n/12 1 \U/MnSymbolC/m/n/12 ^^P \U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 B[]\OMX/MnSymbolE/m/n/12 S [] []çç []
+ []
+
+
+Overfull \hbox (15.943pt too wide) in paragraph at lines 99--114
+\T1/cmr/m/n/12 For the de-nom-i-na-tor, we cal-cu-late: $\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 F[]\OMX/MnSymbolE/m/n/12 S\OML/cmm/m/it/12 F[]\OMX/MnSymbolE/m/n/12 ç \U/MnSymbolD/m/n/12 ^^@ \OT1/cmr/m/n/12 1 \U/MnSymbolC/m/n/12 ^^P \U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[] \OML/cmm/m/it/12 B[]\OMX/MnSymbolE/m/n/12 S\OML/cmm/m/it/12 F[]\OMX/MnSymbolE/m/n/12 ç \U/MnSymbolD/m/n/12 C \OT1/cmr/m/n/12 1 \U/MnSymbolC/m/n/12 ^^P [] \U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à\OML/cmm/m/it/12 B[]\OMX/MnSymbolE/m/n/12 S\OML/cmm/m/it/12 F[]\OMX/MnSymbolE/m/n/12 ç []
+ []
+
+[33] [34]
+Overfull \hbox (57.25607pt too wide) in paragraph at lines 156--159
+\T1/cmr/m/n/12 Then $\OML/cmm/m/it/12 p \U/MnSymbolD/m/n/12 B []$\T1/cmr/m/n/12 . Thus by The-o-rem []7.7[] we have $\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[] []ç \U/MnSymbolD/m/n/12 A \OT1/cmr/m/n/12 0$ \T1/cmr/m/n/12 ($\U/msb/m/n/12 P\OMX/MnSymbolE/m/n/12 à[]\OML/cmm/m/it/12 K[]\OMX/MnSymbolE/m/n/12 ç \U/MnSymbolD/m/n/12 A
+ []
+
+) [35]
+\openout2 = `Chapter8/Treedecompositionsandtreewidth.aux'.
+
+ (Chapter8/Treedecompositionsandtreewidth.tex) [36
 
 
 
-]) (main.aux (Chapter1/Introduction.aux) (Chapter2/Trees.aux) (Chapter3/PlanarGraphs.aux) (Chapter4/Flows,Cuts,Connectivity.aux) (Chapter5/Coloring.aux) (Chapter6/RamseyTheory.aux) (Chapter7/ProbabilisticMethod.aux))
+] (main.ind [37
+
+
+
+]) (main.aux (Chapter1/Introduction.aux) (Chapter2/Trees.aux) (Chapter3/PlanarGraphs.aux) (Chapter4/Flows,Cuts,Connectivity.aux) (Chapter5/Coloring.aux) (Chapter6/RamseyTheory.aux) (Chapter7/ProbabilisticMethod.aux) (Chapter8/Treedecompositionsandtreewidth.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3168BEAEFDAA08F3F388F1ABB55DFD5B;1633.
+(rerunfilecheck)             Checksum: F525D693FE9391A2519321CC31E5317C;1851.
  ) 
 Here is how much of TeX's memory you used:
- 29978 strings out of 467690
- 569643 string characters out of 5410611
- 1003421 words of memory out of 5000000
- 58293 multiletter control sequences out of 15000+600000
- 651113 words of font info for 103 fonts, out of 8000000 for 9000
+ 32345 strings out of 467690
+ 602675 string characters out of 5410611
+ 1005063 words of memory out of 5000000
+ 60596 multiletter control sequences out of 15000+600000
+ 663608 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,14n,110p,1040b,905s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on main.pdf (35 pages, 447286 bytes).
+ 107i,10n,110p,1040b,905s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\lepsiundstupsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lepsiundstupsi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (37 pages, 499715 bytes).
 PDF statistics:
- 912 PDF objects out of 1000 (max. 8388607)
- 172 named destinations out of 1000 (max. 500000)
- 12925 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 962 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
+ 12933 words of extra memory for PDF output out of 14400 (max. 10000000)
 
