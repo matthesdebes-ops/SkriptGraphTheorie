@@ -5,6 +5,7 @@
 
   \indexspace
 
+  \item bag, \hyperpage{36}
   \item bipartite, \hyperpage{20}
 
   \indexspace
@@ -92,6 +93,8 @@
 
   \item trail, \hyperpage{5}
   \item tree, \hyperpage{10}
+  \item tree decomposition, \hyperpage{36}
+  \item treewidth, \hyperpage{36}
 
   \indexspace
 

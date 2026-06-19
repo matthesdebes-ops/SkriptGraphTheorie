@@ -1,1 +1,122 @@
 \section{Tree Decompositions And Treewidth}
+\begin{definition}\label{8.1}
+    A \textbf{tree decomposition}\index{tree decomposition} of a graph $G=(V,E)$ is a pair $D=(S,T)$, where $S=\{{\color{cyan}{X_i}}:i\in {\color{blue}{I}}\}$ is a set of subsets of $V$ and $T=({\color{blue}I},{\color{red}F})$ is a tree such that the following hold:
+    \begin{enumerate}
+        \item $\bigcup_{i\in I}X_i=V$;
+        \item For every edge $\{u,v\}\in E$, there is an $i\in I$ such that $u,v\in X_i$;
+        \item For all $v\in V$, the subtree of $T$ induced by $\{i\in I:v\in X_i\}$ is connected;
+    \end{enumerate}
+The sets $X_i$ are called \textbf{bags}\index{bag}.\\
+The \textbf{width} of  $D$ is $wd(D)=\max_{i\in I}|X_i|-1$.\\
+The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is a tree decomposition of }G\}$. 
+
+ \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+            ]
+            \node[vertex] (a) at (0,1) {};
+            \node[vertex] (b) at (1,2) {};
+            \node[vertex] (c) at (1,0) {};
+            \node[vertex] (d) at (2,1) {};
+            \node[vertex] (e) at (2,-1) {};
+            \node[vertex] (f) at (2,-2) {};
+            \node[vertex] (g) at (3,1) {};
+            \node[vertex] (h) at (3,-1) {};
+            \node[vertex] (i) at (3,-2) {};
+            \node[vertex] (j) at (4,2) {};
+            \node[vertex] (k) at (4,0) {};
+            \node[vertex] (l) at (5,1) {};
+            %\node[vertex, blue] (m) at (1,1) {};
+            %\node[vertex, blue] (n) at (2.5,0) {};
+            %\node[vertex, blue] (o) at (2.5,-1.5) {};
+            %\node[vertex, blue] (p) at (4,1) {};
+            
+            \draw[cyan] (1,1) circle (1.2cm);
+            \draw[cyan] (2.5,0) ellipse (1.6cm and 1.2cm);    
+            \draw[cyan] (2.5,-1.5) circle (1.2cm);
+            \draw[cyan] (4,1) circle (1.2cm);
+
+            \draw (a) -- (b) -- (d) -- (g) -- (j) -- (l);
+            \draw (a) -- (c) -- (e) -- (h) -- (k) -- (l);
+            \draw (c) -- (d);
+            \draw (g) -- (k);
+            \draw (e) -- (f) -- (i) -- (h);
+            \draw (a) to[bend left] (d);
+            \draw (b) to[bend right] (c);
+            \draw (e) to[bend right] (i);
+            \draw (f) to[bend right] (h);
+            \draw (g) to[bend left] (l);
+            \draw (j) to[bend left] (k);
+            %\draw[red] (m) -- (n) -- (o);
+            %\draw[red] (n) -- (p);
+
+            
+            \node[vertex, blue] (q) at (8,1) {};
+            \node[vertex, blue] (r) at (9.5,0) {};
+            \node[vertex, blue] (s) at (9.5,-1.5) {};
+            \node[vertex, blue] (t) at (11,1) {};
+
+            \draw[red] (q) -- (r) -- (s);
+            \draw[red] (r) -- (t);
+
+            \draw[cyan] (q) circle (0.2 cm);
+            \draw[cyan] (r) circle (0.2 cm);
+            \draw[cyan] (s) circle (0.2 cm);
+            \draw[cyan] (t) circle (0.2 cm);
+            
+            \draw[->] (6,0) -- (7,0);
+
+
+            \end{tikzpicture}
+    \end{center}
+
+\end{definition}
+\begin{remark}\label{8.2}
+    Every graph has a trivial tree decomposition of width $|V(G)|-1$, which has a single bag containing all vertices of $G$.
+\end{remark}
+\begin{remark}\label{8.3}
+    Equivalent formulations for $(iii)$:
+    \begin{itemize}
+        \item [(iii')] If, for $v\in V$, we have $v\in X_i$ and $v\in X_j$, then $v\in X_k$ for all $k\in I$ that lie on the unique path from $i$ to $j$ in $T$.
+        \item [(iii'')] For $i,j\in I$ and $k\in I$ on the unique path from $i$ to $j$, $X_i\cap X_j\subseteq X_k$.
+    \end{itemize}
+    Since the treewidth of a graph $G$ is the maximum of the treewidths of its connected components, we will focus on connected graphs. We have $G=K_1\iff tw(G)=0$, we assume $|V(G)|\geq 2$ from now on.
+\end{remark}
+\begin{lemma}\label{8.4}
+    Let $G$ be a connected graph with tree decomposition $D=(S,T)$. For every clique $C\subseteq V(G)$, there exists a bag $X_i$, with $C\subseteq X_i$.
+\end{lemma}
+\begin{proof}
+    Induction on $k=|C|$. For $k=1$, this is $(i)$, for $K=2$ it's $(ii)$ (Definition \ref{8.1}).\\
+    Now let $k\geq 3$ and let $u,v,w$ be distinct vertices in $C$. By IH, there exist bags $X_a,X_b,X_c$ s.t. $C\setminus\{u\}\subseteq X_a,\quad C\setminus\{v\}\subseteq X_b,\quad C\setminus\{w\}\subseteq X_c$. If any two of $a,b,c$ are equal, the corresponding bag contains $C$. Thus let $a,b,c$ be pairwise distinct. Let $P_{ab},P_{ac},P_{bc}$ be the unique paths between $ab,ac,bc$ in $T$. They must share a vertex $d\notin\{a,b,c\}$ since concaterating $P_{ab},P_{ac},P_{bc}$ would be a cycle otherwise, but $T$ is a tree.
+     \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt}
+            ]
+            \node[vertex] (a) at (0,3) {$a$};
+            \node[vertex] (b) at (-2,0) {$b$};
+            \node[vertex] (c) at (2,0) {$c$};
+            \node[vertex, cyan] (d) at (1,1) {\color{black}$d$};
+            \node[vertex] (e) at (0,0.5) {};
+            \node[vertex] (f) at (1,2) {};
+            \node[vertex] (g) at (0.5,2.5) {};
+            \node[vertex] (h) at (0.5,1) {};
+
+            \draw (a)--(g)--(f)--(d)--(e)--(c);
+            \draw (b)--(h)--(d);
+            
+            \end{tikzpicture}
+    \end{center}
+    By $(iii'')$ from \ref{8.3}, we have $C\setminus\{u,v\}\subseteq X_a\cap X_b\subseteq X_d$.\\
+    Similarly, $C\setminus\{u,w\}\subseteq X_d$ and $C\setminus\{v,w\}\subseteq X_d\implies C\subseteq X_d$.
+\end{proof}
+\begin{corollary}\label{8.5}
+    For every graph $G$, we have $w(G)-1\leq tw(G)$.
+\end{corollary}
+\begin{lemma}\label{8.6}
+    If $H$ is a minor of $G$, then $tw(H)\leq tw(G)$
+\end{lemma}
+\begin{proof}
+    If $H$ is obtained from $G$ by deleting a vertex or an edge, then $tw(H)\leq tw(G)$ as every tree decomposition of $G$ remains one for $H$ (after deleting the vertex/vertices from all bags containing them).\\
+    Suppose $H$ is obtained from $G$ by contracting an edge $\{u,v\}$.\\
+    Let $D=(S,T)$ be a tree decomposition of $G$. Replace all occurences of $u$ and $v$ in the bags by a new vertex $w$. Since bags containing $u$ induce a subtree of $T$, similarly for $v$, and there is a bag containing $u$ and $v$, the bag containing $w$ induces a subtree in $T$ as well.
+\end{proof}
