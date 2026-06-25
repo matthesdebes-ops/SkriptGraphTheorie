@@ -28,3 +28,13 @@
 \newcommand{\eps}{\varepsilon}
 \newcommand{\dcup}{\operatorname{\dot{\cup}}}
 \newcommand{\bbP}{\mathbb{P}}
+\newcommand{\drawellipse}[5][]{
+    \draw[#1] 
+        let \p1 = (#2),
+            \p2 = (#3),
+            \n1 = {veclen(\x2-\x1, \y2-\y1)/2 + #4},
+            \n2 = {#5},
+            \n3 = {atan2(\y2-\y1, \x2-\x1)}
+        in 
+        [rotate=\n3] ($(#2)!0.5!(#3)$) ellipse (\n1 and \n2);
+}

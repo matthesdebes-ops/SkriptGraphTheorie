@@ -120,3 +120,41 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
     Suppose $H$ is obtained from $G$ by contracting an edge $\{u,v\}$.\\
     Let $D=(S,T)$ be a tree decomposition of $G$. Replace all occurences of $u$ and $v$ in the bags by a new vertex $w$. Since bags containing $u$ induce a subtree of $T$, similarly for $v$, and there is a bag containing $u$ and $v$, the bag containing $w$ induces a subtree in $T$ as well.
 \end{proof}
+\begin{lemma}\label{8.7}
+    Let $G=(V,E)$ connected with $|V|\geq 2$. Then $tw(G)=1\iff G$ is a tree.
+\end{lemma}
+\begin{proof}
+    "$\impliedby$" Let $G$ be a tree. Choose $s\in V$ and run DFS (Depth-First Search) on $G$. This yields for every $v\in V\setminus\{s\}$ a unique predecessor $\pi(v)$.\\
+    Set $X_s=\{s\}$, $X_v=\{v,\pi(v)\}$ $\forall v\in V\setminus\{s\}$, $T=G$, $S=\{X_v:v\in V\}$.\\
+    We claim that $D=(T,S)$ is a treedecomposition of $G$.\\
+    Properties (i) and (ii) directly follow from the constructions. For $v\in V$, the set of bags containing $v$ is $X_v$ together with all $X_w$ where $w$ is a child of $v$. Thus the subtree induced by the corresponding vertices in $T$ is connected. $\implies tw(G)=1$ (bags only have a max. of $2$ vertices in them).
+     
+ \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node[vertex] (a) at (0,7) {$s$};
+            \node[vertex] (b) at (-1,6) {};
+            \node[vertex] (c) at (1,6) {};
+            \node[vertex] (d) at (0,5) {};
+            \node[vertex] (e) at (2,5) {$\pi(v)$};
+            \node[vertex] (f) at (1,4) {$v$};
+            \node[vertex] (g) at (3,4) {};
+            
+            \draw[cyan] (a) circle (0.5cm);
+            \drawellipse[cyan, thick]{a}{b}{0.5cm}{0.7cm}
+            \drawellipse[cyan, thick]{a}{c}{0.5cm}{0.7cm}
+            \drawellipse[cyan, thick]{c}{d}{0.5cm}{0.7cm}
+            \drawellipse[cyan, thick]{c}{e}{0.5cm}{0.7cm}
+            \drawellipse[cyan, thick]{e}{f}{0.5cm}{0.7cm}
+            \drawellipse[cyan, thick]{e}{g}{0.5cm}{0.7cm}
+            \draw (a)--(b);
+            \draw (a)--(c)--(d);
+            \draw (c)--(e)--(f);
+            \draw (e)--(g);
+        
+
+
+            \end{tikzpicture}
+    \end{center}
+\end{proof}

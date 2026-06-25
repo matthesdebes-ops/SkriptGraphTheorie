@@ -227,6 +227,14 @@ INPUT D:\Latex\tex\latex\mnsymbol\MnSymbol.sty
 INPUT D:\Latex\tex\latex\mnsymbol\MnSymbol.sty
 INPUT D:\Latex\tex\latex\base\textcomp.sty
 INPUT D:\Latex\tex\latex\base\textcomp.sty
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfit.code.tex
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfit.code.tex
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
+INPUT D:\Latex\tex\generic\pgf\libraries\shapes\pgflibraryshapes.geometric.code.tex
+INPUT D:\Latex\tex\generic\pgf\libraries\shapes\pgflibraryshapes.geometric.code.tex
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT D:\Latex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
 INPUT D:\Latex\tex\latex\paralist\paralist.sty
 INPUT D:\Latex\tex\latex\paralist\paralist.sty
 INPUT D:\Latex\tex\latex\hyperref\hyperref.sty
