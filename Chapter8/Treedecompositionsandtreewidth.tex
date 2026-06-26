@@ -228,6 +228,10 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
             \draw[cyan] (n) circle (0.5cm);
             \draw[cyan] (o) circle (0.5cm);
 
+            \draw (a)--(0,8.5);
+            \draw (c)--(0,6.5);
+            \draw (b)--(-1,6.5);
+            \draw (d)--(1,6.5);
             \draw (b)--(a)--(c);
             \draw (a)--(d);
             \draw (g)--(e)--(h);
@@ -271,6 +275,9 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
             \draw[cyan] (m) circle (0.5cm);
             \draw[cyan] (o) circle (0.5cm);
 
+            \draw (a)--(0,8.5);
+            \draw (b)--(-1,6.5);
+            \draw (d)--(1,6.5);
             \draw (b)--(a)--(d);
             \draw (g)--(e)--(i);
             \draw (m)--(k)--(j)--(l)--(o);
@@ -279,5 +286,125 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
 
             \end{tikzpicture}
     \end{center}
+    \item Make vertices with precisely one child introduce/forget nodes:\\
+    Let $i\in V(T)$ with a single child $j$. Set $M=X_i\cap X_j$ and write $X_i=M\dot\cup \{v_1,...,v_p\}$, $X_j=M\dot\cup\{u_1,...,u_q\}$ with $\{v_1,...,v_p\}\cap\{u_1,...,u_q\}=\emptyset$. Now add Bags $M_a^b=M\dot\cup\{v_1,...,v_a\}\cup\{u_1,...,u_b\}$.\\
+    Replace the edge $\{i,j\}$ by $M_a^b$ for $a\in\{0,...,p\},b=0$ and $b\in\{1,...,q\},a=0$. Connect $M_a^b$ with $M_{a-1}^b$ if $a\neq 0$ and to $M_a^{b+1}$ if $a=0$.
+    \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node at (0,9) {Tree};
+            \node[vertex] (a) at (0,8) {$i$};
+            \node[vertex] (b) at (0,7) {$j$};
+            
+            \node at (-2,6) {Bundles};
+            \node (e) at (-2,5) {$X_i$};
+            \node (f) at (-2,2) {$X_j$};
+
+            
+            \node at (2,6) {+Bundels};
+            \node (j) at (2,5) {$X_i=M_p^0$};
+            \node (k) at (2,3) {$M_{p-1}^0$};
+            \node (l) at (2,1) {$M_1^0$};
+            \node (m) at (2,-1) {$M=M_0^0$};
+            \node (n) at (2,-3) {$M_0^1$};
+            \node (o) at (2,-5) {$M_0^{q-1}$};
+            \node (p) at (2,-7) {$X_j=M_0^q$};
+
+            
+            \draw[cyan] (e) circle (0.5cm);
+            \draw[cyan] (f) circle (0.5cm);
+            \drawellipse[cyan, thick]{j}{j}{0.5cm}{0.8cm}
+            \draw[cyan] (k) circle (0.5cm);
+            \draw[cyan] (l) circle (0.5cm);
+            \drawellipse[cyan, thick]{m}{m}{0.5cm}{0.8cm}
+            \draw[cyan] (n) circle (0.5cm);
+            \draw[cyan] (o) circle (0.5cm);
+            \drawellipse[cyan, thick]{p}{p}{0.5cm}{0.8cm}
+
+            \draw (a)--(0,8.5);
+            \draw (b)--(0,6.5);
+            \draw (b)--(a);
+            \draw (f)--(e);
+            \draw (j)--(k);
+            \draw[dotted] (k)--(l);
+            \draw (l)--(m)--(n); 
+            \draw[dotted] (n)--(o); 
+            \draw (o)--(p);
+        
+            \draw[->] (-0.25,4) -- (0.25,4);
+
+            \end{tikzpicture}
+    \end{center}
+    \item Leafs: Let $i\in V(T)$ be a leaf. Write $X_i=\{v_1,...,v_p\}=M_p$
+    \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node at (0,9) {Tree};
+            \node[vertex] (a) at (0,8) {$i$};
+            
+            \node at (-2,6) {Bundles};
+            \node (e) at (-2,5) {$X_i$};
+
+            \node at (2,6) {+Bundels};
+            \node (j) at (2,5) {$X_i=M_p^0$};
+            \node (k) at (2,3) {$M_{p-1}$};
+            \node (l) at (2,1) {$M_1$};
+            
+            \draw[cyan] (e) circle (0.5cm);
+            \drawellipse[cyan, thick]{j}{j}{0.5cm}{0.8cm}
+            \draw[cyan] (k) circle (0.5cm);
+            \draw[cyan] (l) circle (0.5cm);
+
+            \draw (a)--(0,8.5);
+            \draw (j)--(k);
+            \draw[dotted] (k)--(l);
+        
+            \draw[->] (-0.25,4) -- (0.25,4);
+
+            \end{tikzpicture}
+    \end{center}
+    \end{enumerate}
+This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(D')\leq tw(D)$.
+\end{proof}
+
+\begin{lemma}\label{8.11}
+    Let $G=(V,E)$ be a graph and let $D=(S,T)$ be a nice treedecomposition of $tw(\color{red}D\color{black})=k$. An independent set in $G$ of size $\alpha(G)$ can be computed in $O(k2^{k+1}n)$, where $n=|V(G)|$.
+\end{lemma}
+\begin{proof}
+    For $i\in V(T)$, let $V_i=X_i\cup\bigcup_{j \text{ descendent of } i \text{ in } T}X_j$. Set $G_i=G[V_i]$.
+     \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node at (0,9) {$T$};
+            \node[vertex] (a) at (0,8) {};
+            \node[vertex] (b) at (-1,7) {};
+            \node[vertex] (c) at (1,7) {};
+            \node[vertex] (d) at (-1,6) {};
+            \node[vertex] (e) at (0,6) {};
+            \node[vertex] (f) at (2,6) {$i$};
+            \node[vertex] (g) at (0,5) {};
+            \node[vertex] (h) at (2,5) {};
+            \node[vertex] (i) at (2,4) {$l$};
+            
+            \draw (d)--(b)--(a)--(c)--(e)--(g);
+            \draw (c)--(f)--(h)--(i);
+            \end{tikzpicture}
+    \end{center}
+    For all $i\in V(T)$ and $S\subseteq X_i$, let $C_i(S)=\max\{|M|:M\text{ independent set in }G_i,M\cap X_i=S\}$. Set $C_i(S)=-\infty$ if the above set is empty.\\
+    For every $i\in V(T)$ make a table $C_i$ containing $C_i(S)\quad \forall S\subseteq X_i$. Then $C_i$ has $2^{|X_i|}\leq 2^{k+1}$ entries.\\
+    If we manage to compute $C_i(S)$ for all $i$ and $S$ then $\alpha(G)=\max\{|M|: \text{independent set in }G\}=\max\{C_s(S):S\subseteq X_s\}$ with $s$ root of $T$.\\
+    Note $G_s=G$. This can be computed in $O(2^{k+1})$.\\
+    Now compute $C_i(S)$ starting from leafs of $T$.
+    \begin{enumerate}
+        \item $i\in V(T)$ leaf: $X_i=\{v\}$, $G_i=G[V_i]=G[\{v\}]=\{v\}$. $S=\emptyset\implies C_i(\emptyset)=0$, $S=\{v\}\implies C_i(S)=C_i(\{v\})=1$.
+        \item $i\in V(T)$ introduce node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\cup \{v\}$. Let $S\subseteq X_i=X_j\cup\{v\}$. If $v\notin S$, $C_i(S)=C_j(S)$.\\
+        If $v\in S$, then $C_i(S)=\begin{cases}
+            -\infty & \text{if } \{v,w\}\in E \text{ for some } w\in S\\
+            C_j(S)+1 & if \{v,w\}\notin E \text{ for all } w\in S
+        \end{cases}$ since $v$ is not adjacent to any vertex of $V_j\setminus X_j$ by Property (iii) \ref{8.1}.\\
+        If we know $C_j$, we can compute $C_i$ in $O(k2^{k+1})$.
     \end{enumerate}
 \end{proof}
