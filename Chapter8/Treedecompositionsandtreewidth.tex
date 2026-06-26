@@ -124,7 +124,8 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
     Let $G=(V,E)$ connected with $|V|\geq 2$. Then $tw(G)=1\iff G$ is a tree.
 \end{lemma}
 \begin{proof}
-    "$\impliedby$" Let $G$ be a tree. Choose $s\in V$ and run DFS (Depth-First Search) on $G$. This yields for every $v\in V\setminus\{s\}$ a unique predecessor $\pi(v)$.\\
+    "$\impliedby$"\\
+    Let $G$ be a tree. Choose $s\in V$ and run DFS (Depth-First Search) on $G$. This yields for every $v\in V\setminus\{s\}$ a unique predecessor $\pi(v)$.\\
     Set $X_s=\{s\}$, $X_v=\{v,\pi(v)\}$ $\forall v\in V\setminus\{s\}$, $T=G$, $S=\{X_v:v\in V\}$.\\
     We claim that $D=(T,S)$ is a treedecomposition of $G$.\\
     Properties (i) and (ii) directly follow from the constructions. For $v\in V$, the set of bags containing $v$ is $X_v$ together with all $X_w$ where $w$ is a child of $v$. Thus the subtree induced by the corresponding vertices in $T$ is connected. $\implies tw(G)=1$ (bags only have a max. of $2$ vertices in them).
@@ -157,4 +158,126 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
 
             \end{tikzpicture}
     \end{center}
+    "$\implies$"\\
+    If $G$ is not a tree $\implies$ $G$ contains a cycle and hence a $K_3$ minor. By Corollary \ref{8.5}, we have $tw(K_3)=2$ and by Lemma \ref{8.6}, $2=tw(K_3)\leq tw(G)\lightning\implies G$ is a tree.
+\end{proof}
+\begin{remark*}
+    Computing treewidth is NP-hard
+\end{remark*}
+\begin{theorem}[Bodlaender]\label{8.8}
+    There exists an algorithm that, given a graph $G$ with $tw(G)=k$, computes a tree decomposition of $G$ of width $k$ in time: $2^{o(k^3)}|V(G)|$
+\end{theorem}
+\begin{remark*}
+    \begin{itemize}
+        \item Bodlaender et al. (2016): An algorithm that constructs a treedecomposition of width $\leq 5k+4$ or decides $tw(G)\geq k$ in $o(2^{o(k)}n)$
+        \item Korhonen (2021): width $\leq 2k+1$ with same runtime
+        \item Korhonen, Lokshtanov (2023): width $k$, runtime $2^{o(k^2)}o(n^4)$
+        \item open question: What is the complexity of computing treewidth on planar graphs. Is it in P?
+    \end{itemize}
+\end{remark*}
+\begin{definition}\label{8.9}
+    A \textbf{nice treedecomposition}\index{nice treedecomposition} $D=(S,T)$ of a graph $G=(V,E)$ is a tree decomposition in which a root vertex can be choosen s.t. $T$ is a binary tree (i.e. every vertex has at most $2$ children) and such that every vertex of $T$ is of one of the following types:
+    \begin{itemize}
+        \item \textbf{leaf}: if $i\in V(T)$ is a leaf of $T$, then $|X_i|=1$
+        \item \textbf{introduce node}: if $i\in V(T)$ has exactly one child $j$ and $X_i=X_j\cap\{v\}$ for some $v\in V(G)$
+        \item \textbf{forget node}: if $i\in V(T)$ has exactly one child $j$ and $X_i=X_j\setminus\{v\}$ for some $v\in X_j$
+        \item \textbf{join node}: if $i\in V(T)$ has precisely two children $j_1,j_2$ and $X_i=X_{j_1}=X_{j_2}$
+    \end{itemize}
+\end{definition}
+\begin{theorem}\label{8.10}
+    Let $D=(S,T)$ a tree decomposition of $G=(V,E)$. Then we can construct a nice treedecomposition $D'=(S',T')$ of $G$ with $tw(D')\leq tw(D)$, $|V(T')|\leq c tw(D)|V(T)|$ in polynomial time.
+\end{theorem}
+\begin{proof}
+    Root $T$ at an arbitrary vertex $s\in V(T)$.
+    \begin{enumerate}
+        \item Make $T$ binary:\\
+        For every $i\in V(T)$ that has $\geq 3$ children $j_1,...,j_t$, replace $i$ and its descendants as follows:
+        \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node at (0,9) {Tree};
+            \node[vertex] (a) at (0,8) {$i$};
+            \node[vertex] (b) at (-1,7) {$j_1$};
+            \node[vertex] (c) at (0,7) {$j_2$};
+            \node[vertex] (d) at (1,7) {$j_t$};
+            
+            \node at (-2,6) {Bundles};
+            \node (e) at (-2,5) {$X_i$};
+            \node (g) at (-3,4) {$X_{j_1}$};
+            \node (h) at (-2,4) {$X_{j_2}$};
+            \node (i) at (-1,4) {$X_{j_t}$};
+            
+            \node at (2,6) {+Bundels};
+            \node (j) at (2,5) {$X_i$};
+            \node (k) at (1,4) {$X_{j_1}$};
+            \node (l) at (3,4) {$X_i$};
+            \node (m) at (2,3) {$X_{j_2}$};
+            \node (n) at (4,3) {$X_i$};
+            \node (o) at (3,2) {$X_{j_t}$};
+
+            
+            \draw[cyan] (e) circle (0.5cm);
+            \draw[cyan] (g) circle (0.5cm);
+            \draw[cyan] (h) circle (0.5cm);
+            \draw[cyan] (i) circle (0.5cm);
+            \draw[cyan] (j) circle (0.5cm);
+            \draw[cyan] (k) circle (0.5cm);
+            \draw[cyan] (l) circle (0.5cm);
+            \draw[cyan] (m) circle (0.5cm);
+            \draw[cyan] (n) circle (0.5cm);
+            \draw[cyan] (o) circle (0.5cm);
+
+            \draw (b)--(a)--(c);
+            \draw (a)--(d);
+            \draw (g)--(e)--(h);
+            \draw (e)--(i);
+            \draw (k)--(j)--(l)--(m);
+            \draw (l)--(n)--(o);
+        
+            \draw[->] (-0.25,4) -- (0.25,4);
+
+            \end{tikzpicture}
+    \end{center}
+    \item Make all vertices with precisely two children join nodes:
+    \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            ]
+            \node at (0,9) {Tree};
+            \node[vertex] (a) at (0,8) {$i$};
+            \node[vertex] (b) at (-1,7) {$j_1$};
+            \node[vertex] (d) at (1,7) {$j_2$};
+            
+            \node at (-2,6) {Bundles};
+            \node (e) at (-2,5) {$X_i$};
+            \node (g) at (-3,4) {$X_{j_1}$};
+            \node (i) at (-1,4) {$X_{j_2}$};
+            
+            \node at (2,6) {+Bundels};
+            \node (j) at (2,5) {$X_i$};
+            \node (k) at (1,4) {$X_i$};
+            \node (l) at (3,4) {$X_i$};
+            \node (m) at (1,2.5) {$X_{j_1}$};
+            \node (o) at (3,2.5) {$X_{j_2}$};
+
+            
+            \draw[cyan] (e) circle (0.5cm);
+            \draw[cyan] (g) circle (0.5cm);
+            \draw[cyan] (i) circle (0.5cm);
+            \draw[cyan] (j) circle (0.5cm);
+            \draw[cyan] (k) circle (0.5cm);
+            \draw[cyan] (l) circle (0.5cm);
+            \draw[cyan] (m) circle (0.5cm);
+            \draw[cyan] (o) circle (0.5cm);
+
+            \draw (b)--(a)--(d);
+            \draw (g)--(e)--(i);
+            \draw (m)--(k)--(j)--(l)--(o);
+        
+            \draw[->] (-0.25,4) -- (0.25,4);
+
+            \end{tikzpicture}
+    \end{center}
+    \end{enumerate}
 \end{proof}
