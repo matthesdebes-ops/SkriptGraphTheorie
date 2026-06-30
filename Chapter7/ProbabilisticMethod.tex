@@ -35,7 +35,7 @@
     $\mathbb{P}(\omega(G)\geq n)\stackrel{\ref{7.2}}{\leq} \binom{N}{n}\frac{1}{2}^{\binom{n}{2}}=\frac{N!}{(N-n)!n!}\frac{1}{2}^{\binom{n}{2}}\stackrel{n!>2}{<}\frac{N!}{(N-n)!2^n}\frac{1}{2}^{\binom{n}{2}}\leq\frac{N^n}{2^n}\frac{1}{2}^{\binom{n}{2}}=\frac{N^n}{2^n}\frac{1}{2}^{\frac{n!}{2(n-2)!}}=\frac{2^{\frac{n}{2}n}}{2^n}2^\frac{-n(n-1)}{2}=2^{\frac{n^2}{2}-n-\frac{n^2}{2}+\frac{n}{2}}=2^{-\frac{n}{2}}<1$.
 \end{proof}
 \begin{definition*}
-    For a probabilistic space $(\Omega,p)$ a \textbf{random variable} is a function $X:\Omega\rightarrow\mathbb{R}$ $[(\Omega,p)=\mathcal{G}(n,p)]$.\\
+    For a probability space $(\Omega,p)$ a \textbf{random variable} is a function $X:\Omega\rightarrow\mathbb{R}$ $[(\Omega,p)=\mathcal{G}(n,p)]$.\\
     Graph invariants like maximal degree, girth, etc. can be interpreted as random variables. The \textbf{expection}\index{expection} of $X$ is $\mathbb{E}[X]=\sum\limits_{\omega\in\Omega}\mathbb{P}(\omega)X(\omega)$. Note that $\mathbb{E}[x+y]=\mathbb{E}[x]+\mathbb{E}[y]$ and $\forall \lambda\in\mathbb{R}:\mathbb{E}[\lambda x]=\lambda\mathbb{E}[x]$.
 \end{definition*}
 \begin{lemma}\label{7.3}
@@ -116,7 +116,7 @@
     \begin{itemize}
         \item The bounds can be slightly improved
         \item Asymmetric version exists
-        \item There is an algorithmic version, the Moser-Trados-Algorithm
+        \item There is an algorithmic version, the Moser-Tardos-Algorithm
     \end{itemize}
 \end{remark}
 \begin{lemma}\label{7.9}
