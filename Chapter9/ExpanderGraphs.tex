@@ -1,0 +1,32 @@
+\section{Expander Graphs}
+Aim: Sparse graphs with "strong connectivity" properties.\\
+\begin{definition}[Edge expansion]\label{9.1}
+    Let $G=(V,E)$ be a graph, $|V|=n$. For $S\subsetneq V$, let $\partial S$ be the set of edges with exactly one endpoint in $S$. The \textbf{edge expansion}\index{edge expansion} (isoperimetric number or cheeger constant) of $G$ is $h(G)=\min_{S\subsetneq V, 0<|S|\leq \frac{n}{2}} \frac{|\partial S|}{|S|}$.
+\begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
+            bundle/.style={circle, draw, fill=cyan!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node at (0.5,5) {$G$};
+            \node at (-0.5,1) {$S$};
+            \node[vertex] (a) at (0,4) {};
+            \node[vertex] (b) at (0,3) {};
+            \node[vertex] (c) at (0,2) {};
+            \node[vertex] (d) at (0,1) {};
+            \node[vertex] (e) at (1,4) {};
+            \node[vertex] (f) at (1,3) {};
+            \node[vertex] (g) at (1,2) {};
+            \node[vertex] (h) at (1,1) {};
+            
+
+            \draw (a)--(e);
+            \draw (b)--(f);
+            \draw (c)--(g);
+            \draw (d)--(h);
+            \drawellipse[gray]{a}{d}{0.3cm}{0.2cm}
+            \end{tikzpicture}
+    \end{center}
+\end{definition}
+\begin{remark}\label{9.2}
+    For every connected graph $G$ with $|V|=n$, $h(G)>0$.
+\end{remark}

@@ -463,7 +463,51 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
         (take independent set $M'\subseteq V_j$ with $M'\cap X_j=S\setminus\{v\}$ and $|M'|=C_j(S\setminus\{v\})$. By claim no vertex in $M'\setminus X_j$ is adjacent to $v$. Thus if $\{v,w\}\notin E$ for all $w\in S$, then $M'\cup \{v\}$ is indepenent so $C_i(S)\geq C_j(S\setminus\{v\})+1$, and that is optimal.)
         Thus, if we know $C_j$, we can compute $C_i$ in $\mathcal{O}(k2^{k+1})$.
         \item $i\in V(T)$ forget node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\setminus \{v\}$ for some $x\in X_j$. Then $V_i=V_j$, $G_i=G_j$. For $S\subseteq X_i$, we have $C_i(S)=\max\{C_j(S),C_j(S\cup\{v\})\}.$ This is computable in $O(2^{k+1})$.
-        \item $i\in V(T)$ join node: Let $j_1,j_2$ be the two children of $i$ in $T$. Then $X_i=X_{j_1}=X_{j_2}$.\\
-        CLaim:
+        \item $i\in V(T)$ join node: \\
+        Let $j_1,j_2$ be the two children of $i$ in $T$. Then $X_i=X_{j_1}=X_{j_2}$.\\
+        CLaim: $\forall S\subseteq X_i$, $C_i(S)=C_{j_1}(S)+C_{j_2}(S)-|S|$ (so $C_i(S)$ is computable in $O(1)$).\\
+        \hfill
+        \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
+            bundle/.style={circle, draw, fill=cyan!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node at (4,9) {$G$};
+            \node[vertex] (a) at (0,4) {};
+            \node[vertex] (b) at (1,3) {};
+            \node[vertex] (c) at (2,3) {};
+            \node[vertex] (d) at (1,2) {};
+            \node[vertex] (e) at (2,2) {};
+            \node[vertex] (f) at (3,2) {};
+            \node[vertex] (g) at (2,1) {};
+            \node at (1.5,4) {\textcolor{purple}{{$G_{j_1}$}}};
+            \node at (1.5,1.7) {\textcolor{purple}{{$G_{j_2}$}}};
+            \node at (3,3) {\textcolor{blue}{{$X_i$}}};
+            
+
+            \draw (a)--(b)--(c)--(e)--(d)--(b);
+            \draw (f)--(e)--(g);
+            \drawellipse[purple]{0,3.5}{2,3.5}{0.6cm}{1cm}
+            \draw[purple] (1.5,2.5) circle (1.2cm);
+            \drawellipse[blue]{b}{c}{0.2cm}{0.3cm}
+            \end{tikzpicture}
+    \end{center}
+        Proof of claim:\\
+        "$\leq$": $M$ is independent set in $G_i$ with $M\cap X_i=S$. Then $M\cap V_{j_1}$ is independent in $G_{j_1}$ and $M\cap V_{j_2}$ is independent in $G_{j_2}$.\\
+        $M\cap X_{j_1}=M\cap X_i=S=M\cap X_{j_2}$\\
+        $C_i(S)=|M|=|M\cap V_{j_1}|+|M\cap V_{j_2}|-|M\cap V_{j_1}\cap V_{j_2}|\leq C_{j_1}(S)+C_{j_2}(S)-|S|$.\\
+        \hfill
+        "$\geq$": Let $M_1$ and $M_2$ be independent sets in $G_{j_1}$ and $G_{j_2}$ with $M_1\cap X_{j_1}=S=M_2\cap X_{j_2}$, $|M_l|=C_{j_l}(S)$ for $l=1,2$.\\
+        We show that $M=M_1\cup M_2$ is independent in $G_i$.\\ 
+        Let $v,w\in M$ and assume $\{v,w\}\in E(G_i)$. Then wlog $v\in V_{j_1}$, $w\in V_{j_2}$ ($M_1,M_2$ are independent). If both $v\notin X_i$ and $w\notin X_i$, then $\{v,w\}\notin E(G_i)$ by property (ii) \ref{8.1} $\lightning$.\\
+        So wlog $v\in X_i$. Then $v\in X_i\cap M_1=X_{j_1}\cap M_1=S\subseteq M_2$, $w\in M_2$ $\lightning$ because $M_2$ is independent.\\
+        Thus $M=M_1\cup M_2$ is independent. So $C_i(S)\geq |M|=|M_1|+|M_2|-|M_1\cap M_2|=C_{j_1}(S)+C_{j_2}(S)-|S|$     
     \end{enumerate}
+    Thus we can compute $C_i(S)$ for all $S$ in $O(k2^{k+1}n)$. $\alpha(G)=\max\{C_s(S):S\subseteq X_s\}$ where $s$ is the root of $T$. This maximum can be computed in $O(2^{k+1})$ so $O(k2^{k+1}n)$ in total. 
 \end{proof}
+\begin{remark}\label{8.12}
+    \begin{itemize}
+        \item $tw(G)\leq k\implies \quad |E|\leq k|V(G)|-\frac{1}{2}k(k+1)$
+        \item Courcelle's theorem states that every graph problem expressible in MSO (Monadic Second Order Logic) can be solved in linear time on a graphclass of bounded treewidth.   
+    \end{itemize}
+\end{remark}
