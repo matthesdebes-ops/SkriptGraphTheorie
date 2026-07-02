@@ -370,32 +370,63 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
 \end{proof}
 
 \begin{lemma}\label{8.11}
-    Let $G=(V,E)$ be a graph and let $D=(S,T)$ be a nice treedecomposition of $tw(\color{red}D\color{black})=k$. An independent set in $G$ of size $\alpha(G)$ can be computed in $\mathcal{O}(k2^{k+1}n)$, where $n=|V(G)|$.
+    Let $G=(V,E)$ be a graph and let $D=(S,T)$ be a nice treedecomposition of $tw(D)=k$. An independent set in $G$ of size $\alpha(G)$ can be computed in $\mathcal{O}(k2^{k+1}n)$, where $n=|V(G)|$.
 \end{lemma}
 \begin{proof}
-    For $i\in V(T)$, let $V_i=X_i\cup\bigcup_{j \text{ descendent of } i \text{ in } T}X_j$. Set $G_i=G[V_i]$.
+    For $i\in V(T)$, let $V_i=\color{blue}X_i\color{black}\cup\bigcup\limits_{j \text{ descendent of } i \text{ in } T}X_j$. Set $\color{purple}G_i\color{black}=G[V_i]$.
      \begin{center}
             \begin{tikzpicture}[
-            vertex/.style={circle, draw, fill=gray!20, minimum size=5mm, inner sep=0pt}
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
+            bundle/.style={circle, draw, fill=cyan!20, minimum size=3mm, inner sep=0pt}
             ]
             \node at (0,9) {$T$};
-            \node[vertex] (a) at (0,8) {};
-            \node[vertex] (b) at (-1,7) {};
-            \node[vertex] (c) at (1,7) {};
-            \node[vertex] (d) at (-1,6) {};
-            \node[vertex] (e) at (0,6) {};
-            \node[vertex] (f) at (2,6) {$i$};
-            \node[vertex] (g) at (0,5) {};
-            \node[vertex] (h) at (2,5) {};
-            \node[vertex] (i) at (2,4) {$l$};
+            \node[bundle, opacity=0.5, text opacity=1] (a) at (0,8) {\color{black}$s$};
+            \node[bundle, opacity=0.5] (b) at (0,7) {};
+            \node[bundle, opacity=0.5] (c) at (0,6) {};
+            \node[bundle, opacity=0.5] (d) at (-1,5) {};
+            \node[bundle, opacity=0.5] (e) at (1,5) {};
+            \node[bundle, opacity=0.5] (f) at (-1,4) {};
+            \node[bundle, opacity=0.5] (g) at (1,4) {};
+            \node[bundle, opacity=0.5] (h) at (0,3) {};
+            \node[bundle, opacity=0.5] (i) at (2,3) {};
             
-            \draw (d)--(b)--(a)--(c)--(e)--(g);
-            \draw (c)--(f)--(h)--(i);
+            \draw (a)--(b)--(c)--(d)--(f);
+            \draw (c)--(e)--(g)--(i);
+            \draw (g)--(h);
+
+            \node at (4,9) {$G$};
+            \node[vertex] (j) at (4,8) {};
+            \node[vertex] (k) at (3,7) {};
+            \node[vertex] (l) at (4,7) {};
+            \node[vertex] (m) at (5,7) {};
+            \node[vertex] (n) at (3,6) {};
+            \node[vertex] (o) at (4,6) {};
+            \node[vertex] (p) at (5,6) {};
+            \node at (5,8) {\color{purple}$G_i$};
+            \node at (3,8) {\color{blue}$X_i$};
+            \node at (4,5) {\color{yellow}$M$};
+            \node at (3,5) {\color{green}$S$};
+            \node (q) at (4.5,8) {};
+            
+
+            \draw (j)--(k)--(l)--(m)--(p)--(o)--(n)--(k);
+            \draw (l)--(o);
+            \drawellipse[purple]{n}{q}{0.5cm}{0.9cm}
+            \drawellipse[blue]{j}{k}{0.3cm}{0.3cm}
+            \drawellipse[blue]{k}{n}{0.3cm}{0.3cm}
+            \draw[green] (j) circle (0.25cm);
+            \draw[green] (n) circle (0.25cm);
+            \draw[yellow, thick] (j) circle (0.3cm);
+            \draw[yellow, thick] (n) circle (0.3cm);
+            \draw[yellow, thick] (l) circle (0.3cm);
+
+
+
             \end{tikzpicture}
     \end{center}
-    For all $i\in V(T)$ and $S\subseteq X_i$, let $C_i(S)=\max\{|M|:M\text{ independent set in }G_i,M\cap X_i=S\}$. Set $C_i(S)=-\infty$ if the above set is empty.\\
-    For every $i\in V(T)$ make a table $C_i$ containing $C_i(S)\quad \forall S\subseteq X_i$. Then $C_i$ has $2^{|X_i|}\leq 2^{k+1}$ entries.\\
-    If we manage to compute $C_i(S)$ for all $i$ and $S$ then $\alpha(G)=\max\{|M|: \text{independent set in }G\}=\max\{C_s(S):S\subseteq X_s\}$ with $s$ root of $T$.\\
+    For all $i\in V(T)$ and $\textcolor{green}{S}\subseteq \textcolor{blue}{X_i}$, let $C_i(\textcolor{green}{S})=\max\{|\textcolor{yellow}{M}|:\textcolor{yellow}{M}\text{ independent set in }G_i,\textcolor{yellow}{M}\cap \textcolor{blue}{X_i}=\textcolor{green}{S}\}$. Set $C_i(\textcolor{green}{S})=-\infty$ if the above set is empty.\\
+    For every $i\in V(T)$ make a table $C_i$ containing $C_i(\textcolor{green}{S})\quad \forall \textcolor{green}{S}\subseteq \textcolor{blue}{X_i}$. Then $C_i$ has $2^{|\textcolor{blue}{X_i}|}\leq 2^{k+1}$ entries.\\
+    If we manage to compute $C_i(\textcolor{green}{S})$ for all $i$ and $\textcolor{green}{S}$ then $\alpha(G)=\max\{|\textcolor{yellow}{M}|: \text{independent set in }G\}=\max\{C_s(\textcolor{green}{S}): \textcolor{green}{S}\subseteq X_s\}$ with $s$ root of $T$.\\
     Note $G_s=G$. This can be computed in $\mathcal{O}(2^{k+1})$.\\
     Now compute $C_i(S)$ starting from leafs of $T$.
     \begin{enumerate}
