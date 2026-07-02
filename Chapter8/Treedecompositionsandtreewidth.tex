@@ -450,16 +450,20 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
             \draw (l)--(o);
             \draw[blue] (o) circle (0.2cm);
             \draw[purple] (o) circle (0.3cm);
-
-
-
             \end{tikzpicture}
     \end{center}
-        \item $i\in V(T)$ introduce node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\cup \{v\}$. Let $S\subseteq X_i=X_j\cup\{v\}$. If $v\notin S$, $C_i(S)=C_j(S)$.\\
+        \item $i\in V(T)$ introduce node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\cup \{v\}$ for some $v\in V(G)\setminus X_j$.\\
+        Claim: $v$ is not adjacent to any vertex of $V_i\setminus X_j$.\\
+        Let $w\in V_i\setminus X_j$. Then by property (iii) \ref{8.1}, all vertices of $T$ corresponding to bags are descendents of $j$. By property (iii) \ref{8.1}, since $v\notin X_j$, $v$ is not contained in any bag corresponding to a descendent of $j$ in $T$. Thus $v$ and $w$ are not contained in a joint bag, so by property (ii) \ref{8.1} $v$ an $w$ are non-adjacent.\\ 
+        Let $S\subseteq X_i=X_j\cup\{v\}$. If $v\notin S$, then $C_i(S)=C_j(S)$.\\
         If $v\in S$, then $C_i(S)=\begin{cases}
             -\infty & \text{if } \{v,w\}\in E \text{ for some } w\in S\\
-            C_j(S)+1 & if \{v,w\}\notin E \text{ for all } w\in S
+            C_j(S\setminus\{v\})+1 & if \{v,w\}\notin E \text{ for all } w\in S
         \end{cases}$ since $v$ is not adjacent to any vertex of $V_j\setminus X_j$ by Property (iii) \ref{8.1}.\\
-        If we know $C_j$, we can compute $C_i$ in $\mathcal{O}(k2^{k+1})$.
+        (take independent set $M'\subseteq V_j$ with $M'\cap X_j=S\setminus\{v\}$ and $|M'|=C_j(S\setminus\{v\})$. By claim no vertex in $M'\setminus X_j$ is adjacent to $v$. Thus if $\{v,w\}\notin E$ for all $w\in S$, then $M'\cup \{v\}$ is indepenent so $C_i(S)\geq C_j(S\setminus\{v\})+1$, and that is optimal.)
+        Thus, if we know $C_j$, we can compute $C_i$ in $\mathcal{O}(k2^{k+1})$.
+        \item $i\in V(T)$ forget node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\setminus \{v\}$ for some $x\in X_j$. Then $V_i=V_j$, $G_i=G_j$. For $S\subseteq X_i$, we have $C_i(S)=\max\{C_j(S),C_j(S\cup\{v\})\}.$ This is computable in $O(2^{k+1})$.
+        \item $i\in V(T)$ join node: Let $j_1,j_2$ be the two children of $i$ in $T$. Then $X_i=X_{j_1}=X_{j_2}$.\\
+        CLaim:
     \end{enumerate}
 \end{proof}
