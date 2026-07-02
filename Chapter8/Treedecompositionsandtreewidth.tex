@@ -431,6 +431,30 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
     Now compute $C_i(S)$ starting from leafs of $T$.
     \begin{enumerate}
         \item $i\in V(T)$ leaf: $X_i=\{v\}$, $G_i=G[V_i]=G[\{v\}]=\{v\}$. $S=\emptyset\implies C_i(\emptyset)=0$, $S=\{v\}\implies C_i(S)=C_i(\{v\})=1$.
+        \begin{center}
+            \begin{tikzpicture}[
+            vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
+            bundle/.style={circle, draw, fill=cyan!20, minimum size=3mm, inner sep=0pt}
+            ]
+            \node at (4,9) {$G$};
+            \node[vertex] (j) at (4,8) {};
+            \node[vertex] (k) at (3,7) {};
+            \node[vertex] (l) at (4,7) {};
+            \node[vertex] (m) at (5,7) {};
+            \node[vertex] (n) at (3,6) {};
+            \node[vertex] (o) at (4,6) {};
+            \node[vertex] (p) at (5,6) {};
+            
+
+            \draw (j)--(k)--(l)--(m)--(p)--(o)--(n)--(k);
+            \draw (l)--(o);
+            \draw[blue] (o) circle (0.2cm);
+            \draw[purple] (o) circle (0.3cm);
+
+
+
+            \end{tikzpicture}
+    \end{center}
         \item $i\in V(T)$ introduce node: Let $j$ be the unique child of $i$ in $T$, $X_i=X_j\cup \{v\}$. Let $S\subseteq X_i=X_j\cup\{v\}$. If $v\notin S$, $C_i(S)=C_j(S)$.\\
         If $v\in S$, then $C_i(S)=\begin{cases}
             -\infty & \text{if } \{v,w\}\in E \text{ for some } w\in S\\
