@@ -15,3 +15,4 @@
 \contentsline {section}{\numberline {7}Probabilistic Method}{31}{section.7}%
 \contentsline {section}{\numberline {8}Tree Decompositions And Treewidth}{36}{section.8}%
 \contentsline {section}{\numberline {9}Expander Graphs}{44}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Spectral Theory for Expanders}{45}{subsection.9.1}%

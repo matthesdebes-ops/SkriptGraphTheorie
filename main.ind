@@ -37,6 +37,7 @@
   \item Eulerian graph, \hyperpage{7}
   \item Eulerian trail, \hyperpage{7}
   \item event, \hyperpage{31}
+  \item expander-sequence, \hyperpage{44}
   \item expection, \hyperpage{32}
 
   \indexspace
@@ -92,6 +93,8 @@
   \indexspace
 
   \item simplicial, \hyperpage{26}
+  \item spectral gap, \hyperpage{45}
+  \item spectrum, \hyperpage{45}
   \item subgraph, \hyperpage{4}
 
   \indexspace
@@ -106,6 +109,7 @@
   \item vertex, \hyperpage{3}
   \item vertex coloring, \hyperpage{22}
   \item vertex connectivity, \hyperpage{18}
+  \item vertex expansion, \hyperpage{44}
 
   \indexspace
 
