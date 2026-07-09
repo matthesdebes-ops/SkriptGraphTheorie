@@ -1,7 +1,7 @@
 \section{Expander Graphs}
 Aim: Sparse graphs with "strong connectivity" properties.\\
 \begin{definition}[Edge expansion]\label{9.1}
-    Let $G=(V,E)$ be a graph, $|V|=n$. For $S\subsetneq V$, let $\partial S$ be the set of edges with exactly one endpoint in $S$. The \textbf{edge expansion}\index{edge expansion} (isoperimetric number or cheeger constant) of $G$ is $h(G)=\min_{S\subsetneq V, 0<|S|\leq \frac{n}{2}} \frac{|\partial S|}{|S|}$.
+    Let $G=(V,E)$ be a graph, $|V|=n$. For $S\subsetneq V$, let $\partial S$ be the set of edges with exactly one endpoint in $S$. The \textbf{edge expansion}\index{edge expansion} (isoperimetric number or Cheeger constant) of $G$ is $h(G)=\min_{S\subsetneq V, 0<|S|\leq \frac{n}{2}} \frac{|\partial S|}{|S|}$.
 \begin{center}
             \begin{tikzpicture}[
             vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
@@ -44,7 +44,7 @@ Aim: Sparse graphs with "strong connectivity" properties.\\
     Let $G=(V,E)$ be a $d$-regular graph. Then $h_{out}(G)\leq h(G)\leq d\cdot h_{out}(G)$.
 \end{lemma}
 \begin{proof}
-    For $S\subseteq V$, $0<|S|\leq \frac{n}{2}$, we have $|N(S)|\leq |\partial S|\leq d\cdot |N(S)|$ (every vertex is incident to at least $1$ and at most $d$ edges).
+    For $S\subseteq V$, $0<|S|\leq \frac{n}{2}$, we have $|N(S)|\leq |\partial S|\leq d\cdot |N(S)|$ (every vertex is incident to at least $1$ and at most $d$ edges of $\partial S$).
 \begin{center}            
             \begin{tikzpicture}[
             vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
@@ -66,16 +66,16 @@ Aim: Sparse graphs with "strong connectivity" properties.\\
 \begin{example}\label{9.7}
     \begin{itemize}
         \item (Margulis 1975; Gabber-Galil 1981): Let $G_k$ be a graph with vertex set $\mathbb{Z}_k\times \mathbb{Z}_k$. A vertex $(x,y$ is adjacent to $(x\pm 2y,y),(x\pm (2y+1),y),(x,y\pm 2x),(x,y\pm (2x+1))$.\\
-        Thus $G_k$ is a squence of $8$-regular graphs.\\
-        This is a squence of expanders. The proof relies on harmonic analysis and representation theory.
+        Thus $G_k$ is a sequence of $8$-regular graphs.\\
+        This is a sequence of expanders. The proof relies on harmonic analysis and representation theory.
         \item Let $G_p$ be a graph with vertex set $\mathbb{Z}_p$ ($p$ prime) and $x\in \mathbb{Z}_p$ is adjacent to $x\pm 1$ and $x^{-1}$ ($0^{-1}=0)$.\\
         This is not a simple graph!!! Proof of expansion relies on number theory.
-        \item zigzag product (Reinhold,Vadham,Wigderson 2002): Given two graphs $G,H$ produces a graph with only slightly worse expansion properties.
+        \item zigzag product (Reinhold,Vadham,Wigderson 2002): Given two graphs $G,H$, this construction produces a graph with only slightly worse expansion properties.
         \item Many randomized constructions  
     \end{itemize}
 \end{example}
 \subsection{Spectral Theory for Expanders}
-Let $G$ be a $d$-regular connected graph on $n$ vertices. Let $A(G)$ be it's adjacency matrix. By the spectral theorem $A(G)$ has real eigenvalues $\lambda_1\geq\lambda_2\geq\ldots\geq\lambda_n$. The multiset of the eigenvalues of $A(G)$ is called the \textbf{spectrum of $G$}\index{spectrum}.\\
+Let $G$ be a $d$-regular connected graph on $n$ vertices. Let $A(G)$ be its adjacency matrix. By the spectral theorem $A(G)$ has real eigenvalues $\lambda_1\geq\lambda_2\geq\ldots\geq\lambda_n$. The multiset of the eigenvalues of $A(G)$ is called the \textbf{spectrum of $G$}\index{spectrum}.\\
 One can show that:\begin{itemize}
     \item $\lambda_1=d$
     \item $\lambda_1,\ldots,\lambda_n\in[-d,d]$
@@ -83,7 +83,7 @@ One can show that:\begin{itemize}
     \item $G$ connected $\iff \lambda_1>\lambda_2$ 
 \end{itemize}
 \begin{lemma}[Cheeger inequality]\label{9.8}
-    Let $G$ be a $d$-regular (connected) graph with spectrum $\lambda_1>\lambda_2\geq\ldots\geq\lambda_n$. Then $\frac{d-\lambda_2}{2}\leq h(G)\leq \sqrt{2d(d-\lambda_2)}$ (Note that $d-\lambda_2=\lambda_1-\lambda_2>0$).
+    Let $G$ be a $d$-regular (connected) graph with spectrum $\lambda_1>\lambda_2\geq\ldots\geq\lambda_n$. Then $\frac{d-\lambda_2}{2}\leq h(G)\leq \sqrt{2d(d-\lambda_2)}$ (Note that $d-\lambda_2=\lambda_1-\lambda_2>0$ if $G$ is connected).
 \end{lemma}
 \begin{definition}\label{9.9}
     In this case, $d-\lambda_2$ is called the \textbf{spectral gap}\index{spectral gap} of $G$.
@@ -104,7 +104,7 @@ One can show that:\begin{itemize}
     Then $|e(S,T)-\frac{d|S||T|}{n}|=|1_S^T(A(G)-\frac{d}{n}J)1_T|$ ($A(G)-\frac{d}{n}J=:M\in\mathbb{R}^{n\times n}$).\\
     Note that $Jv_1=nv_1$ and since $v_2,\ldots,v_n$ are orthogonal to $v_1$, we have $Jv_i=0$ for $i=2,\ldots,n$.\\
     Thus $M$ has eigenvalues $0,\lambda_2,\ldots,\lambda_n$ with eigenvectors $v_1,\ldots,v_n$.\\
-    By Chauchy-Schwarz, we have $|1_S^TM1_T|\leq||1_S^T||||M1_T||$.\\
+    By Cauchy-Schwarz, we have $|1_S^TM1_T|\leq||1_S^T||||M1_T||$.\\
     $||M1_T||^2=\langle M1_T,M1_T\rangle\stackrel{M \text{ self-adjoint}}{=}\langle 1_T,M^2 1_T\rangle=\langle 1_T,\sum_{i=1}^n M^2\langle 1_T,v_i\rangle v_i\rangle=\langle 1_T,\sum_{i=1}^n \langle 1_T,v_i\rangle M^2 v_i\rangle=\langle 1_T,\sum_{i=2}^n \langle 1_T,v_i\rangle \lambda_i^2 v_i\rangle=\sum_{i=2}^n \lambda_i^2 \langle 1_T,v_i\rangle^2\leq \lambda^2 ||1_T||^2$ (with $M^2v_i=\begin{cases}
     0 & i=1\\
     \lambda_i^2 v_i & \text{else}

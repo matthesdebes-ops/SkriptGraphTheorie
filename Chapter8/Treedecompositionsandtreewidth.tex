@@ -176,7 +176,7 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
     \end{itemize}
 \end{remark*}
 \begin{definition}\label{8.9}
-    A \textbf{nice treedecomposition}\index{nice treedecomposition} $D=(S,T)$ of a graph $G=(V,E)$ is a tree decomposition in which a root vertex can be choosen s.t. $T$ is a binary tree (i.e. every vertex has at most $2$ children) and such that every vertex of $T$ is of one of the following types:
+    A \textbf{nice tree decomposition}\index{nice treedecomposition} $D=(S,T)$ of a graph $G=(V,E)$ is a tree decomposition in which a root vertex can be choosen s.t. $T$ is a binary tree (i.e. every vertex has at most $2$ children) and such that every vertex of $T$ is of one of the following types:
     \begin{itemize}
         \item \textbf{leaf}: if $i\in V(T)$ is a leaf of $T$, then $|X_i|=1$
         \item \textbf{introduce node}: if $i\in V(T)$ has exactly one child $j$ and $X_i=X_j\cap\{v\}$ for some $v\in V(G)$
@@ -185,7 +185,7 @@ The \textbf{treewidth}\index{treewidth} of $G$ is $tw(G)=\min\{wd(D):D\text{ is 
     \end{itemize}
 \end{definition}
 \begin{theorem}\label{8.10}
-    Let $D=(S,T)$ a tree decomposition of $G=(V,E)$. Then we can construct a nice treedecomposition $D'=(S',T')$ of $G$ with $tw(D')\leq tw(D)$, $|V(T')|\leq c tw(D)|V(T)|$ in polynomial time.
+    Let $D=(S,T)$ a tree decomposition of $G=(V,E)$. Then we can construct a nice tree decomposition $D'=(S',T')$ of $G$ with $tw(D')\leq tw(D)$, $|V(T')|\leq c \cdot tw(D)|V(T)|$ in polynomial time.
 \end{theorem}
 \begin{proof}
     Root $T$ at an arbitrary vertex $s\in V(T)$.
@@ -370,10 +370,10 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
 \end{proof}
 
 \begin{lemma}\label{8.11}
-    Let $G=(V,E)$ be a graph and let $D=(S,T)$ be a nice treedecomposition of $tw(D)=k$. An independent set in $G$ of size $\alpha(G)$ can be computed in $\mathcal{O}(k2^{k+1}n)$, where $n=|V(G)|$.
+    Let $G=(V,E)$ be a graph and let $D=(S,T)$ be a nice tree decomposition of $tw(D)=k$. An independent set in $G$ of size $\alpha(G)$ can be computed in $\mathcal{O}(k2^{k+1}n)$, where $n=|V(G)|$.
 \end{lemma}
 \begin{proof}
-    For $i\in V(T)$, let $V_i=\color{blue}X_i\color{black}\cup\bigcup\limits_{j \text{ descendent of } i \text{ in } T}X_j$. Set $\color{purple}G_i\color{black}=G[V_i]$.
+    For $i\in V(T)$, let $V_i=\color{blue}X_i\color{black}\cup\bigcup\limits_{j \text{ descendant of } i \text{ in } T}X_j$. Set $\color{purple}G_i\color{black}=G[V_i]$.
      \begin{center}
             \begin{tikzpicture}[
             vertex/.style={circle, draw, fill=gray!20, minimum size=1mm, inner sep=0pt},
@@ -508,6 +508,6 @@ This yields a nice tree decomposition $D'$ with $tw(D)|V(T)|c$ vertices and $tw(
 \begin{remark}\label{8.12}
     \begin{itemize}
         \item $tw(G)\leq k\implies \quad |E|\leq k|V(G)|-\frac{1}{2}k(k+1)$
-        \item Courcelle's theorem states that every graph problem expressible in MSO (Monadic Second Order Logic) can be solved in linear time on a graphclass of bounded treewidth.   
+        \item Courcelle's theorem states that every graph problem expressible in MSO (Monadic Second Order Logic) can be solved in linear time on a graph class of bounded treewidth.   
     \end{itemize}
 \end{remark}
